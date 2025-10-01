@@ -51,29 +51,35 @@
         "Launched monthly HSSEQ campaigns (Heat Safety, Disaster Preparedness, Cybersecurity)",
         "Automated attendance tracking for multi-day trainings"
       ],
-      "technologies": ["Articulate Storyline 3", "PowerPoint", "Vercel", "Next.js"]
+      "technologies": ["Excel", "Power BI", "Power Query", "Articulate Storline 3"]
     },
     {
-      "title": "Trainer / Course Developer",
-      "company": "Freelance",
-      "period": "2020 – 2024",
+      "title": "QA/QC Intern",
+      "company": "DESCO, Inc.",
+      "period": "Jun 2024 – Aug 2024",
       "description": "Created manuals and slide decks with varied visual patterns and speaker notes; transitioned courses to self-paced formats.",
       "achievements": [
-        "Produced AI-friendly narration scripts with clear pronunciation",
-        "Improved participant engagement through visual-heavy design"
+        "Inspected and measured equipment (wellhead components, drill strings, valves, bolts, nuts, scaffolding, platforms), including assessing dimension measurement to ensure compliance with industry standards.",
+        "Gained hands-on experience with measuring tools (calipers, micrometers, vernier scales) for precise assessments.",
+        "Created detailed inspection reports documenting measurements, inspection dates, and item numbers of each equipment inspected.",
+        "Followed safety protocols, including wearing PPE in workshops and manufacturing areas.",
+        "Observed welding and CAD design processes.",
+        "Processed purchase orders in the database."
       ],
-      "technologies": ["PowerPoint", "Canva", "Google Workspace"]
+      "technologies": ["Excel", "Word", "Google Workspace"]
     }
   ],
   "credentials": {
     "certifications": [
-      { "name": "Loss Control Management (LCM)", "issuer": "Petrosphere / OSH Consultants", "date": "2025", "logo": "/images/certs/lcm.png" },
-      { "name": "Safety Program Auditing (SPA)", "issuer": "—", "date": "2025", "logo": "/images/certs/spa.png" }
+      { "name": "ISO 9001:2015 Lead Auditor", "issuer": "PECB", "date": "2025", "logo": "/images/certs/ISO.png" },
+      { "name": "Industrial Hygiene", "issuer": "Environment Control Division (ECD)", "date": "2025", "logo": "/images/certs/IH.png" }
     ],
     "education": [
-      { "degree": "Master of Science in Environmental Management (in progress)", "institution": "—", "year": "2025 – Present", "logo": "/images/edu/msem.png" }
+      { "degree": "Master of Science in Environmental Management (in progress)", "institution": "Palawan State University Graduate School", "year": "2025 – Present", "logo": "/images/edu/msem.png" },
+      { "degree": "Bachelor of Science in Petroleum Engineering", "institution": "Palawan State University", "year": "2020 – 2024", "logo": "/images/edu/bspe.png" },
+      { "degree": "Science, Technology, Engineering, and Mathematics", "institution": "Palawan State University", "year": "2018 – 2020", "logo": "/images/edu/pns.png" }
     ],
-    "skills": ["BBS", "LCM", "HIRAC", "First Aid", "Electrical Safety", "Training Needs Analysis", "Program Design"]
+    "skills": ["Data Analysis", "Course Development", "Training Facilitation", "Data Cleaning", "Hazard Identification/Risk Assessment/Control Measures (HIRAC)", "Training Needs Analysis", "Program Design"]
   },
   "technicalSkills": {
     "design": ["PowerPoint", "Instructional Design", "Storyboarding", "Graphic Layout"],
