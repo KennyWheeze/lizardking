@@ -76,7 +76,7 @@
     ],
     "education": [
       { "degree": "Master of Science in Environmental Management (in progress)", "institution": "Palawan State University Graduate School", "year": "2025 – Present", "logo": "/images/edu/msem.png" },
-      { "degree": "Bachelor of Science in Petroleum Engineering", "institution": "Palawan State University", "year": "2020 – 2024", "logo": "/images/edu/bspe.png" },
+      { "degree": "Bachelor of Science in Petroleum Engineering", "institution": "Palawan State University", "year": "2020 – 2024", "logo": "/public/edu/psu.png" },
       { "degree": "Science, Technology, Engineering, and Mathematics", "institution": "Palawan State University", "year": "2018 – 2020", "logo": "/images/edu/pns.png" }
     ],
     "skills": ["Data Analysis", "Course Development", "Training Facilitation", "Data Cleaning", "Hazard Identification/Risk Assessment/Control Measures (HIRAC)", "Training Needs Analysis", "Program Design"]
