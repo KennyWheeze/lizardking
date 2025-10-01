@@ -1,193 +1,77 @@
 {
   "meta": {
-    "title": "Jane Doe | Product Designer",
-    "description": "Portfolio website showcasing product design work and skills"
+    "siteTitle": "Ken | HSEQ & eLearning",
+    "siteDescription": "Portfolio of Ken — HSEQ & Training Officer specializing in safety trainings, eLearning development, and HSSEQ programs."
   },
   "personal": {
-    "name": "Jane Doe",
-    "title": "Product Designer",
-    "location": "San Francisco, CA",
-    "avatar": "/confident-professional.png",
-    "email": "jane.doe@example.com",
-    "phone": "+1 (415) 555-2671",
-    "workingHours": "Monday - Friday, 9am - 5pm PST",
+    "name": "Ken",
+    "title": "HSEQ & Training Officer • eLearning Developer",
+    "location": "Puerto Princesa, Palawan, Philippines",
+    "avatar": "/images/ken.jpg",
+    "email": "youremail@example.com",
+    "phone": "+63 9xx xxx xxxx",
+    "workingHours": "Weekdays, 9am–6pm",
     "availableForWork": true,
-    "badges": ["UI/UX", "Product Design", "Prototyping"],
+    "badges": ["Safety Program Auditing", "BBS", "First Aid", "Electrical Safety"],
     "social": [
-      {
-        "platform": "GitHub",
-        "url": "#",
-        "icon": "Github"
-      },
-      {
-        "platform": "LinkedIn",
-        "url": "#",
-        "icon": "Linkedin"
-      },
-      {
-        "platform": "Twitter",
-        "url": "#",
-        "icon": "Twitter"
-      },
-      {
-        "platform": "Instagram",
-        "url": "#",
-        "icon": "Instagram"
-      }
+      { "platform": "LinkedIn", "url": "https://www.linkedin.com/in/your-handle", "icon": "Linkedin" },
+      { "platform": "GitHub", "url": "https://github.com/your-handle", "icon": "Github" },
+      { "platform": "X", "url": "https://x.com/your-handle", "icon": "Twitter" }
     ]
   },
   "about": {
-    "bio": "I create user-centered digital experiences that solve real problems. Passionate about accessibility and ethical design with over 5 years of experience in product design and user experience research.",
+    "bio": "HSEQ and Training Officer at Petrosphere Incorporated. I design and deliver safety trainings, develop eLearning courses (BOSH, COSH, First Aid, Electrical Safety, HIRAC, SPA), and build HSSEQ programs. My slide decks are visual-heavy and voiceover-friendly, with minimal but strategic text. I focus on measurable learning outcomes and compliance with DOLE/OSHC templates.",
     "focus": [
-      "Creating intuitive and accessible digital products",
-      "Leading design teams and establishing design systems",
-      "Conducting user research to inform product decisions"
+      "Designing 8–40 hr safety courses and manuals",
+      "Converting trainings to interactive eLearning with AI-friendly narration",
+      "HSSEQ monthly campaigns and program implementation"
     ],
     "languages": [
-      {
-        "name": "English",
-        "proficiency": "Native",
-        "level": 100,
-        "flag": "🇺🇸"
-      },
-      {
-        "name": "Spanish",
-        "proficiency": "Fluent",
-        "level": 80,
-        "flag": "🇪🇸"
-      },
-      {
-        "name": "French",
-        "proficiency": "Intermediate",
-        "level": 60,
-        "flag": "🇫🇷"
-      },
-      {
-        "name": "German",
-        "proficiency": "Basic",
-        "level": 30,
-        "flag": "🇩🇪"
-      }
+      { "name": "English", "proficiency": "Professional", "level": 95, "flag": "🇬🇧" },
+      { "name": "Filipino", "proficiency": "Native", "level": 100, "flag": "🇵🇭" }
     ],
-    "interests": ["Design Systems", "Accessibility", "Typography", "Motion Design", "Photography"]
+    "interests": ["Workplace Safety", "Instructional Design", "Data-Driven Training", "Community-led Conservation"]
   },
-  "navigation": [
-    {
-      "label": "Home",
-      "href": "/"
-    },
-    {
-      "label": "Experience",
-      "href": "#experience"
-    },
-    {
-      "label": "Credentials",
-      "href": "#credentials"
-    },
-    {
-      "label": "Skills",
-      "href": "#skills"
-    },
-    {
-      "label": "Projects",
-      "href": "#projects"
-    }
-  ],
+  "navigation": ["Home", "Experience", "Credentials", "Skills", "Projects"],
   "experience": [
     {
-      "title": "Senior Product Designer",
-      "company": "TechCorp Inc.",
-      "period": "2021 - Present",
-      "description": "Lead the design of flagship products, managing a team of 3 designers. Implemented a design system that reduced design inconsistencies by 60% and improved development time by 40%. Conducted user research and usability testing to inform product decisions.",
+      "title": "HSEQ & Training Officer",
+      "company": "Petrosphere Incorporated",
+      "period": "2024 – Present",
+      "description": "Builds safety courses (BOSH, COSH, HIRAC, SPA, Electrical Safety) and eLearning versions with interactive activities and AI voiceovers.",
       "achievements": [
-        "Redesigned the main dashboard, increasing user engagement by 35%",
-        "Led the design for 3 major feature launches, contributing to a 25% increase in user retention",
-        "Established design processes that improved team collaboration and product quality"
+        "Developed 8–40 hr programs aligned to DOLE-OSHC templates",
+        "Launched monthly HSSEQ campaigns (Heat Safety, Disaster Preparedness, Cybersecurity)",
+        "Automated attendance tracking for multi-day trainings"
       ],
-      "technologies": ["Figma", "Adobe XD", "Prototyping", "User Research"]
+      "technologies": ["Articulate Storyline 3", "PowerPoint", "Vercel", "Next.js"]
     },
     {
-      "title": "UX Designer",
-      "company": "Design Studio X",
-      "period": "2018 - 2021",
-      "description": "Collaborated with cross-functional teams to design intuitive and engaging user experiences for various client projects. Created wireframes, prototypes, and high-fidelity designs for web and mobile applications.",
+      "title": "Trainer / Course Developer",
+      "company": "Freelance",
+      "period": "2020 – 2024",
+      "description": "Created manuals and slide decks with varied visual patterns and speaker notes; transitioned courses to self-paced formats.",
       "achievements": [
-        "Designed interfaces for 12+ client projects across fintech, healthcare, and e-commerce",
-        "Improved conversion rates by an average of 22% through data-driven design iterations",
-        "Mentored junior designers and facilitated design thinking workshops"
+        "Produced AI-friendly narration scripts with clear pronunciation",
+        "Improved participant engagement through visual-heavy design"
       ],
-      "technologies": ["Sketch", "InVision", "User Testing", "Information Architecture"]
-    },
-    {
-      "title": "UI/UX Intern",
-      "company": "Creative Solutions",
-      "period": "2017 - 2018",
-      "description": "Assisted the design team in creating visual assets and interface components. Participated in brainstorming sessions and contributed to the design of marketing websites and mobile applications.",
-      "achievements": [
-        "Redesigned the company website, improving mobile responsiveness",
-        "Created a component library that streamlined the design process",
-        "Conducted competitive analysis for 5 client projects"
-      ],
-      "technologies": ["Adobe Creative Suite", "HTML/CSS", "Wireframing"]
+      "technologies": ["PowerPoint", "Canva", "Google Workspace"]
     }
   ],
   "credentials": {
     "certifications": [
-      {
-        "name": "Certified UX Professional",
-        "issuer": "Nielsen Norman Group",
-        "date": "2022",
-        "logo": "/nng-logo.png"
-      },
-      {
-        "name": "Professional Product Designer",
-        "issuer": "Interaction Design Foundation",
-        "date": "2021",
-        "logo": "/generic-military-logo.png"
-      },
-      {
-        "name": "Design Leadership Certification",
-        "issuer": "IDEO",
-        "date": "2020",
-        "logo": "/ideo-logo.png"
-      }
+      { "name": "Loss Control Management (LCM)", "issuer": "Petrosphere / OSH Consultants", "date": "2025", "logo": "/images/certs/lcm.png" },
+      { "name": "Safety Program Auditing (SPA)", "issuer": "—", "date": "2025", "logo": "/images/certs/spa.png" }
     ],
     "education": [
-      {
-        "degree": "Master of Fine Arts in Design",
-        "institution": "Rhode Island School of Design",
-        "year": "2015-2017",
-        "logo": "/generic-art-school-logo.png"
-      },
-      {
-        "degree": "Bachelor of Arts in Visual Communication",
-        "institution": "California Institute of the Arts",
-        "year": "2011-2015",
-        "logo": "/calarts-logo.png"
-      }
+      { "degree": "Master of Science in Environmental Management (in progress)", "institution": "—", "year": "2025 – Present", "logo": "/images/edu/msem.png" }
     ],
-    "skills": [
-      "UI Design",
-      "UX Research",
-      "Design Systems",
-      "Wireframing",
-      "Prototyping",
-      "User Testing",
-      "Accessibility",
-      "Design Thinking"
-    ]
+    "skills": ["BBS", "LCM", "HIRAC", "First Aid", "Electrical Safety", "Training Needs Analysis", "Program Design"]
   },
   "technicalSkills": {
-    "design": ["Figma", "Sketch", "Adobe XD", "Illustrator", "Photoshop", "InVision", "Principle", "Framer"],
-    "development": ["HTML/CSS", "JavaScript", "React", "Tailwind", "SCSS", "Git", "Responsive Design"],
-    "uxMethods": [
-      "User Research",
-      "Usability Testing",
-      "Wireframing",
-      "Prototyping",
-      "Information Architecture",
-      "User Flows"
-    ],
-    "softSkills": ["Team Leadership", "Project Management", "Client Communication", "Mentoring", "Presentations"]
+    "design": ["PowerPoint", "Instructional Design", "Storyboarding", "Graphic Layout"],
+    "development": ["Next.js (basic edits)", "Vercel (deploy)", "Git (push/pull)"],
+    "uxMethods": ["Learning Objectives mapping", "Assessment design", "Voiceover scripting"],
+    "softSkills": ["Communication", "Facilitation", "Project Management", "Process Documentation"]
   }
 }
