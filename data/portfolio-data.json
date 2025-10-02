@@ -7,7 +7,7 @@
     "name": "Ken Gilmer P. Macawili",
     "title": "HSEQ & Training Officer",
     "location": "Puerto Princesa, Palawan, Philippines",
-    "avatar": "/ken.png",
+    "avatar": "/Ken/ken.png",
     "email": "kenmacawili@gmail.com",
     "phone": "+63 969 174 5237",
     "workingHours": "Weekdays, 9am–6pm",
@@ -20,7 +20,7 @@
     ]
   },
   "about": {
-    "bio": "HSEQ and Training Officer at Petrosphere Incorporated. I'm the fucking lizard king.",
+    "bio": "HSEQ and Training Officer at Petrosphere Incorporated. I design and deliver safety trainings, develop eLearning courses (BOSH, COSH, First Aid, Electrical Safety, HIRAC, SPA), and build HSSEQ programs. My slide decks are visual-heavy and voiceover-friendly, with minimal but strategic text. I focus on measurable learning outcomes and compliance with DOLE/OSHC templates.",
     "focus": [
       "Designing 8–40 hr safety courses and manuals",
       "Converting trainings to interactive eLearning with AI-friendly narration",
@@ -45,7 +45,7 @@
       "title": "HSEQ & Training Officer",
       "company": "Petrosphere Incorporated",
       "period": "2024 – Present",
-      "description": "Mostly just fucked around and found out",
+      "description": "Builds safety courses (BOSH, COSH, HIRAC, SPA, Electrical Safety) and eLearning versions with interactive activities and AI voiceovers.",
       "achievements": [
         "Developed 8–40 hr programs aligned to DOLE-OSHC templates",
         "Launched monthly HSSEQ campaigns (Heat Safety, Disaster Preparedness, Cybersecurity)",
@@ -57,7 +57,7 @@
       "title": "QA/QC Intern",
       "company": "DESCO, Inc.",
       "period": "Jun 2024 – Aug 2024",
-      "description": "Assisted in equipment inspection, measurement, and reporting to ensure compliance with industry standards and safety protocols.",
+      "description": "Created manuals and slide decks with varied visual patterns and speaker notes; transitioned courses to self-paced formats.",
       "achievements": [
         "Inspected and measured equipment (wellhead components, drill strings, valves, bolts, nuts, scaffolding, platforms), including assessing dimension measurement to ensure compliance with industry standards.",
         "Gained hands-on experience with measuring tools (calipers, micrometers, vernier scales) for precise assessments.",
@@ -71,8 +71,8 @@
   ],
   "credentials": {
     "certifications": [
-      { "name": "ISO 9001:2015 Lead Auditor", "issuer": "PECB", "date": "2025", "logo": "/certs/pecb.jpg" },
-      { "name": "Industrial Hygiene", "issuer": "Environment Control Division (ECD)", "date": "2025", "logo": "/certs/ecd.jpg" }
+      { "name": "ISO 9001:2015 Lead Auditor", "issuer": "PECB", "date": "2025", "logo": "/images/certs/ISO.png" },
+      { "name": "Industrial Hygiene", "issuer": "Environment Control Division (ECD)", "date": "2025", "logo": "/images/certs/IH.png" }
     ],
     "education": [
       { "degree": "Master of Science in Environmental Management (in progress)", "institution": "Palawan State University Graduate School", "year": "2025 – Present", "logo": "/edu/msem.png" },
