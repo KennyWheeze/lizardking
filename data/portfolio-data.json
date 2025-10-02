@@ -20,7 +20,7 @@
     ]
   },
   "about": {
-    "bio": "HSEQ and Training Officer at Petrosphere Incorporated. I design and deliver safety trainings, develop eLearning courses (BOSH, COSH, First Aid, Electrical Safety, HIRAC, SPA), and build HSSEQ programs. My slide decks are visual-heavy and voiceover-friendly, with minimal but strategic text. I focus on measurable learning outcomes and compliance with DOLE/OSHC templates.",
+    "bio": "I am an HSEQ & Training Officer specializing in occupational safety, compliance, and innovative training solutions. With expertise in blended learning, eLearning systems, and regulatory compliance, I help organizations strengthen safety culture while ensuring training excellence.",
     "focus": [
       "Designing 8–40 hr safety courses and manuals",
       "Converting trainings to interactive eLearning with AI-friendly narration",
@@ -47,11 +47,14 @@
       "period": "2024 – Present",
       "description": "Builds safety courses (BOSH, COSH, HIRAC, SPA, Electrical Safety) and eLearning versions with interactive activities and AI voiceovers.",
       "achievements": [
-        "Developed 8–40 hr programs aligned to DOLE-OSHC templates",
-        "Launched monthly HSSEQ campaigns (Heat Safety, Disaster Preparedness, Cybersecurity)",
-        "Automated attendance tracking for multi-day trainings"
+        "Training Leadership & Development – Designed and delivered accredited programs, including the 40-hour Advanced Food Safety Training and 20-hour Intravenous Therapy Training, plus eLearning modules on MESH, Electrical Safety, and Lockout-Tagout.",
+        "Event Hosting & Engagement – Facilitated 75+ training sessions in one year (avg. 26 participants each), and hosted multiple webinars including the World Safety Day Webinar with 1,000+ attendees, generating 2,964 new leads.)",
+        "eLearning & Platform Management – Revamped the company’s WordPress eLearning platform and main site, improving user experience with updated course pages, voucher redemption, and automated participant support.",
+        "Process Innovation – Built automated Excel trackers (attendance, sales, marketing, accounting) and certificate workflows, reducing manual work and boosting efficiency across departments.",
+        "Compliance & Governance – Prepared and submitted DOLE compliance reports (WARMA), updated the organizational risk register, and registered the company a Data Protection Officer with the National Privacy Commission.",
+        "Communication & Representation – Led monthly HSE meetings, safety inductions, and authored official MOA, partnership, and HSE campaign articles. Served as emcee for the 6th OSH & Environment National Convention and guest speaker on “Safety for Kids” at a Kiwanis event."
       ],
-      "technologies": ["Excel", "Power BI", "Power Query", "Articulate Storline 3"]
+      "technologies": ["Excel (advanced formulas, Power Query)", "WordPress", "Canva", "Articulate Storline 3", "iSpring Suite", "Zoom", "MS Office Suite", "Training facilitation", "safety leadership", "compliance reporting", "event hosting"]
     },
     {
       "title": "QA/QC Intern",
@@ -59,16 +62,36 @@
       "period": "Jun 2024 – Aug 2024",
       "description": "Created manuals and slide decks with varied visual patterns and speaker notes; transitioned courses to self-paced formats.",
       "achievements": [
-        "Inspected and measured equipment (wellhead components, drill strings, valves, bolts, nuts, scaffolding, platforms), including assessing dimension measurement to ensure compliance with industry standards.",
-        "Gained hands-on experience with measuring tools (calipers, micrometers, vernier scales) for precise assessments.",
-        "Created detailed inspection reports documenting measurements, inspection dates, and item numbers of each equipment inspected.",
-        "Followed safety protocols, including wearing PPE in workshops and manufacturing areas.",
-        "Observed welding and CAD design processes.",
-        "Processed purchase orders in the database."
+        "Conducted inspections and dimensional measurements of wellhead components, drill strings, valves, and structural materials to ensure compliance with industry standards.",
+        "Applied precision tools (calipers, micrometers, vernier scales) for accurate assessments and verification of equipment quality.",
+        "Assisted in preparing inspection reports, managing purchase orders, and supporting quality documentation processes.",
+        "Supported workplace safety initiatives by adhering to QA/QC protocols and maintaining compliance with project requirements."
       ],
-      "technologies": ["Excel", "Word", "Google Workspace"]
+      "technologies": ["Calipers", "micrometers", "vernier scales", "QA/QC reporting", "inspection procedures", "workplace safety compliance"]
     }
   ],
+"engagements": [
+  {
+    "title": "Emcee",
+    "organization": "6th OSH & Environment National Convention (WASPI x Petrosphere)",
+    "description": "Hosted the event, managed program flow, and introduced keynote speakers."
+  },
+  {
+    "title": "Guest Speaker",
+    "organization": "Kiwanis International",
+    "description": "Delivered 'Safety for Kids' talk to elementary school children."
+  },
+  {
+    "title": "Webinar Host",
+    "organization": "Petrosphere Monthly HSE Webinars",
+    "description": "Managed technical setup, speaker introductions, and audience engagement."
+  },
+  {
+    "title": "Trainer & Facilitator",
+    "organization": "Petrosphere, Inc.",
+    "description": "Delivered accredited training programs across synchronous, face-to-face, and eLearning formats."
+  }
+],
   "credentials": {
     "certifications": [
       { "name": "ISO 9001:2015 Lead Auditor", "issuer": "PECB", "date": "2025", "logo": "/certs/pecb.jpg" },
