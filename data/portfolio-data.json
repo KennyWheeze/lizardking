@@ -71,8 +71,8 @@
   ],
   "credentials": {
     "certifications": [
-      { "name": "ISO 9001:2015 Lead Auditor", "issuer": "PECB", "date": "2025", "logo": "/images/certs/ISO.png" },
-      { "name": "Industrial Hygiene", "issuer": "Environment Control Division (ECD)", "date": "2025", "logo": "/images/certs/IH.png" }
+      { "name": "ISO 9001:2015 Lead Auditor", "issuer": "PECB", "date": "2025", "logo": "/certs/pecb.jpg" },
+      { "name": "Industrial Hygiene", "issuer": "Environment Control Division (ECD)", "date": "2025", "logo": "/certs/ecd.jpg" }
     ],
     "education": [
       { "degree": "Master of Science in Environmental Management (in progress)", "institution": "Palawan State University Graduate School", "year": "2025 – Present", "logo": "/edu/msem.png" },
