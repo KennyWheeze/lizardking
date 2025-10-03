@@ -70,26 +70,30 @@
       "technologies": ["Calipers", "micrometers", "vernier scales", "QA/QC reporting", "inspection procedures", "workplace safety compliance"]
     }
   ],
-"engagements": [
+  "engagements": [
   {
     "title": "Emcee",
-    "organization": "6th OSH & Environment National Convention (WASPI x Petrosphere)",
-    "description": "Hosted the event, managed program flow, and introduced keynote speakers."
+    "organization": "6th OSH & Environment National Convention (WASPI)",
+    "description": "Hosted the event, managed program flow, and introduced keynote speakers.",
+    "year": "2024"
   },
   {
     "title": "Guest Speaker",
     "organization": "Kiwanis International",
-    "description": "Delivered 'Safety for Kids' talk to elementary school children."
+    "description": "Delivered 'Safety for Kids' talk to elementary school children.",
+    "year": "2024"
   },
   {
     "title": "Webinar Host",
     "organization": "Petrosphere Monthly HSE Webinars",
-    "description": "Managed technical setup, speaker introductions, and audience engagement."
+    "description": "Managed technical setup, speaker introductions, and audience engagement.",
+    "year": "2024 - Present"
   },
   {
     "title": "Trainer & Facilitator",
     "organization": "Petrosphere, Inc.",
-    "description": "Delivered accredited training programs across synchronous, face-to-face, and eLearning formats."
+    "description": "Delivered accredited training programs across synchronous, face-to-face, and eLearning formats.",
+    "year": "2024"
   }
 ],
   "credentials": {
