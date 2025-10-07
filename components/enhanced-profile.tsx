@@ -21,7 +21,7 @@ export function EnhancedProfile() {
         {/* Profile Header - Improved mobile layout */}
         <div className="bg-gradient-to-r from-zinc-800/50 to-zinc-900/50 p-4 sm:p-6 flex flex-col items-center border-b border-zinc-800">
           <div className="flex flex-col sm:flex-col items-center w-full">
-            <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mb-4 border-2 border-cyan-400/20 ring-4 ring-zinc-800/50">
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-full overflow-hidden mb-4 border-2 border-yellow-400/20 ring-4 ring-zinc-800/50">
               <Image
                 src={personalInfo.avatar || "/placeholder.svg"}
                 alt={personalInfo.name}
@@ -31,7 +31,7 @@ export function EnhancedProfile() {
             </div>
             <div className="text-center">
               <h2 className="text-xl sm:text-2xl font-bold">{personalInfo.name}</h2>
-              <p className="text-sm text-cyan-400 mb-1">{personalInfo.title}</p>
+              <p className="text-sm text-yellow-400 mb-1">{personalInfo.title}</p>
               <div className="flex items-center justify-center text-xs text-zinc-400 mb-3">
                 <MapPin className="w-3 h-3 mr-1" />
                 <span>{personalInfo.location}</span>
@@ -57,7 +57,7 @@ export function EnhancedProfile() {
               <TabsTrigger
                 value="about"
                 className={`flex-1 rounded-none border-b-2 px-2 sm:px-4 py-2 text-xs sm:text-sm ${
-                  activeTab === "about" ? "border-cyan-400 text-cyan-400" : "border-transparent text-zinc-400"
+                  activeTab === "about" ? "border-yellow-400 text-yellow-400" : "border-transparent text-zinc-400"
                 }`}
               >
                 <User className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
@@ -66,7 +66,7 @@ export function EnhancedProfile() {
               <TabsTrigger
                 value="contact"
                 className={`flex-1 rounded-none border-b-2 px-2 sm:px-4 py-2 text-xs sm:text-sm ${
-                  activeTab === "contact" ? "border-cyan-400 text-cyan-400" : "border-transparent text-zinc-400"
+                  activeTab === "contact" ? "border-yellow-400 text-yellow-400" : "border-transparent text-zinc-400"
                 }`}
               >
                 <Mail className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
@@ -78,7 +78,7 @@ export function EnhancedProfile() {
           <TabsContent value="about" className="p-4 sm:p-6 space-y-4 sm:space-y-6 focus:outline-none">
             <div className="space-y-3">
               <h3 className="text-sm font-medium text-zinc-400 flex items-center">
-                <User className="w-4 h-4 mr-2 text-cyan-400" />
+                <User className="w-4 h-4 mr-2 text-yellow-400" />
                 About Me
               </h3>
               <p className="text-sm">{aboutInfo.bio}</p>
@@ -86,13 +86,13 @@ export function EnhancedProfile() {
 
             <div className="space-y-3">
               <h3 className="text-sm font-medium text-zinc-400 flex items-center">
-                <Briefcase className="w-4 h-4 mr-2 text-cyan-400" />
+                <Briefcase className="w-4 h-4 mr-2 text-yellow-400" />
                 Professional Focus
               </h3>
               <div className="space-y-2">
                 {aboutInfo.focus.map((item, index) => (
                   <div key={index} className="flex items-start">
-                    <span className="text-cyan-400 mr-2">•</span>
+                    <span className="text-yellow-400 mr-2">•</span>
                     <p className="text-sm">{item}</p>
                   </div>
                 ))}
@@ -101,7 +101,7 @@ export function EnhancedProfile() {
 
             <div className="space-y-3">
               <h3 className="text-sm font-medium text-zinc-400 flex items-center">
-                <Languages className="w-4 h-4 mr-2 text-cyan-400" />
+                <Languages className="w-4 h-4 mr-2 text-yellow-400" />
                 Languages
               </h3>
               <div className="space-y-3">
@@ -113,7 +113,7 @@ export function EnhancedProfile() {
                     </div>
                     <div className="h-1.5 bg-zinc-800 rounded-full overflow-hidden">
                       <div
-                        className="h-full bg-gradient-to-r from-cyan-500 to-blue-500 rounded-full"
+                        className="h-full bg-gradient-to-r from-yellow-500 to-blue-500 rounded-full"
                         style={{ width: `${language.level}%` }}
                       ></div>
                     </div>
@@ -126,12 +126,12 @@ export function EnhancedProfile() {
           <TabsContent value="contact" className="p-4 sm:p-6 space-y-4 focus:outline-none">
             <div className="space-y-4">
               <div className="flex items-start">
-                <Mail className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
+                <Mail className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
                 <div>
                   <h4 className="font-medium">Email</h4>
                   <a
                     href={`mailto:${personalInfo.email}`}
-                    className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors break-all"
+                    className="text-sm text-zinc-400 hover:text-yellow-400 transition-colors break-all"
                   >
                     {personalInfo.email}
                   </a>
@@ -139,12 +139,12 @@ export function EnhancedProfile() {
               </div>
 
               <div className="flex items-start">
-                <Phone className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
+                <Phone className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
                 <div>
                   <h4 className="font-medium">Phone</h4>
                   <a
                     href={`tel:${personalInfo.phone}`}
-                    className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors"
+                    className="text-sm text-zinc-400 hover:text-yellow-400 transition-colors"
                   >
                     {personalInfo.phone}
                   </a>
@@ -152,7 +152,7 @@ export function EnhancedProfile() {
               </div>
 
               <div className="flex items-start">
-                <MapPin className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
+                <MapPin className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
                 <div>
                   <h4 className="font-medium">Location</h4>
                   <p className="text-sm text-zinc-400">{personalInfo.location}</p>
@@ -160,7 +160,7 @@ export function EnhancedProfile() {
               </div>
 
               <div className="flex items-start">
-                <Clock className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
+                <Clock className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
                 <div>
                   <h4 className="font-medium">Working Hours</h4>
                   <p className="text-sm text-zinc-400">{personalInfo.workingHours}</p>

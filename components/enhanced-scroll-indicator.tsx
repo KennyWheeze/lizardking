@@ -91,7 +91,7 @@ export function EnhancedScrollIndicator() {
 
           {/* Percentage text */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <ChevronUp className="h-4 w-4 sm:h-5 sm:w-5 text-cyan-400" />
+            <ChevronUp className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-400" />
           </div>
         </div>
 

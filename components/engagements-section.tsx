@@ -16,16 +16,16 @@ export function EngagementsSection() {
 
           <thead className="bg-zinc-900/70">
             <tr>
-              <th className="px-4 py-2 text-left font-medium text-cyan-400 border-b border-zinc-800">
+              <th className="px-4 py-2 text-left font-medium text-yellow-400 border-b border-zinc-800">
                 Title
               </th>
-              <th className="px-4 py-2 text-left font-medium text-cyan-400 border-b border-zinc-800">
+              <th className="px-4 py-2 text-left font-medium text-yellow-400 border-b border-zinc-800">
                 Organization
               </th>
-              <th className="px-4 py-2 text-left font-medium text-cyan-400 border-b border-zinc-800">
+              <th className="px-4 py-2 text-left font-medium text-yellow-400 border-b border-zinc-800">
                 Description
               </th>
-              <th className="px-4 py-2 text-right font-medium text-cyan-400 border-b border-zinc-800">
+              <th className="px-4 py-2 text-right font-medium text-yellow-400 border-b border-zinc-800">
                 Year
               </th>
             </tr>

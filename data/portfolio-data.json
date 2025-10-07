@@ -87,7 +87,7 @@
     "title": "Webinar Host",
     "organization": "Petrosphere Monthly HSE Webinars",
     "description": "Managed technical setup, speaker introductions, and audience engagement.",
-    "year": "2024 - Present"
+    "year": "2024"
   },
   {
     "title": "Trainer & Facilitator",
@@ -99,7 +99,8 @@
   "credentials": {
     "certifications": [
       { "name": "ISO 9001:2015 Lead Auditor", "issuer": "PECB", "date": "2025", "logo": "/certs/pecb.jpg" },
-      { "name": "Industrial Hygiene", "issuer": "Environment Control Division (ECD)", "date": "2025", "logo": "/certs/ecd.jpg" }
+      { "name": "Industrial Hygiene", "issuer": "Environment Control Division (ECD)", "date": "2025", "logo": "/certs/ecd.jpg" },
+      { "name": "Google Data Analytics", "issuer": "Coursera", "date": "2024", "logo": "/certs/coursera.png" }
     ],
     "education": [
       { "degree": "Master of Science in Environmental Management (in progress)", "institution": "Palawan State University Graduate School", "year": "2025 – Present", "logo": "/edu/msem.png" },

@@ -13,7 +13,7 @@ export default function ProjectNotFound() {
         <p className="text-zinc-400 max-w-md mx-auto">
           The project you're looking for doesn't exist or has been moved.
         </p>
-        <Button asChild className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600">
+        <Button asChild className="bg-gradient-to-r from-yellow-500 to-blue-500 hover:from-yellow-600 hover:to-blue-600">
           <Link href="/">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Portfolio

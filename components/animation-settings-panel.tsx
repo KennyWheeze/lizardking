@@ -33,7 +33,7 @@ export function AnimationSettingsPanel() {
 
   const presetOptions: { value: AnimationPreset; label: string; icon: React.ReactNode }[] = [
     { value: "subtle", label: "Subtle", icon: <span className="text-zinc-400">●</span> },
-    { value: "moderate", label: "Moderate", icon: <span className="text-cyan-400">●</span> },
+    { value: "moderate", label: "Moderate", icon: <span className="text-yellow-400">●</span> },
     { value: "playful", label: "Playful", icon: <span className="text-purple-400">●</span> },
     { value: "dramatic", label: "Dramatic", icon: <span className="text-pink-400">●</span> },
     { value: "none", label: "None", icon: <span className="text-zinc-600">○</span> },
@@ -47,7 +47,7 @@ export function AnimationSettingsPanel() {
         className="rounded-full w-12 h-12 bg-zinc-800/80 backdrop-blur-sm hover:bg-zinc-700/80 shadow-lg"
         aria-label="Animation Settings"
       >
-        <Settings className="h-5 w-5 text-cyan-400" />
+        <Settings className="h-5 w-5 text-yellow-400" />
       </Button>
 
       {isOpen && (
@@ -55,7 +55,7 @@ export function AnimationSettingsPanel() {
           <div className="p-4">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-sm font-medium flex items-center">
-                <Zap className="w-4 h-4 mr-2 text-cyan-400" />
+                <Zap className="w-4 h-4 mr-2 text-yellow-400" />
                 Animation Settings
               </h3>
               <Button
@@ -95,7 +95,7 @@ export function AnimationSettingsPanel() {
                           size="sm"
                           className={`h-auto py-2 px-1 flex flex-col items-center justify-center text-xs ${
                             settings.preset === preset.value
-                              ? "bg-gradient-to-r from-cyan-500/20 to-blue-500/20 border-cyan-500/50"
+                              ? "bg-gradient-to-r from-yellow-500/20 to-blue-500/20 border-yellow-500/50"
                               : ""
                           }`}
                           onClick={() => applyPreset(preset.value)}
@@ -223,7 +223,7 @@ function AnimationPreviewCard({ animationType }: AnimationPreviewCardProps) {
           forceAnimate={true}
         >
           <div className="text-xs text-center">
-            <div className="text-cyan-400 mb-1">
+            <div className="text-yellow-400 mb-1">
               {animationType
                 .split("-")
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

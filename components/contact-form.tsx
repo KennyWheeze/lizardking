@@ -73,7 +73,7 @@ export function ContactForm() {
                 <FormControl>
                   <Input
                     placeholder="Your name"
-                    className="bg-zinc-800/50 border-zinc-700 focus:border-cyan-500"
+                    className="bg-zinc-800/50 border-zinc-700 focus:border-yellow-500"
                     {...field}
                   />
                 </FormControl>
@@ -92,7 +92,7 @@ export function ContactForm() {
                   <Input
                     type="email"
                     placeholder="your.email@example.com"
-                    className="bg-zinc-800/50 border-zinc-700 focus:border-cyan-500"
+                    className="bg-zinc-800/50 border-zinc-700 focus:border-yellow-500"
                     {...field}
                   />
                 </FormControl>
@@ -111,7 +111,7 @@ export function ContactForm() {
               <FormControl>
                 <Input
                   placeholder="What is this regarding?"
-                  className="bg-zinc-800/50 border-zinc-700 focus:border-cyan-500"
+                  className="bg-zinc-800/50 border-zinc-700 focus:border-yellow-500"
                   {...field}
                 />
               </FormControl>

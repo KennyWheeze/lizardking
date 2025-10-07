@@ -11,7 +11,7 @@ export function ContactSection() {
           {/* Contact Information */}
           <div className="bg-zinc-800/50 p-6 lg:p-8">
             <div className="flex items-center mb-6">
-              <UserIcon className="w-5 h-5 mr-2 text-cyan-400" />
+              <UserIcon className="w-5 h-5 mr-2 text-yellow-400" />
               <h3 className="text-lg font-medium">Get in Touch</h3>
             </div>
 
@@ -23,12 +23,12 @@ export function ContactSection() {
 
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <Mail className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
+                  <Mail className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium">Email</h4>
                     <a
                       href="mailto:jane.doe@example.com"
-                      className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors"
+                      className="text-sm text-zinc-400 hover:text-yellow-400 transition-colors"
                     >
                       jane.doe@example.com
                     </a>
@@ -36,17 +36,17 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <Phone className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
+                  <Phone className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium">Phone</h4>
-                    <a href="tel:+14155552671" className="text-sm text-zinc-400 hover:text-cyan-400 transition-colors">
+                    <a href="tel:+14155552671" className="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">
                       +1 (415) 555-2671
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <MapPin className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
+                  <MapPin className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium">Location</h4>
                     <p className="text-sm text-zinc-400">San Francisco, California</p>
@@ -54,7 +54,7 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <Clock className="w-5 h-5 mr-3 text-cyan-400 mt-0.5" />
+                  <Clock className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
                   <div>
                     <h4 className="font-medium">Working Hours</h4>
                     <p className="text-sm text-zinc-400">Monday - Friday, 9am - 5pm PST</p>
@@ -64,7 +64,7 @@ export function ContactSection() {
 
               <div className="pt-4">
                 <h4 className="font-medium mb-3">Connect with me</h4>
-                <SocialLinks />
+                <SocialLinks socialLinks={[]} />
               </div>
             </div>
           </div>

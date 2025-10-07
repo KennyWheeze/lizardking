@@ -48,7 +48,7 @@ export default function Home() {
               <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center mb-4 sm:mb-6">
-                    <BriefcaseIcon className="w-5 h-5 mr-2 text-cyan-400" />
+                    <BriefcaseIcon className="w-5 h-5 mr-2 text-yellow-400" />
                     <h3 className="text-lg font-medium">Experience</h3>
                   </div>
 
@@ -74,7 +74,7 @@ export default function Home() {
               <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center mb-4 sm:mb-6">
-                    <BriefcaseIcon className="w-5 h-5 mr-2 text-cyan-400" />
+                    <BriefcaseIcon className="w-5 h-5 mr-2 text-yellow-400" />
                     <h3 className="text-lg font-medium">Engagements & Speaking Roles</h3>
                   </div>
 
@@ -92,7 +92,7 @@ export default function Home() {
               <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center mb-4">
-                    <CodeIcon className="w-5 h-5 mr-2 text-cyan-400" />
+                    <CodeIcon className="w-5 h-5 mr-2 text-yellow-400" />
                     <h3 className="text-lg font-medium">Technical Skills</h3>
                   </div>
 
@@ -151,7 +151,7 @@ export default function Home() {
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <div className="flex items-center">
-                      <GlobeIcon className="w-5 h-5 mr-2 text-cyan-400" />
+                      <GlobeIcon className="w-5 h-5 mr-2 text-yellow-400" />
                       <h3 className="text-lg font-medium">Recent Projects</h3>
                     </div>
                     <Button variant="ghost" size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
