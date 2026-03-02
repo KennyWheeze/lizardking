@@ -1,26 +1,24 @@
 import type React from "react"
-import { GlobeIcon, CodeIcon, BriefcaseIcon } from "lucide-react"
-import { Button } from "@/components/ui/button"
+import { CodeIcon, BriefcaseIcon } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
-import { ProjectCard } from "@/components/project-card"
-import { getAllProjects } from "@/lib/data"
+import { getExperienceInfo, getTechnicalSkillsInfo } from "@/lib/data"
 import { ExperienceCard } from "@/components/experience-card"
 import { EnhancedScrollIndicator } from "@/components/enhanced-scroll-indicator"
 import { AnimatedSection } from "@/components/animated-section"
 import { EnhancedProfile } from "@/components/enhanced-profile"
 import { CredentialsSection } from "@/components/credentials-section"
 import { PortfolioHeader } from "@/components/portfolio-header"
-import { getExperienceInfo, getTechnicalSkillsInfo } from "@/lib/data"
-import { EngagementsSection } from "@/components/engagements-section";
-
-
+import { EngagementsSection } from "@/components/engagements-section"
 
 const SkillTagComponent = ({ children }: { children: React.ReactNode }) => {
-  return <div className="px-2 py-1 bg-zinc-800 rounded-full text-xs font-medium text-zinc-400">{children}</div>
+  return (
+    <div className="px-2 py-1 bg-zinc-800 rounded-full text-xs font-medium text-zinc-400">
+      {children}
+    </div>
+  )
 }
 
 export default function Home() {
-  const projects = getAllProjects()
   const experienceInfo = getExperienceInfo()
   const technicalSkills = getTechnicalSkillsInfo()
 
@@ -43,7 +41,7 @@ export default function Home() {
           </div>
 
           <div className="col-span-1 md:col-span-2 lg:col-span-3 space-y-4 sm:space-y-6">
-            {/* Experience Section - Expanded */}
+            {/* Experience Section */}
             <AnimatedSection animation="fade-up" id="experience">
               <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
@@ -69,6 +67,7 @@ export default function Home() {
                 </CardContent>
               </Card>
             </AnimatedSection>
+
             {/* Engagements Section */}
             <AnimatedSection animation="fade-up" id="engagements">
               <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
@@ -82,6 +81,7 @@ export default function Home() {
                 </CardContent>
               </Card>
             </AnimatedSection>
+
             {/* Credentials Section */}
             <AnimatedSection animation="fade-up" id="credentials">
               <CredentialsSection />
@@ -141,20 +141,6 @@ export default function Home() {
                       </div>
                     </AnimatedSection>
                   </div>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
-
-            {/* Projects Section */}
-            <AnimatedSection animation="fade-up" id="projects">
-              <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
-                <CardContent className="p-4 sm:p-6">
-                  <div className="flex items-center justify-between mb-4 sm:mb-6">
-                    <div className="flex items-center">
-                      <GlobeIcon className="w-5 h-5 mr-2 text-yellow-400" />
-                      
-
-              
                 </CardContent>
               </Card>
             </AnimatedSection>
