@@ -152,25 +152,9 @@ export default function Home() {
                   <div className="flex items-center justify-between mb-4 sm:mb-6">
                     <div className="flex items-center">
                       <GlobeIcon className="w-5 h-5 mr-2 text-yellow-400" />
-                      <h3 className="text-lg font-medium">Recent Projects</h3>
-                    </div>
-                    <Button variant="ghost" size="sm" className="text-xs sm:text-sm px-2 sm:px-3">
-                      View All
-                    </Button>
-                  </div>
+                      
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                    {projects.map((project, index) => (
-                      <AnimatedSection key={project.id} animation="zoom-in" delay={100 * (index + 1)}>
-                        <ProjectCard
-                          title={project.title}
-                          category={project.category}
-                          image={project.thumbnailImage}
-                          slug={project.slug}
-                        />
-                      </AnimatedSection>
-                    ))}
-                  </div>
+              
                 </CardContent>
               </Card>
             </AnimatedSection>
