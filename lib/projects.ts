@@ -1,4 +1,4 @@
-﻿export interface ProjectGalleryImage {
+export interface ProjectGalleryImage {
   url: string
   caption?: string
 }
@@ -42,9 +42,16 @@ export const projects: Project[] = [
     description: [
       "This project explores a real-world sales performance challenge in a technical training services company. The organization receives inquiries from potential clients, but not all inquiries consistently convert into confirmed bookings or paying clients.",
       "Instead of assuming that the issue can be solved through training alone, this project uses a diagnostic approach to determine whether the problem is caused by knowledge gaps, skill gaps, process gaps, motivation or accountability gaps, or market and offer-related gaps.",
-      "The final recommendation will include the right mix of learning solutions, performance support tools, workflow improvements, accountability measures, and evaluation methods."
-    ], 
-    features: ["Performance gap analysis", "Sales diagnostic framework", "Training vs non-training recommendation", "Sales enablement toolkit", "Storyline conversation simulation", "KPI-based evaluation plan"],
+      "The final recommendation will include the right mix of learning solutions, performance support tools, workflow improvements, accountability measures, and evaluation methods.",
+    ],
+    features: [
+      "Performance gap analysis",
+      "Sales diagnostic framework",
+      "Training vs non-training recommendation",
+      "Sales enablement toolkit",
+      "Storyline conversation simulation",
+      "KPI-based evaluation plan",
+    ],
     technologies: ["Articulate Storyline", "PowerPoint", "ChatGPT", "Excel / Google Sheets", "Word / Google Docs"],
     coverImage: "/images/projects/mesh-cover.png",
     thumbnailImage: "/images/projects/mesh-thumb.png",
