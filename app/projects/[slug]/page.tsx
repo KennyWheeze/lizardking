@@ -18,6 +18,54 @@ interface ProjectPageProps {
 
 export default function ProjectPage({ params }: ProjectPageProps) {
   const project = getProjectBySlug(params.slug)
+  const desiredPerformanceFlow = [
+    "Inquiry Response",
+    "Lead Qualification",
+    "Service Matching",
+    "Value Communication",
+    "Objection Handling",
+    "Proposal Support",
+    "Follow-Up",
+    "Closing / Lost Reason",
+  ]
+  const selectedArtifacts = [
+    {
+      title: "Diagnostic Toolkit",
+      description:
+        "A combined toolkit with stakeholder interview questions, product knowledge checks, sales skills observation criteria, process review items, and lead review prompts.",
+      status: "In progress",
+    },
+    {
+      title: "Gap Analysis Matrix",
+      description:
+        "A structured matrix that connects observed issues, evidence sources, gap categories, root causes, training need, recommended solution, and priority level.",
+      status: "Coming soon",
+    },
+    {
+      title: "Sales Enablement Solution Design",
+      description:
+        "A design plan that outlines the recommended blend of learning activities, job aids, workflow support, accountability measures, and evaluation methods.",
+      status: "Coming soon",
+    },
+    {
+      title: "Sales Playbook / Job Aid",
+      description:
+        "A practical performance support tool for service comparison, client needs analysis, value messaging, objection handling, proposal support, and follow-up.",
+      status: "Coming soon",
+    },
+    {
+      title: "Storyline Conversation Simulation",
+      description:
+        "A scenario-based prototype where learners practice responding to client inquiries, asking diagnostic questions, handling objections, and confirming next steps.",
+      status: "Coming soon",
+    },
+    {
+      title: "Evaluation Plan",
+      description:
+        "A KPI-based plan for measuring response time, follow-up completion, proposal rate, conversion rate, sales conversation quality, and lost reason documentation.",
+      status: "Coming soon",
+    },
+  ]
 
   if (!project) {
     notFound()
@@ -261,31 +309,31 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     label: "01",
                     title: "Knowledge Gap",
                     description:
-                      "I will check whether employees understand the services, program differences, inclusions, requirements, and value points.",
+                      "I checked whether employees understand the training services, program differences, inclusions, requirements, and value points.",
                   },
                   {
                     label: "02",
                     title: "Skill Gap",
                     description:
-                      "I will look at whether employees can ask needs-based questions, explain value, handle objections, and confirm next steps.",
+                      "I looked at whether employees can ask needs-based questions, explain value, handle objections, and confirm next steps.",
                   },
                   {
                     label: "03",
                     title: "Process Gap",
                     description:
-                      "I will review whether there is a clear workflow for inquiry handling, lead tracking, proposal preparation, follow-up, and handoff.",
+                      "I reviewed whether there is a clear workflow for inquiry handling, lead tracking, proposal preparation, follow-up, documentation, and handoff.",
                   },
                   {
                     label: "04",
                     title: "Motivation / Accountability Gap",
                     description:
-                      "I will examine whether lead ownership, response time expectations, monitoring, and feedback are clearly defined.",
+                      "I examined whether lead ownership, response time expectations, sales targets, monitoring, feedback, and accountability are clearly defined.",
                   },
                   {
                     label: "05",
                     title: "Market / Offer Gap",
                     description:
-                      "I will consider whether pricing, lead quality, competitor options, client budget, schedule availability, or positioning affect conversion.",
+                      "I considered whether pricing, lead quality, competitor options, client budget, schedule availability, or unclear positioning affect conversion.",
                   },
                 ].map((item) => (
                   <div
@@ -299,6 +347,111 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     <p className="mt-2 text-sm leading-6 text-zinc-300">{item.description}</p>
                   </div>
                 ))}
+              </div>
+            </CardContent>
+          </Card>
+        </AnimatedSection>
+
+        <AnimatedSection animation="fade-up" delay={400} className="mt-4 sm:mt-6">
+          <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+            <CardContent className="p-4 sm:p-6">
+              <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Desired Performance Flow</h2>
+
+              <p className="text-sm sm:text-base leading-7 text-zinc-300">
+                Before diagnosing the gaps, I first defined what effective sales and client engagement performance should
+                look like. This gave the project a clear standard for comparing actual performance later.
+              </p>
+
+              <div className="mt-5 sm:mt-6 grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-8">
+                {desiredPerformanceFlow.map((step, index) => (
+                  <div key={step} className="relative">
+                    {index < desiredPerformanceFlow.length - 1 && (
+                      <div className="pointer-events-none absolute left-[calc(100%+0.15rem)] top-1/2 z-10 hidden w-3 -translate-y-1/2 items-center xl:flex">
+                        <span className="h-px flex-1 bg-gradient-to-r from-yellow-300/65 to-yellow-400/45 shadow-[0_0_8px_rgba(250,204,21,0.22)]" />
+                        <span className="h-2 w-2 rotate-45 border-r border-t border-yellow-300/75" />
+                      </div>
+                    )}
+
+                    <div className="relative flex h-full gap-3 rounded-lg border border-zinc-800 bg-zinc-950/40 p-3 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/50 hover:shadow-[0_0_24px_rgba(34,211,238,0.12)] md:flex-col md:gap-2 md:p-4">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-yellow-400/40 bg-yellow-400/10 text-xs font-bold text-yellow-300 shadow-[0_0_24px_rgba(250,204,21,0.12)]">
+                        {String(index + 1).padStart(2, "0")}
+                      </div>
+                      <p className="min-w-0 text-sm font-medium leading-6 text-zinc-100 md:text-center">{step}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <p className="mt-5 sm:mt-6 text-sm sm:text-base leading-7 text-zinc-300">
+                This desired performance flow became the reference point for identifying whether the problem was related
+                to knowledge, skill, process, accountability, or market or offer factors.
+              </p>
+            </CardContent>
+          </Card>
+        </AnimatedSection>
+
+        <AnimatedSection animation="fade-up" delay={450} className="mt-4 sm:mt-6">
+          <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+            <CardContent className="p-4 sm:p-6">
+              <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Selected Artifacts</h2>
+
+              <p className="text-sm sm:text-base leading-7 text-zinc-300">
+                To keep this portfolio case study focused, I am presenting the artifacts that best show my analysis
+                process, design decisions, and performance support strategy. These outputs are meant to show how I moved
+                from problem diagnosis to practical sales enablement recommendations.
+              </p>
+
+              <div className="mt-5 sm:mt-6 grid grid-cols-1 gap-3 sm:gap-4 md:grid-cols-2 xl:grid-cols-3">
+                {selectedArtifacts.map((artifact) => (
+                  <div
+                    key={artifact.title}
+                    className="flex h-full flex-col rounded-lg border border-zinc-800 bg-zinc-950/40 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/50 hover:shadow-[0_0_24px_rgba(34,211,238,0.12)] sm:p-5"
+                  >
+                    <div className="mb-3 flex items-start justify-between gap-3">
+                      <h3 className="text-base font-semibold leading-6 text-white">{artifact.title}</h3>
+                      <span
+                        className={
+                          artifact.status === "In progress"
+                            ? "shrink-0 rounded-full border border-yellow-400/40 bg-yellow-400/10 px-2.5 py-1 text-xs font-medium text-yellow-300"
+                            : "shrink-0 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"
+                        }
+                      >
+                        {artifact.status}
+                      </span>
+                    </div>
+                    <p className="text-sm leading-6 text-zinc-300">{artifact.description}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </AnimatedSection>
+
+        <AnimatedSection animation="fade-up" delay={500} className="mt-4 sm:mt-6">
+          <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+            <CardContent className="p-4 sm:p-6">
+              <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Reflection</h2>
+
+              <div className="border-l-2 border-yellow-400/60 pl-4 sm:pl-5">
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base leading-7 text-zinc-300">
+                  <p>
+                    This project is helping me practice instructional design as performance consulting. Instead of
+                    starting with the assumption that a course is the answer, I am first defining the business problem,
+                    identifying the desired performance, and designing tools to diagnose the real causes of low or
+                    inconsistent client conversion.
+                  </p>
+
+                  <p>
+                    For me, the value of this project is that it connects learning design to workplace performance. It
+                    allows me to demonstrate not only course development, but also problem analysis, root cause thinking,
+                    training versus non-training decision-making, job aid design, and evaluation planning.
+                  </p>
+
+                  <p>
+                    This case study also reflects the kind of work I want to keep building: practical learning solutions
+                    that are grounded in real business problems and supported by clear evidence.
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
