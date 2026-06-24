@@ -52,7 +52,7 @@ export const projects: Project[] = [
       "Storyline conversation simulation",
       "KPI-based evaluation plan",
     ],
-    technologies: ["Articulate Storyline", "PowerPoint", "ChatGPT", "Excel / Google Sheets", "Word / Google Docs"],
+    technologies: ["Articulate Storyline", "PowerPoint", "Canva", "ChatGPT", "Excel / Google Sheets", "Word / Google Docs"],
     coverImage: "/images/projects/mesh-cover.png",
     thumbnailImage: "/images/projects/mesh-thumb.png",
     client: "Anonymized workplace-based case study",

@@ -56,7 +56,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     {
       title: "Storyline Conversation Simulation",
       description:
-        "A scenario-based prototype where learners practice responding to client inquiries, asking diagnostic questions, handling objections, and confirming next steps.",
+        "A scenario-based prototype where sales or client-facing employees practice responding to client inquiries, asking diagnostic questions, handling objections, and confirming next steps.",
       status: "Coming soon",
     },
     {
@@ -270,12 +270,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   For this case study, I approached the problem as both an instructional designer and performance consultant. 
                   My goal is to find out whether low or inconsistent client conversion is caused by a trainable gap, such as product knowledge or sales conversation skills, or by non-training factors, such as weak follow-up processes, unclear accountability, poor lead quality, pricing concerns, or unclear market positioning.
                 </p>
-                <p>
-                  The challenge is to determine whether low or inconsistent client conversion is caused by a trainable
-                  performance gap or by non-training factors. Possible causes may include product knowledge gaps, sales
-                  conversation skill gaps, weak follow-up processes, unclear accountability, poor lead quality, pricing
-                  concerns, or unclear market positioning.
-                </p>
               </div>
 
               <div className="mt-5 sm:mt-6 rounded-lg border border-yellow-400/30 bg-yellow-400/10 p-4 sm:p-5">
@@ -283,8 +277,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   Key Diagnostic Question:
                 </h3>
                 <p className="mt-2 text-sm sm:text-base text-zinc-100">
-                  What is preventing client-facing employees from consistently converting potential clients into paying
-                  clients?
+                  What is preventing client-facing employees from consistently converting potential clients into
+                  confirmed clients?
                 </p>
               </div>
             </CardContent>
@@ -463,7 +457,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           delay={500}
           className="mt-8 sm:mt-12 py-4 sm:py-6 text-center text-xs sm:text-sm text-zinc-500"
         >
-          <p>© {new Date().getFullYear()} Ken Gilmer P. Macawili. I'm fucking awesome.</p>
+          <p>© 2026 Ken Gilmer P. Macawili. Instructional Design and HSEQ Training Portfolio.</p>
         </AnimatedSection>
       </div>
 
