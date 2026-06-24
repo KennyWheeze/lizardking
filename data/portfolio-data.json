@@ -1,0 +1,118 @@
+{
+  "meta": {
+    "siteTitle": "Ken | HSEQ & eLearning",
+    "siteDescription": "Portfolio of Ken — HSEQ & Training Officer specializing in safety trainings, eLearning development, and HSSEQ programs."
+  },
+  "personal": {
+    "name": "Ken Gilmer P. Macawili",
+    "title": "HSEQ & Training Officer",
+    "location": "Puerto Princesa, Palawan, Philippines",
+    "avatar": "/Ken/ken.png",
+    "email": "kenmacawili@gmail.com",
+    "phone": "+63 969 174 5237",
+    "workingHours": "Weekdays, 9am–6pm",
+    "availableForWork": true,
+    "badges": ["Data Analysis", "Safety and Health", "Data-Driven Strategic Planning"],
+    "social": [
+      { "platform": "LinkedIn", "url": "https://www.linkedin.com/in/your-handle", "icon": "Linkedin" },
+      { "platform": "GitHub", "url": "https://github.com/your-handle", "icon": "Github" },
+      { "platform": "X", "url": "https://x.com/your-handle", "icon": "Twitter" }
+    ]
+  },
+  "about": {
+    "bio": "I am an HSEQ & Training Officer specializing in occupational safety, compliance, and innovative training solutions. With expertise in blended learning, eLearning systems, and regulatory compliance, I help organizations strengthen safety culture while ensuring training excellence.",
+    "focus": [
+      "Designing 8–40 hr safety courses and manuals",
+      "Converting trainings to interactive eLearning with AI-friendly narration",
+      "HSSEQ monthly campaigns and program implementation"
+    ],
+    "languages": [
+      { "name": "English", "proficiency": "Professional", "level": 95, "flag": "🇬🇧" },
+      { "name": "Filipino", "proficiency": "Native", "level": 100, "flag": "🇵🇭" }
+    ],
+    "interests": ["Workplace Safety", "Instructional Design", "Data-Driven Training", "Community-led Conservation"]
+  },
+  "navigation": [
+  { "label": "Home", "href": "/" },
+  { "label": "Experience", "href": "/experience" },
+  { "label": "Credentials", "href": "/credentials" },
+  { "label": "Skills", "href": "/skills" },
+  { "label": "Projects", "href": "/projects" }
+]
+,
+  "experience": [
+    {
+      "title": "HSEQ & Training Officer",
+      "company": "Petrosphere Incorporated",
+      "period": "2024 – Present",
+      "description": "Builds safety courses (BOSH, COSH, HIRAC, SPA, Electrical Safety) and eLearning versions with interactive activities and AI voiceovers.",
+      "achievements": [
+        "Training Leadership & Development – Designed and delivered accredited programs, including the 40-hour Advanced Food Safety Training and 20-hour Intravenous Therapy Training, plus eLearning modules on MESH, Electrical Safety, and Lockout-Tagout.",
+        "Event Hosting & Engagement – Facilitated 75+ training sessions in one year (avg. 26 participants each), and hosted multiple webinars including the World Safety Day Webinar with 1,000+ attendees, generating 2,964 new leads.)",
+        "eLearning & Platform Management – Revamped the company’s WordPress eLearning platform and main site, improving user experience with updated course pages, voucher redemption, and automated participant support.",
+        "Process Innovation – Built automated Excel trackers (attendance, sales, marketing, accounting) and certificate workflows, reducing manual work and boosting efficiency across departments.",
+        "Compliance & Governance – Prepared and submitted DOLE compliance reports (WARMA), updated the organizational risk register, and registered the company a Data Protection Officer with the National Privacy Commission.",
+        "Communication & Representation – Led monthly HSE meetings, safety inductions, and authored official MOA, partnership, and HSE campaign articles. Served as emcee for the 6th OSH & Environment National Convention and guest speaker on “Safety for Kids” at a Kiwanis event."
+      ],
+      "technologies": ["Excel (advanced formulas, Power Query)", "WordPress", "Canva", "Articulate Storline 3", "iSpring Suite", "Zoom", "MS Office Suite", "Training facilitation", "safety leadership", "compliance reporting", "event hosting"]
+    },
+    {
+      "title": "QA/QC Intern",
+      "company": "DESCO, Inc.",
+      "period": "Jun 2024 – Aug 2024",
+      "description": "Created manuals and slide decks with varied visual patterns and speaker notes; transitioned courses to self-paced formats.",
+      "achievements": [
+        "Conducted inspections and dimensional measurements of wellhead components, drill strings, valves, and structural materials to ensure compliance with industry standards.",
+        "Applied precision tools (calipers, micrometers, vernier scales) for accurate assessments and verification of equipment quality.",
+        "Assisted in preparing inspection reports, managing purchase orders, and supporting quality documentation processes.",
+        "Supported workplace safety initiatives by adhering to QA/QC protocols and maintaining compliance with project requirements."
+      ],
+      "technologies": ["Calipers", "micrometers", "vernier scales", "QA/QC reporting", "inspection procedures", "workplace safety compliance"]
+    }
+  ],
+  "engagements": [
+  {
+    "title": "Emcee",
+    "organization": "6th OSH & Environment National Convention (WASPI)",
+    "description": "Hosted the event, managed program flow, and introduced keynote speakers.",
+    "year": "2024"
+  },
+  {
+    "title": "Guest Speaker",
+    "organization": "Kiwanis International",
+    "description": "Delivered 'Safety for Kids' talk to elementary school children.",
+    "year": "2024"
+  },
+  {
+    "title": "Webinar Host",
+    "organization": "Petrosphere Monthly HSE Webinars",
+    "description": "Managed technical setup, speaker introductions, and audience engagement.",
+    "year": "2024"
+  },
+  {
+    "title": "Trainer & Facilitator",
+    "organization": "Petrosphere, Inc.",
+    "description": "Delivered accredited training programs across synchronous, face-to-face, and eLearning formats.",
+    "year": "2024"
+  }
+],
+  "credentials": {
+    "certifications": [
+      { "name": "ISO 9001:2015 Lead Auditor", "issuer": "PECB", "date": "2025", "logo": "/certs/pecb.jpg" },
+      { "name": "Industrial Hygiene", "issuer": "Environment Control Division (ECD)", "date": "2025", "logo": "/certs/ecd.jpg" },
+      { "name": "Google Data Analytics", "issuer": "Coursera", "date": "2024", "logo": "/certs/coursera.png" }
+    ],
+    "education": [
+      { "degree": "Master of Science in Environmental Management (in progress)", "institution": "Palawan State University Graduate School", "year": "2025 – Present", "logo": "/edu/msem.png" },
+      { "degree": "Bachelor of Science in Petroleum Engineering", "institution": "Palawan State University", "year": "2020 – 2024", "logo": "/edu/psu.png" },
+      { "degree": "Science, Technology, Engineering, and Mathematics", "institution": "Palawan State University", "year": "2018 – 2020", "logo": "/edu/pns.jpg" }
+    ],
+    "skills": ["Data Analysis", "Course Development", "Training Facilitation", "Data Cleaning", "Hazard Identification/Risk Assessment/Control Measures (HIRAC)", "Training Needs Analysis", "Program Design"]
+  },
+  "technicalSkills": {
+    "design": ["PowerPoint", "Instructional Design", "Storyboarding", "Graphic Layout"],
+    "development": ["Next.js (basic edits)", "Vercel (deploy)", "Git (push/pull)"],
+    "uxMethods": ["Learning Objectives mapping", "Assessment design", "Voiceover scripting"],
+    "softSkills": ["Communication", "Facilitation", "Project Management", "Process Documentation"]
+  }
+}
