@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ExternalLink, Github } from "lucide-react"
+import { ArrowLeft, Download, ExternalLink, Github } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SkillTag } from "@/components/skill-tag"
@@ -32,8 +32,23 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     {
       title: "Diagnostic Toolkit",
       description:
-        "A combined toolkit with stakeholder interview questions, product knowledge checks, sales skills observation criteria, process review items, and lead review prompts.",
-      status: "In progress",
+        "A structured performance analysis tool used to identify whether sales conversion issues are caused by knowledge, skill, process, accountability, or market/offer gaps.",
+      includes:
+        "Includes: diagnostic framework, data collection plan, interview questions, observation checklist, lost inquiry review categories, gap classification, and solution mapping.",
+      status: "Available",
+      links: [
+        {
+          label: "View Portfolio Summary",
+          href: "/artifacts/sales-enablement/sales-performance-diagnostic-toolkit-summary.pdf",
+          icon: "view",
+        },
+        {
+          label: "Download Full Toolkit",
+          href: "/artifacts/sales-enablement/sales-performance-diagnostic-toolkit-full.pdf",
+          icon: "download",
+          download: true,
+        },
+      ],
     },
     {
       title: "Gap Analysis Matrix",
@@ -405,7 +420,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       <h3 className="text-base font-semibold leading-6 text-white">{artifact.title}</h3>
                       <span
                         className={
-                          artifact.status === "In progress"
+                          artifact.status === "Available"
+                            ? "shrink-0 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"
+                            : artifact.status === "In progress"
                             ? "shrink-0 rounded-full border border-yellow-400/40 bg-yellow-400/10 px-2.5 py-1 text-xs font-medium text-yellow-300"
                             : "shrink-0 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"
                         }
@@ -414,6 +431,40 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       </span>
                     </div>
                     <p className="text-sm leading-6 text-zinc-300">{artifact.description}</p>
+                    {artifact.includes && (
+                      <p className="mt-3 text-xs leading-5 text-zinc-400">{artifact.includes}</p>
+                    )}
+                    {artifact.links && (
+                      <div className="mt-auto flex flex-col gap-2 pt-4 sm:flex-row sm:flex-wrap">
+                        {artifact.links.map((link) => (
+                          <Button
+                            key={link.href}
+                            asChild
+                            size="sm"
+                            variant={link.download ? "outline" : "default"}
+                            className={
+                              link.download
+                                ? "border-zinc-700 bg-zinc-950/50 text-xs text-zinc-100 hover:bg-zinc-800 hover:text-white"
+                                : "bg-gradient-to-r from-cyan-500 to-blue-500 text-xs hover:from-cyan-600 hover:to-blue-600"
+                            }
+                          >
+                            <a
+                              href={link.href}
+                              target={link.download ? undefined : "_blank"}
+                              rel={link.download ? undefined : "noopener noreferrer"}
+                              download={link.download ? true : undefined}
+                            >
+                              {link.icon === "download" ? (
+                                <Download className="mr-1.5 h-3.5 w-3.5" />
+                              ) : (
+                                <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
+                              )}
+                              {link.label}
+                            </a>
+                          </Button>
+                        ))}
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
