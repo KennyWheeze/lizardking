@@ -53,8 +53,23 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     {
       title: "Gap Analysis Matrix",
       description:
-        "A structured matrix that connects observed issues, evidence sources, gap categories, root causes, training need, recommended solution, and priority level.",
-      status: "Coming soon",
+        "A structured analysis tool used to organize interview findings, classify root causes, determine whether training alone can solve the issue, and map each gap to the appropriate solution direction.",
+      includes:
+        "Includes: interview-based findings, gap categories, root causes, training decision checks, priority levels, and recommended solution directions.",
+      status: "Available",
+      links: [
+        {
+          label: "View Matrix Summary",
+          href: "/artifacts/sales-enablement/gap-analysis-matrix-summary.pdf",
+          icon: "view",
+        },
+        {
+          label: "Download Full Matrix",
+          href: "/artifacts/sales-enablement/gap-analysis-matrix-full.xlsx",
+          icon: "download",
+          download: true,
+        },
+      ],
     },
     {
       title: "Sales Enablement Solution Design",
