@@ -1,28 +1,19 @@
-import type React from "react"
-import { BriefcaseIcon, CodeIcon, FolderKanbanIcon } from "lucide-react"
+import { BriefcaseIcon, CodeIcon } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
-import { getAllProjects, getExperienceInfo, getTechnicalSkillsInfo } from "@/lib/data"
+import { getExperienceInfo, getHomepageCapabilities } from "@/lib/data"
 import { ExperienceCard } from "@/components/experience-card"
 import { EnhancedScrollIndicator } from "@/components/enhanced-scroll-indicator"
 import { AnimatedSection } from "@/components/animated-section"
 import { EnhancedProfile } from "@/components/enhanced-profile"
 import { CredentialsSection } from "@/components/credentials-section"
 import { PortfolioHeader } from "@/components/portfolio-header"
-import { EngagementsSection } from "@/components/engagements-section"
-import { ProjectCard } from "@/components/project-card"
-
-const SkillTagComponent = ({ children }: { children: React.ReactNode }) => {
-  return (
-    <div className="px-2 py-1 bg-zinc-800 rounded-full text-xs font-medium text-zinc-400">
-      {children}
-    </div>
-  )
-}
+import { HomepageHero } from "@/components/homepage-hero"
+import { FeaturedWorkSection } from "@/components/featured-work-section"
+import { HomepageContactCta } from "@/components/homepage-contact-cta"
 
 export default function Home() {
   const experienceInfo = getExperienceInfo()
-  const technicalSkills = getTechnicalSkillsInfo()
-  const projects = getAllProjects()
+  const homepageCapabilities = getHomepageCapabilities()
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -32,7 +23,9 @@ export default function Home() {
       {/* Header */}
       <PortfolioHeader />
 
-      <div className="relative z-10 container mx-auto p-3 sm:p-4 pt-20 sm:pt-24 pb-6 sm:pb-8">
+      <HomepageHero />
+
+      <div className="relative z-10 container mx-auto p-3 sm:p-4 pt-0 pb-6 sm:pb-8">
         {/* Main Content Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
           {/* Enhanced Profile Section */}
@@ -56,12 +49,10 @@ export default function Home() {
                     {experienceInfo.map((experience, index) => (
                       <AnimatedSection key={index} animation="fade-up" delay={100 * (index + 1)}>
                         <ExperienceCard
-                          title={experience.title}
                           company={experience.company}
                           period={experience.period}
-                          description={experience.description}
-                          achievements={experience.achievements}
-                          technologies={experience.technologies}
+                          roles={experience.roles}
+                          sectionLabel={experience.sectionLabel}
                         />
                       </AnimatedSection>
                     ))}
@@ -70,16 +61,21 @@ export default function Home() {
               </Card>
             </AnimatedSection>
 
-            {/* Engagements Section */}
-            <AnimatedSection animation="fade-up" id="engagements">
+            {/* Featured Work Section */}
+            <AnimatedSection animation="fade-up" id="projects">
               <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center mb-4 sm:mb-6">
                     <BriefcaseIcon className="w-5 h-5 mr-2 text-yellow-400" />
-                    <h3 className="text-lg font-medium">Engagements & Speaking Roles</h3>
+                    <div>
+                      <h3 className="text-lg font-medium">Featured Work</h3>
+                      <p className="mt-1 text-sm leading-relaxed text-zinc-400">
+                        Selected examples of how I improve safety, learning, operations, and organizational performance.
+                      </p>
+                    </div>
                   </div>
 
-                  <EngagementsSection />
+                  <FeaturedWorkSection />
                 </CardContent>
               </Card>
             </AnimatedSection>
@@ -89,24 +85,41 @@ export default function Home() {
               <CredentialsSection />
             </AnimatedSection>
 
-            {/* Projects Section */}
-            <AnimatedSection animation="fade-up" id="projects">
+            {/* Capabilities Section */}
+            <AnimatedSection animation="fade-up" id="skills">
               <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
-                  <div className="flex items-center mb-4 sm:mb-6">
-                    <FolderKanbanIcon className="w-5 h-5 mr-2 text-yellow-400" />
-                    <h3 className="text-lg font-medium">Projects</h3>
+                  <div className="mb-5 flex items-start sm:mb-6">
+                    <CodeIcon className="mr-2 mt-0.5 h-5 w-5 shrink-0 text-yellow-400" />
+                    <div>
+                      <h3 className="text-lg font-medium">Capabilities</h3>
+                      <p className="mt-1 max-w-3xl text-sm leading-relaxed text-zinc-400">
+                        Core capabilities developed through safety, training, leadership, instructional design, and
+                        digital operations work.
+                      </p>
+                    </div>
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4">
-                    {projects.map((project, index) => (
-                      <AnimatedSection key={project.slug} animation="fade-up" delay={100 * (index + 1)}>
-                        <ProjectCard
-                          title={project.title}
-                          category={project.category}
-                          image={project.thumbnailImage}
-                          slug={project.slug}
-                        />
+                  <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+                    {homepageCapabilities.map((group, index) => (
+                      <AnimatedSection
+                        key={group.title}
+                        animation={index % 2 === 0 ? "slide-right" : "slide-left"}
+                        delay={100 * (index + 1)}
+                      >
+                        <div className="space-y-3">
+                          <h4 className="text-sm font-semibold text-zinc-200 sm:text-base">{group.title}</h4>
+                          <div className="flex flex-wrap gap-2">
+                            {group.skills.map((skill) => (
+                              <span
+                                key={skill}
+                                className="rounded-full border border-zinc-700 bg-zinc-800/60 px-3 py-1.5 text-sm leading-tight text-zinc-300"
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
                       </AnimatedSection>
                     ))}
                   </div>
@@ -114,62 +127,8 @@ export default function Home() {
               </Card>
             </AnimatedSection>
 
-            {/* Skills Section */}
-            <AnimatedSection animation="fade-up" id="skills">
-              <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
-                <CardContent className="p-4 sm:p-6">
-                  <div className="flex items-center mb-4">
-                    <CodeIcon className="w-5 h-5 mr-2 text-yellow-400" />
-                    <h3 className="text-lg font-medium">Technical Skills</h3>
-                  </div>
-
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
-                    <AnimatedSection animation="slide-right" delay={100}>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium text-zinc-400">Design</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {technicalSkills.design.map((skill, index) => (
-                            <SkillTagComponent key={index}>{skill}</SkillTagComponent>
-                          ))}
-                        </div>
-                      </div>
-                    </AnimatedSection>
-
-                    <AnimatedSection animation="slide-left" delay={200}>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium text-zinc-400">Development</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {technicalSkills.development.map((skill, index) => (
-                            <SkillTagComponent key={index}>{skill}</SkillTagComponent>
-                          ))}
-                        </div>
-                      </div>
-                    </AnimatedSection>
-
-                    <AnimatedSection animation="slide-right" delay={300}>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium text-zinc-400">UX Methods</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {technicalSkills.uxMethods.map((skill, index) => (
-                            <SkillTagComponent key={index}>{skill}</SkillTagComponent>
-                          ))}
-                        </div>
-                      </div>
-                    </AnimatedSection>
-
-                    <AnimatedSection animation="slide-left" delay={400}>
-                      <div className="space-y-3">
-                        <h4 className="text-sm font-medium text-zinc-400">Soft Skills</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {technicalSkills.softSkills.map((skill, index) => (
-                            <SkillTagComponent key={index}>{skill}</SkillTagComponent>
-                          ))}
-                        </div>
-                      </div>
-                    </AnimatedSection>
-                  </div>
-                </CardContent>
-              </Card>
+            <AnimatedSection animation="fade-up">
+              <HomepageContactCta />
             </AnimatedSection>
           </div>
         </div>

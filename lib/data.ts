@@ -40,6 +40,11 @@ export function getTechnicalSkillsInfo() {
   return data.technicalSkills
 }
 
+// Helper function to get the focused capabilities shown on the homepage
+export function getHomepageCapabilities() {
+  return data.homepageCapabilities
+}
+
 // Helper function to get meta information
 export function getMetaInfo() {
   return data.meta

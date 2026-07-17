@@ -1,96 +1,124 @@
 import Image from "next/image"
-import { Card, CardContent } from "@/components/ui/card"
-import { GraduationCap, Award } from "lucide-react"
-import { SkillTag } from "@/components/skill-tag"
+import { Award, GraduationCap } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
+import { Badge } from "@/components/ui/badge"
+import { Card, CardContent } from "@/components/ui/card"
 import { getCredentialsInfo } from "@/lib/data"
 
 export function CredentialsSection() {
   const credentialsInfo = getCredentialsInfo()
+  const homepageEducation = credentialsInfo.education.filter((education) => education.showOnHomepage)
 
   return (
-    <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+    <Card className="border-zinc-800 bg-zinc-900/70 backdrop-blur-sm">
       <CardContent className="p-4 sm:p-6">
-        <div className="flex items-center mb-4 sm:mb-6">
-          <Award className="w-5 h-5 mr-2 text-yellow-400" />
-          <h3 className="text-lg font-medium">Credentials</h3>
+        <div className="mb-5 flex items-start sm:mb-6">
+          <Award aria-hidden="true" className="mr-2 mt-0.5 h-5 w-5 shrink-0 text-yellow-400" />
+          <div>
+            <h3 className="text-lg font-medium">Credentials</h3>
+            <p className="mt-1 max-w-3xl text-sm leading-relaxed text-zinc-400">
+              Professional certifications and academic preparation supporting my work in safety, learning, systems,
+              and operations.
+            </p>
+          </div>
         </div>
 
-        <div className="space-y-6 sm:space-y-8">
-          {/* Professional Certifications */}
+        <div className="space-y-7 sm:space-y-8">
           <AnimatedSection animation="fade-up" delay={100}>
             <div className="space-y-4">
-              <h4 className="text-sm font-medium text-zinc-400 flex items-center border-b border-zinc-800 pb-2">
-                <Award className="w-4 h-4 mr-2 text-yellow-400" />
+              <h4 className="flex items-center border-b border-zinc-800 pb-2 text-sm font-medium text-zinc-300">
+                <Award aria-hidden="true" className="mr-2 h-4 w-4 text-yellow-400" />
                 Professional Certifications
               </h4>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
-                {credentialsInfo.certifications.map((cert, index) => (
-                  <div key={index} className="flex items-start bg-zinc-800/30 p-2 sm:p-3 rounded-lg">
-                    {cert.logo && (
-                      <div className="relative w-10 h-10 rounded overflow-hidden mr-3 flex-shrink-0 bg-zinc-800">
+
+              <div className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3 sm:gap-4">
+                {credentialsInfo.certifications.map((certification) => (
+                  <article
+                    key={certification.name}
+                    className="flex h-full items-start rounded-lg border border-zinc-800 bg-zinc-950/40 p-3 sm:p-4"
+                  >
+                    {certification.logo ? (
+                      <div className="relative mr-3 h-11 w-11 shrink-0 overflow-hidden rounded-md bg-zinc-800">
                         <Image
-                          src={cert.logo || "/placeholder.svg"}
-                          alt={cert.issuer}
+                          src={certification.logo}
+                          alt={`${certification.issuer} logo`}
                           fill
+                          sizes="44px"
                           className="object-contain p-1"
                         />
                       </div>
+                    ) : (
+                      <div className="mr-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-zinc-800">
+                        <Award aria-hidden="true" className="h-5 w-5 text-yellow-400" />
+                      </div>
                     )}
-                    <div>
-                      <h5 className="text-sm font-medium">{cert.name}</h5>
-                      <p className="text-xs text-zinc-400">
-                        {cert.issuer} • {cert.date}
+
+                    <div className="flex min-w-0 flex-1 flex-col items-start">
+                      <h5 className="text-sm font-semibold leading-snug text-zinc-100">{certification.name}</h5>
+                      <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+                        {certification.issuer} <span aria-hidden="true">•</span> {certification.date}
                       </p>
+                      <Badge
+                        variant="outline"
+                        className="mt-3 border-yellow-400/25 bg-yellow-400/5 text-[0.7rem] text-yellow-300"
+                      >
+                        {certification.relevance}
+                      </Badge>
                     </div>
-                  </div>
+                  </article>
                 ))}
               </div>
             </div>
           </AnimatedSection>
 
-          {/* Education */}
           <AnimatedSection animation="fade-up" delay={200}>
             <div className="space-y-4">
-              <h4 className="text-sm font-medium text-zinc-400 flex items-center border-b border-zinc-800 pb-2">
-                <GraduationCap className="w-4 h-4 mr-2 text-yellow-400" />
+              <h4 className="flex items-center border-b border-zinc-800 pb-2 text-sm font-medium text-zinc-300">
+                <GraduationCap aria-hidden="true" className="mr-2 h-4 w-4 text-yellow-400" />
                 Education
               </h4>
-              <div className="space-y-3 sm:space-y-4">
-                {credentialsInfo.education.map((edu, index) => (
-                  <div key={index} className="flex items-start bg-zinc-800/30 p-2 sm:p-3 rounded-lg">
-                    {edu.logo && (
-                      <div className="relative w-10 h-10 rounded overflow-hidden mr-3 flex-shrink-0 bg-zinc-800">
+
+              <div className="space-y-3">
+                {homepageEducation.map((education) => (
+                  <article
+                    key={education.degree}
+                    className="flex items-start rounded-lg border border-zinc-800 bg-zinc-950/40 p-3 sm:p-4"
+                  >
+                    {education.logo ? (
+                      <div className="relative mr-3 h-10 w-10 shrink-0 overflow-hidden rounded-md bg-zinc-800">
                         <Image
-                          src={edu.logo || "/placeholder.svg"}
-                          alt={edu.institution}
+                          src={education.logo}
+                          alt={`${education.institution} logo`}
                           fill
+                          sizes="40px"
                           className="object-contain p-1"
                         />
                       </div>
+                    ) : (
+                      <div className="mr-3 flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-zinc-800">
+                        <GraduationCap aria-hidden="true" className="h-5 w-5 text-yellow-400" />
+                      </div>
                     )}
-                    <div>
-                      <h5 className="text-sm font-medium">{edu.degree}</h5>
-                      <p className="text-xs text-zinc-400">
-                        {edu.institution} • {edu.year}
+
+                    <div className="min-w-0 flex-1">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <h5 className="text-sm font-semibold leading-snug text-zinc-100 sm:text-base">
+                          {education.degree}
+                        </h5>
+                        {education.status && (
+                          <Badge
+                            variant="outline"
+                            className="border-yellow-400/25 bg-yellow-400/5 text-[0.7rem] text-yellow-300"
+                          >
+                            {education.status}
+                          </Badge>
+                        )}
+                      </div>
+                      <p className="mt-1 text-xs leading-relaxed text-zinc-400 sm:text-sm">
+                        {education.institution} <span aria-hidden="true">•</span> {education.year}
                       </p>
                     </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </AnimatedSection>
-
-          {/* Skills & Expertise */}
-          <AnimatedSection animation="fade-up" delay={300}>
-            <div className="space-y-3">
-              <h4 className="text-sm font-medium text-zinc-400 flex items-center border-b border-zinc-800 pb-2">
-                <Award className="w-4 h-4 mr-2 text-yellow-400" />
-                Skills & Expertise
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {credentialsInfo.skills.map((skill, index) => (
-                  <SkillTag key={index}>{skill}</SkillTag>
+                  </article>
                 ))}
               </div>
             </div>
