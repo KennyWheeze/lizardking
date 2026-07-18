@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, Download, ExternalLink, Github } from "lucide-react"
+import { ArrowLeft, Download, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SkillTag } from "@/components/skill-tag"
@@ -35,7 +35,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         "A structured performance analysis tool used to identify whether sales conversion issues are caused by knowledge, skill, process, accountability, or market/offer gaps.",
       includes:
         "Includes: diagnostic framework, data collection plan, interview questions, observation checklist, lost inquiry review categories, gap classification, and solution mapping.",
-      status: "Available",
+      status: "Completed",
       links: [
         {
           label: "View Portfolio Summary",
@@ -56,7 +56,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         "A structured analysis tool used to organize interview findings, classify root causes, determine whether training alone can solve the issue, and map each gap to the appropriate solution direction.",
       includes:
         "Includes: interview-based findings, gap categories, root causes, training decision checks, priority levels, and recommended solution directions.",
-      status: "Available",
+      status: "Completed",
       links: [
         {
           label: "View Matrix Summary",
@@ -75,26 +75,45 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       title: "Sales Enablement Solution Design",
       description:
         "A design plan that outlines the recommended blend of learning activities, job aids, workflow support, accountability measures, and evaluation methods.",
-      status: "Coming soon",
+      status: "In development",
     },
     {
       title: "Sales Playbook / Job Aid",
       description:
         "A practical performance support tool for service comparison, client needs analysis, value messaging, objection handling, proposal support, and follow-up.",
-      status: "Coming soon",
+      status: "In development",
     },
     {
       title: "Storyline Conversation Simulation",
       description:
         "A scenario-based prototype where sales or client-facing employees practice responding to client inquiries, asking diagnostic questions, handling objections, and confirming next steps.",
-      status: "Coming soon",
+      status: "In development",
     },
     {
       title: "Evaluation Plan",
       description:
         "A KPI-based plan for measuring response time, follow-up completion, proposal rate, conversion rate, sales conversation quality, and lost reason documentation.",
-      status: "Coming soon",
+      status: "Planned",
     },
+  ]
+  const executiveSummary = [
+    {
+      label: "Business Problem",
+      value: "Potential client inquiries did not consistently progress into confirmed training engagements.",
+    },
+    { label: "My Role", value: "Instructional Designer and Performance Consultant" },
+    { label: "Approach", value: "Performance analysis before training design" },
+    { label: "Project Type", value: "Independent anonymized workplace case study" },
+    { label: "Timeline", value: "10-week portfolio project" },
+    { label: "Current Status", value: "Diagnostic phase completed; intervention assets in development" },
+  ]
+  const projectStatuses = [
+    { artifact: "Diagnostic Toolkit", status: "Completed" },
+    { artifact: "Gap Analysis Matrix", status: "Completed" },
+    { artifact: "Sales Enablement Solution Design", status: "In development" },
+    { artifact: "Sales Playbook / Job Aid", status: "In development" },
+    { artifact: "Storyline Conversation Simulation", status: "In development" },
+    { artifact: "Evaluation Plan", status: "Planned" },
   ]
 
   if (!project) {
@@ -110,17 +129,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       <PortfolioHeader />
 
       <div className="relative z-10 container mx-auto p-3 sm:p-4 pt-20 sm:pt-24 pb-6 sm:pb-8">
-        {/* Back Button */}
-        <AnimatedSection animation="fade-in">
-          <Link
-            href="/"
-            className="inline-flex items-center text-xs sm:text-sm text-zinc-400 hover:text-white mb-4 sm:mb-6 transition-colors"
-          >
-            <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-            Back to Portfolio
-          </Link>
-        </AnimatedSection>
-
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Project Header */}
           <AnimatedSection animation="fade-up" className="lg:col-span-3">
@@ -139,63 +147,129 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   <p className="text-sm text-zinc-400 mt-1 sm:mt-2 max-w-2xl">{project.shortDescription}</p>
                 </div>
               </div>
+              <CardContent className="p-4 sm:p-6">
+                <div className="rounded-lg border border-zinc-800 bg-zinc-950/50 p-3 text-sm leading-relaxed text-zinc-300 sm:p-4">
+                  This independent portfolio case study is based on a real workplace performance challenge.
+                  Organizational details, internal information, and identifying data have been anonymized.
+                </div>
+
+                <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                  <Button
+                    asChild
+                    size="sm"
+                    className="bg-yellow-400 text-zinc-950 hover:bg-yellow-300 focus-visible:ring-yellow-400"
+                  >
+                    <a
+                      href="/artifacts/sales-enablement/sales-performance-diagnostic-toolkit-summary.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
+                      View Diagnostic Toolkit
+                    </a>
+                  </Button>
+                  <Button asChild size="sm" variant="outline" className="border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white">
+                    <a
+                      href="/artifacts/sales-enablement/gap-analysis-matrix-summary.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
+                      View Gap Analysis Matrix
+                    </a>
+                  </Button>
+                  <Link
+                    href="/"
+                    className="inline-flex w-fit items-center rounded-sm px-1 py-1 text-sm text-zinc-400 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                  >
+                    <ArrowLeft className="mr-1.5 h-3.5 w-3.5" />
+                    Back to Portfolio
+                  </Link>
+                </div>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={100} className="lg:col-span-3">
+            <Card className="border-zinc-800 bg-zinc-900/70 backdrop-blur-sm">
+              <CardContent className="p-4 sm:p-6">
+                <h2 className="text-lg font-bold sm:text-xl">Executive Summary</h2>
+                <dl className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {executiveSummary.map((item) => (
+                    <div key={item.label} className="rounded-lg border border-zinc-800 bg-zinc-950/40 p-3 sm:p-4">
+                      <dt className="text-xs font-semibold uppercase tracking-wide text-yellow-400">{item.label}</dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-zinc-200">{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={150} className="lg:col-span-3">
+            <Card className="border-zinc-800 bg-zinc-900/70 backdrop-blur-sm">
+              <CardContent className="p-4 sm:p-6">
+                <h2 className="text-lg font-bold sm:text-xl">What This Case Study Demonstrates</h2>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.features.map((feature) => (
+                    <SkillTag key={feature}>{feature}</SkillTag>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={200} className="lg:col-span-3">
+            <Card className="border-zinc-800 bg-zinc-900/70 backdrop-blur-sm">
+              <CardContent className="p-4 sm:p-6">
+                <h2 className="text-lg font-bold sm:text-xl">Technologies Used</h2>
+                <div className="mt-4 flex flex-wrap gap-2">
+                  {project.technologies.map((technology) => (
+                    <SkillTag key={technology}>{technology}</SkillTag>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+
+          <AnimatedSection animation="fade-up" delay={250} className="lg:col-span-3">
+            <Card className="border-zinc-800 bg-zinc-900/70 backdrop-blur-sm">
+              <CardContent className="p-4 sm:p-6">
+                <h2 className="text-lg font-bold sm:text-xl">Project Status</h2>
+                <ul className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
+                  {projectStatuses.map((item) => (
+                    <li key={item.artifact} className="flex items-center justify-between gap-3 rounded-lg border border-zinc-800 bg-zinc-950/40 p-3">
+                      <span className="text-sm font-medium text-zinc-200">{item.artifact}</span>
+                      <span
+                        className={
+                          item.status === "Completed"
+                            ? "shrink-0 rounded-full border border-green-400/30 bg-green-400/10 px-2.5 py-1 text-xs font-medium text-green-300"
+                            : item.status === "In development"
+                              ? "shrink-0 rounded-full border border-yellow-400/30 bg-yellow-400/10 px-2.5 py-1 text-xs font-medium text-yellow-300"
+                              : "shrink-0 rounded-full border border-zinc-600 bg-zinc-800/70 px-2.5 py-1 text-xs font-medium text-zinc-300"
+                        }
+                      >
+                        {item.status}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
             </Card>
           </AnimatedSection>
 
           {/* Project Content */}
-          <div className="lg:col-span-2 space-y-4 sm:space-y-6">
+          <div className="lg:col-span-3 space-y-4 sm:space-y-6">
             <AnimatedSection animation="fade-up" delay={100}>
               <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Project Overview</h2>
+                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Project Context and Overview</h2>
                   <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-zinc-300">
                     {project.description.map((paragraph, index) => (
                       <p key={index}>{paragraph}</p>
                     ))}
                   </div>
 
-                  <AnimatedSection animation="fade-up" delay={200}>
-                    <h3 className="text-base sm:text-lg font-bold mt-6 sm:mt-8 mb-2 sm:mb-3">Key Features</h3>
-                    <ul className="list-disc pl-5 space-y-1 sm:space-y-2 text-sm sm:text-base text-zinc-300">
-                      {project.features.map((feature, index) => (
-                        <li key={index}>{feature}</li>
-                      ))}
-                    </ul>
-                  </AnimatedSection>
-
-                  <AnimatedSection animation="fade-up" delay={300}>
-                    <h3 className="text-base sm:text-lg font-bold mt-6 sm:mt-8 mb-2 sm:mb-3">Technologies Used</h3>
-                    <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
-                      {project.technologies.map((tech, index) => (
-                        <SkillTag key={index}>{tech}</SkillTag>
-                      ))}
-                    </div>
-                  </AnimatedSection>
-
-                  <AnimatedSection animation="fade-up" delay={400}>
-                    <div className="flex flex-wrap gap-2 sm:gap-3 mt-6 sm:mt-8">
-                      {project.liveUrl && (
-                        <Button
-                          asChild
-                          size="sm"
-                          className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-xs sm:text-sm"
-                        >
-                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                            View Case Study
-                          </a>
-                        </Button>
-                      )}
-                      {project.githubUrl && (
-                        <Button asChild variant="outline" size="sm" className="text-xs sm:text-sm">
-                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                            <Github className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
-                            Diagnostic Toolkit Coming Soon
-                          </a>
-                        </Button>
-                      )}
-                    </div>
-                  </AnimatedSection>
                 </CardContent>
               </Card>
             </AnimatedSection>
@@ -226,67 +300,6 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             )}
           </div>
 
-          {/* Project Sidebar */}
-          <div className="space-y-4 sm:space-y-6">
-            <AnimatedSection animation="slide-left" delay={100}>
-              <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
-                <CardContent className="p-4 sm:p-6">
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Project Details</h2>
-
-                  <div className="space-y-3 sm:space-y-4">
-                    <div>
-                      <h3 className="text-xs sm:text-sm font-medium text-zinc-400">Client</h3>
-                      <p className="text-sm sm:text-base">{project.client || "Personal Project"}</p>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xs sm:text-sm font-medium text-zinc-400">Timeline</h3>
-                      <p className="text-sm sm:text-base">{project.timeline}</p>
-                    </div>
-
-                    <div>
-                      <h3 className="text-xs sm:text-sm font-medium text-zinc-400">Role</h3>
-                      <p className="text-sm sm:text-base">{project.role}</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
-
-            {/* Next Projects */}
-            <AnimatedSection animation="slide-left" delay={200}>
-              <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
-                <CardContent className="p-4 sm:p-6">
-                  <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">More Projects</h2>
-                  <div className="space-y-3 sm:space-y-4">
-                    {project.relatedProjects &&
-                      project.relatedProjects.map((related, index) => (
-                        <AnimatedSection key={index} animation="fade-up" delay={100 * (index + 1)}>
-                          <Link href={`/projects/${related.slug}`} className="block group">
-                            <div className="flex items-center gap-2 sm:gap-3">
-                              <div className="relative w-12 h-12 sm:w-16 sm:h-16 rounded overflow-hidden flex-shrink-0">
-                                <Image
-                                  src={related.image || "/placeholder.svg"}
-                                  alt={related.title}
-                                  fill
-                                  className="object-cover"
-                                />
-                              </div>
-                              <div>
-                                <h3 className="text-sm sm:text-base font-medium group-hover:text-cyan-400 transition-colors">
-                                  {related.title}
-                                </h3>
-                                <p className="text-xs text-zinc-400">{related.category}</p>
-                              </div>
-                            </div>
-                          </Link>
-                        </AnimatedSection>
-                      ))}
-                  </div>
-                </CardContent>
-              </Card>
-            </AnimatedSection>
-          </div>
         </div>
 
         <AnimatedSection animation="fade-up" delay={300} className="mt-4 sm:mt-6">
@@ -435,11 +448,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       <h3 className="text-base font-semibold leading-6 text-white">{artifact.title}</h3>
                       <span
                         className={
-                          artifact.status === "Available"
-                            ? "shrink-0 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"
-                            : artifact.status === "In progress"
-                            ? "shrink-0 rounded-full border border-yellow-400/40 bg-yellow-400/10 px-2.5 py-1 text-xs font-medium text-yellow-300"
-                            : "shrink-0 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-2.5 py-1 text-xs font-medium text-cyan-300"
+                          artifact.status === "Completed"
+                            ? "shrink-0 rounded-full border border-green-400/30 bg-green-400/10 px-2.5 py-1 text-xs font-medium text-green-300"
+                            : artifact.status === "In development"
+                              ? "shrink-0 rounded-full border border-yellow-400/40 bg-yellow-400/10 px-2.5 py-1 text-xs font-medium text-yellow-300"
+                              : "shrink-0 rounded-full border border-zinc-600 bg-zinc-800/70 px-2.5 py-1 text-xs font-medium text-zinc-300"
                         }
                       >
                         {artifact.status}
@@ -516,6 +529,33 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             </CardContent>
           </Card>
         </AnimatedSection>
+
+        {project.relatedProjects && project.relatedProjects.length > 0 && (
+          <AnimatedSection animation="fade-up" delay={550} className="mt-4 sm:mt-6">
+            <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+              <CardContent className="p-4 sm:p-6">
+                <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">More Projects</h2>
+                <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                  {project.relatedProjects.map((related) => (
+                    <Link
+                      key={related.slug}
+                      href={`/projects/${related.slug}`}
+                      className="group flex items-center gap-3 rounded-lg border border-zinc-800 bg-zinc-950/40 p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                    >
+                      <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded">
+                        <Image src={related.image || "/placeholder.svg"} alt={related.title} fill className="object-cover" />
+                      </div>
+                      <div className="min-w-0">
+                        <h3 className="text-sm font-medium transition-colors group-hover:text-yellow-400">{related.title}</h3>
+                        <p className="mt-1 text-xs text-zinc-400">{related.category}</p>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </AnimatedSection>
+        )}
 
         {/* Footer */}
         <AnimatedSection
