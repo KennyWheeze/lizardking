@@ -14,18 +14,18 @@ export function EngagementsSection() {
             <col style={{ width: "10%" }} />
           </colgroup>
 
-          <thead className="bg-zinc-900/70">
+          <thead className="bg-card/90">
             <tr>
-              <th className="px-4 py-2 text-left font-medium text-yellow-400 border-b border-zinc-800">
+              <th className="px-4 py-2 text-left font-medium text-primary border-b border-border">
                 Title
               </th>
-              <th className="px-4 py-2 text-left font-medium text-yellow-400 border-b border-zinc-800">
+              <th className="px-4 py-2 text-left font-medium text-primary border-b border-border">
                 Organization
               </th>
-              <th className="px-4 py-2 text-left font-medium text-yellow-400 border-b border-zinc-800">
+              <th className="px-4 py-2 text-left font-medium text-primary border-b border-border">
                 Description
               </th>
-              <th className="px-4 py-2 text-right font-medium text-yellow-400 border-b border-zinc-800">
+              <th className="px-4 py-2 text-right font-medium text-primary border-b border-border">
                 Year
               </th>
             </tr>
@@ -35,22 +35,22 @@ export function EngagementsSection() {
             {portfolio.engagements.map((item, index) => (
               <tr
                 key={index}
-                className="odd:bg-transparent even:bg-zinc-900/50 hover:bg-zinc-800/50 transition"
+                className="odd:bg-transparent even:bg-background-elevated/60 hover:bg-surface-inset/80 transition"
               >
-                <td className="px-4 py-3 align-top border-b border-zinc-800">
+                <td className="px-4 py-3 align-top border-b border-border">
                   <div className="font-medium">{item.title}</div>
                 </td>
 
-                <td className="px-4 py-3 align-top border-b border-zinc-800">
-                  <div className="text-sm text-zinc-400">{item.organization}</div>
+                <td className="px-4 py-3 align-top border-b border-border">
+                  <div className="text-sm text-muted-foreground">{item.organization}</div>
                 </td>
 
-                <td className="px-4 py-3 align-top border-b border-zinc-800 break-words">
-                  <div className="text-sm text-zinc-300">{item.description}</div>
+                <td className="px-4 py-3 align-top border-b border-border break-words">
+                  <div className="text-sm text-foreground-secondary">{item.description}</div>
                 </td>
 
-                <td className="px-4 py-3 align-top border-b border-zinc-800 text-right">
-                  <div className="text-sm text-zinc-400">{item.year ?? "—"}</div>
+                <td className="px-4 py-3 align-top border-b border-border text-right">
+                  <div className="text-sm text-muted-foreground">{item.year ?? "—"}</div>
                 </td>
               </tr>
             ))}
@@ -63,16 +63,16 @@ export function EngagementsSection() {
         {portfolio.engagements.map((item, index) => (
           <div
             key={index}
-            className="p-3 rounded-md bg-zinc-900/70 border border-zinc-800"
+            className="p-3 rounded-md bg-card/90 border border-border"
           >
             <div className="flex items-start justify-between">
               <div>
                 <div className="font-semibold">{item.title}</div>
-                <div className="text-sm text-zinc-400 mt-1">{item.organization}</div>
+                <div className="text-sm text-muted-foreground mt-1">{item.organization}</div>
               </div>
-              <div className="text-sm text-zinc-400 ml-4">{item.year ?? "—"}</div>
+              <div className="text-sm text-muted-foreground ml-4">{item.year ?? "—"}</div>
             </div>
-            <p className="mt-2 text-sm text-zinc-300">{item.description}</p>
+            <p className="mt-2 text-sm text-foreground-secondary">{item.description}</p>
           </div>
         ))}
       </div>

@@ -5,30 +5,30 @@ import { SocialLinks } from "@/components/social-links"
 
 export function ContactSection() {
   return (
-    <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm col-span-1 md:col-span-3 lg:col-span-4 overflow-hidden">
+    <Card className="bg-card/90 border-border backdrop-blur-sm col-span-1 md:col-span-3 lg:col-span-4 overflow-hidden">
       <CardContent className="p-0">
         <div className="grid grid-cols-1 lg:grid-cols-3">
           {/* Contact Information */}
-          <div className="bg-zinc-800/50 p-6 lg:p-8">
+          <div className="bg-surface-inset/80 p-6 lg:p-8">
             <div className="flex items-center mb-6">
-              <UserIcon className="w-5 h-5 mr-2 text-yellow-400" />
+              <UserIcon className="w-5 h-5 mr-2 text-primary" />
               <h3 className="text-lg font-medium">Get in Touch</h3>
             </div>
 
             <div className="space-y-6">
-              <p className="text-zinc-300">
+              <p className="text-foreground-secondary">
                 I'm always interested in new projects and opportunities. Feel free to reach out if you want to work
                 together or just say hello!
               </p>
 
               <div className="space-y-4">
                 <div className="flex items-start">
-                  <Mail className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
+                  <Mail className="w-5 h-5 mr-3 text-primary mt-0.5" />
                   <div>
                     <h4 className="font-medium">Email</h4>
                     <a
                       href="mailto:jane.doe@example.com"
-                      className="text-sm text-zinc-400 hover:text-yellow-400 transition-colors"
+                    className="text-sm text-muted-foreground hover:text-primary-hover transition-colors"
                     >
                       jane.doe@example.com
                     </a>
@@ -36,28 +36,28 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start">
-                  <Phone className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
+                  <Phone className="w-5 h-5 mr-3 text-accent-secondary mt-0.5" />
                   <div>
                     <h4 className="font-medium">Phone</h4>
-                    <a href="tel:+14155552671" className="text-sm text-zinc-400 hover:text-yellow-400 transition-colors">
+                    <a href="tel:+14155552671" className="text-sm text-muted-foreground hover:text-primary-hover transition-colors">
                       +1 (415) 555-2671
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <MapPin className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
+                  <MapPin className="w-5 h-5 mr-3 text-muted-foreground mt-0.5" />
                   <div>
                     <h4 className="font-medium">Location</h4>
-                    <p className="text-sm text-zinc-400">San Francisco, California</p>
+                    <p className="text-sm text-muted-foreground">San Francisco, California</p>
                   </div>
                 </div>
 
                 <div className="flex items-start">
-                  <Clock className="w-5 h-5 mr-3 text-yellow-400 mt-0.5" />
+                  <Clock className="w-5 h-5 mr-3 text-muted-foreground mt-0.5" />
                   <div>
                     <h4 className="font-medium">Working Hours</h4>
-                    <p className="text-sm text-zinc-400">Monday - Friday, 9am - 5pm PST</p>
+                    <p className="text-sm text-muted-foreground">Monday - Friday, 9am - 5pm PST</p>
                   </div>
                 </div>
               </div>

@@ -7,13 +7,13 @@ export function HomepageContactCta() {
   const personalInfo = getPersonalInfo()
 
   return (
-    <Card className="relative overflow-hidden border-zinc-800 bg-zinc-900/70 backdrop-blur-sm">
-      <div aria-hidden="true" className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-yellow-400/5 blur-3xl" />
+    <Card className="relative overflow-hidden border-border bg-card/90 backdrop-blur-sm">
+      <div aria-hidden="true" className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-accent/10 blur-3xl" />
       <CardContent className="relative p-5 text-center sm:p-7">
-        <h3 className="text-xl font-semibold leading-snug text-white sm:text-2xl">
+        <h3 className="text-xl font-semibold leading-snug text-foreground sm:text-2xl">
           Looking for someone who can connect safety, learning, and operations?
         </h3>
-        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-zinc-300 sm:text-base">
+        <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-foreground-secondary sm:text-base">
           I am currently exploring opportunities in Safety and HSE, training and learning operations, instructional
           design, and learning technology.
         </p>
@@ -21,7 +21,7 @@ export function HomepageContactCta() {
         <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
           <Button
             asChild
-            className="bg-yellow-400 text-zinc-950 hover:bg-yellow-300 focus-visible:ring-yellow-400"
+            className="bg-primary text-primary-foreground hover:bg-primary-hover focus-visible:ring-ring"
           >
             <a href={`mailto:${personalInfo.email}`} aria-label={`Contact ${personalInfo.name} by email`}>
               <Mail aria-hidden="true" />
@@ -32,7 +32,7 @@ export function HomepageContactCta() {
           <Button
             asChild
             variant="outline"
-            className="border-zinc-600 bg-transparent text-white hover:bg-zinc-800 hover:text-white"
+            className="border-border-strong bg-transparent text-foreground-secondary hover:border-primary hover:bg-card-hover hover:text-foreground"
           >
             <a href="/projects" aria-label="View all portfolio projects">
               <FolderKanban aria-hidden="true" />

@@ -46,11 +46,11 @@ export function ContactForm() {
   if (isSubmitted) {
     return (
       <div className="flex flex-col items-center justify-center p-6">
-        <div className="w-16 h-16 mb-4 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 flex items-center justify-center">
-          <SendIcon className="w-6 h-6 text-white" />
+        <div className="w-16 h-16 mb-4 rounded-full bg-gradient-to-r from-primary to-accent flex items-center justify-center">
+          <SendIcon className="w-6 h-6 text-foreground" />
         </div>
         <h4 className="text-lg font-medium mb-2">Message Sent!</h4>
-        <p className="text-sm text-center text-zinc-400 mb-4">
+        <p className="text-sm text-center text-muted-foreground mb-4">
           Thanks for reaching out. I'll get back to you as soon as possible.
         </p>
         <Button variant="outline" onClick={() => setIsSubmitted(false)}>
@@ -69,15 +69,15 @@ export function ContactForm() {
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-zinc-400">Name</FormLabel>
+                <FormLabel className="text-muted-foreground">Name</FormLabel>
                 <FormControl>
                   <Input
                     placeholder="Your name"
-                    className="bg-zinc-800/50 border-zinc-700 focus:border-yellow-500"
+                    className="bg-surface-inset/80 border-border-strong focus:border-primary"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-xs text-red-500" />
+                <FormMessage className="text-xs text-destructive" />
               </FormItem>
             )}
           />
@@ -87,16 +87,16 @@ export function ContactForm() {
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel className="text-zinc-400">Email</FormLabel>
+                <FormLabel className="text-muted-foreground">Email</FormLabel>
                 <FormControl>
                   <Input
                     type="email"
                     placeholder="your.email@example.com"
-                    className="bg-zinc-800/50 border-zinc-700 focus:border-yellow-500"
+                    className="bg-surface-inset/80 border-border-strong focus:border-primary"
                     {...field}
                   />
                 </FormControl>
-                <FormMessage className="text-xs text-red-500" />
+                <FormMessage className="text-xs text-destructive" />
               </FormItem>
             )}
           />
@@ -107,15 +107,15 @@ export function ContactForm() {
           name="subject"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-zinc-400">Subject</FormLabel>
+              <FormLabel className="text-muted-foreground">Subject</FormLabel>
               <FormControl>
                 <Input
                   placeholder="What is this regarding?"
-                  className="bg-zinc-800/50 border-zinc-700 focus:border-yellow-500"
+                  className="bg-surface-inset/80 border-border-strong focus:border-primary"
                   {...field}
                 />
               </FormControl>
-              <FormMessage className="text-xs text-red-500" />
+              <FormMessage className="text-xs text-destructive" />
             </FormItem>
           )}
         />
@@ -125,22 +125,22 @@ export function ContactForm() {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel className="text-zinc-400">Message</FormLabel>
+              <FormLabel className="text-muted-foreground">Message</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="Your message"
-                  className="bg-zinc-800/50 border-zinc-700 focus:border-cyan-500 min-h-[120px]"
+                  className="bg-surface-inset/80 border-border-strong focus:border-primary min-h-[120px]"
                   {...field}
                 />
               </FormControl>
-              <FormMessage className="text-xs text-red-500" />
+              <FormMessage className="text-xs text-destructive" />
             </FormItem>
           )}
         />
 
         <Button
           type="submit"
-          className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
+          className="w-full bg-primary text-primary-foreground hover:bg-primary-hover"
           disabled={form.formState.isSubmitting}
         >
           {form.formState.isSubmitting ? (

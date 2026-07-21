@@ -50,17 +50,17 @@ export function PortfolioHeader() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
-        scrolled ? "bg-zinc-900/90 backdrop-blur-md shadow-md py-2" : "bg-transparent",
+        scrolled ? "border-b border-border bg-background-elevated/90 backdrop-blur-md shadow-md py-2" : "bg-transparent",
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">
         {/* Logo/Name */}
         <Link href="/" className="flex items-center group">
-          <div className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-500 font-bold text-xl relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
+          <div className="text-primary font-bold text-xl relative overflow-hidden transition-transform duration-300 group-hover:scale-105">
             {personalInfo.name}
-            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-500 transition-all duration-300 group-hover:w-full"></span>
+            <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full"></span>
           </div>
-          <span className="text-zinc-400 text-sm ml-2 hidden sm:inline-block transition-all duration-300 group-hover:text-zinc-300">
+          <span className="text-muted-foreground text-sm ml-2 hidden sm:inline-block transition-all duration-300 group-hover:text-foreground-secondary">
             / Safety, Learning &amp; Systems Professional
           </span>
         </Link>
@@ -82,14 +82,14 @@ export function PortfolioHeader() {
                 href={target}
                 className={cn(
                   "px-3 py-2 text-sm relative group transition-all duration-300",
-                  isActive ? "text-yellow-400" : "text-zinc-400 hover:text-white",
+                  isActive ? "font-medium text-primary" : "text-muted-foreground hover:text-primary-hover",
                 )}
               >
                 <span className="relative z-10">{item.label}</span>
-                <span className="absolute inset-0 bg-yellow-500/0 rounded-md group-hover:bg-yellow-500/10 transition-all duration-300"></span>
+                <span className="absolute inset-0 rounded-md bg-primary/0 group-hover:bg-primary/10 transition-all duration-300"></span>
                 <span
                   className={cn(
-                    "absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-500 transition-all duration-300 group-hover:w-4/5",
+                    "absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-4/5",
                     isActive && "w-4/5",
                   )}
                 ></span>
@@ -100,19 +100,19 @@ export function PortfolioHeader() {
 
         {/* Mobile Menu Button */}
         <button
-          className="md:hidden text-zinc-400 hover:text-white transition-colors duration-300 relative overflow-hidden group"
+          className="md:hidden text-muted-foreground hover:text-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors duration-300 relative overflow-hidden group"
           onClick={toggleMobileMenu}
           aria-label="Toggle menu"
         >
           <span className="relative z-10">{mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}</span>
-          <span className="absolute inset-0 scale-0 rounded-full bg-zinc-700/50 group-hover:scale-100 transition-transform duration-300"></span>
+          <span className="absolute inset-0 scale-0 rounded-full bg-surface-raised/70 group-hover:scale-100 transition-transform duration-300"></span>
         </button>
       </div>
 
       {/* Mobile Navigation */}
       <div
         className={cn(
-          "fixed inset-0 bg-black/95 z-40 flex flex-col pt-20 px-4 md:hidden transition-all duration-500",
+          "fixed inset-0 bg-background/95 z-40 flex flex-col pt-20 px-4 md:hidden transition-all duration-500",
           mobileMenuOpen ? "opacity-100 translate-x-0" : "opacity-0 translate-x-full pointer-events-none",
         )}
       >
@@ -131,8 +131,8 @@ export function PortfolioHeader() {
                 key={item.label}
                 href={target}
                 className={cn(
-                  "px-3 py-4 text-lg border-b border-zinc-800 relative group transition-all duration-300",
-                  isActive ? "text-yellow-400 border-yellow-400/30" : "text-zinc-300 hover:text-white hover:pl-5",
+                  "px-3 py-4 text-lg border-b border-border relative group transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                  isActive ? "font-medium text-primary border-primary/30" : "text-foreground-secondary hover:text-primary-hover hover:pl-5",
                 )}
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
@@ -144,7 +144,7 @@ export function PortfolioHeader() {
                 <span className="relative z-10">{item.label}</span>
                 <span
                   className={cn(
-                    "absolute left-0 top-1/2 -translate-y-1/2 w-0 h-1/2 bg-gradient-to-b from-yellow-400/20 to-yellow-500/20 transition-all duration-300 group-hover:w-1",
+                    "absolute left-0 top-1/2 -translate-y-1/2 w-0 h-1/2 bg-primary/40 transition-all duration-300 group-hover:w-1",
                     isActive && "w-1",
                   )}
                 ></span>

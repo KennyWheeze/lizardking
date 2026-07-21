@@ -10,13 +10,13 @@ export function CredentialsSection() {
   const homepageEducation = credentialsInfo.education.filter((education) => education.showOnHomepage)
 
   return (
-    <Card className="border-zinc-800 bg-zinc-900/70 backdrop-blur-sm">
+    <Card className="border-border bg-card/90 backdrop-blur-sm">
       <CardContent className="p-4 sm:p-6">
         <div className="mb-5 flex items-start sm:mb-6">
-          <Award aria-hidden="true" className="mr-2 mt-0.5 h-5 w-5 shrink-0 text-yellow-400" />
+          <Award aria-hidden="true" className="mr-2 mt-0.5 h-5 w-5 shrink-0 text-primary" />
           <div>
             <h3 className="text-lg font-medium">Credentials</h3>
-            <p className="mt-1 max-w-3xl text-sm leading-relaxed text-zinc-400">
+            <p className="mt-1 max-w-3xl text-sm leading-relaxed text-muted-foreground">
               Professional certifications and academic preparation supporting my work in safety, learning, systems,
               and operations.
             </p>
@@ -26,8 +26,8 @@ export function CredentialsSection() {
         <div className="space-y-7 sm:space-y-8">
           <AnimatedSection animation="fade-up" delay={100}>
             <div className="space-y-4">
-              <h4 className="flex items-center border-b border-zinc-800 pb-2 text-sm font-medium text-zinc-300">
-                <Award aria-hidden="true" className="mr-2 h-4 w-4 text-yellow-400" />
+              <h4 className="flex items-center border-b border-border pb-2 text-sm font-medium text-foreground-secondary">
+                <Award aria-hidden="true" className="mr-2 h-4 w-4 text-primary" />
                 Professional Certifications
               </h4>
 
@@ -35,10 +35,10 @@ export function CredentialsSection() {
                 {credentialsInfo.certifications.map((certification) => (
                   <article
                     key={certification.name}
-                    className="flex h-full items-start rounded-lg border border-zinc-800 bg-zinc-950/40 p-3 sm:p-4"
+                    className="flex h-full items-start rounded-lg border border-border bg-surface-inset/70 p-3 sm:p-4"
                   >
                     {certification.logo ? (
-                      <div className="relative mr-3 h-11 w-11 shrink-0 overflow-hidden rounded-md bg-zinc-800">
+                      <div className="relative mr-3 h-11 w-11 shrink-0 overflow-hidden rounded-md bg-surface-raised">
                         <Image
                           src={certification.logo}
                           alt={`${certification.issuer} logo`}
@@ -48,19 +48,19 @@ export function CredentialsSection() {
                         />
                       </div>
                     ) : (
-                      <div className="mr-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-zinc-800">
-                        <Award aria-hidden="true" className="h-5 w-5 text-yellow-400" />
+                      <div className="mr-3 flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-surface-raised">
+                        <Award aria-hidden="true" className="h-5 w-5 text-primary" />
                       </div>
                     )}
 
                     <div className="flex min-w-0 flex-1 flex-col items-start">
-                      <h5 className="text-sm font-semibold leading-snug text-zinc-100">{certification.name}</h5>
-                      <p className="mt-1 text-xs leading-relaxed text-zinc-400">
+                      <h5 className="text-sm font-semibold leading-snug text-foreground">{certification.name}</h5>
+                      <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
                         {certification.issuer} <span aria-hidden="true">•</span> {certification.date}
                       </p>
                       <Badge
                         variant="outline"
-                        className="mt-3 border-yellow-400/25 bg-yellow-400/5 text-[0.7rem] text-yellow-300"
+                        className="mt-3 border-primary/35 bg-primary/10 text-[0.7rem] text-primary-hover"
                       >
                         {certification.relevance}
                       </Badge>
@@ -73,8 +73,8 @@ export function CredentialsSection() {
 
           <AnimatedSection animation="fade-up" delay={200}>
             <div className="space-y-4">
-              <h4 className="flex items-center border-b border-zinc-800 pb-2 text-sm font-medium text-zinc-300">
-                <GraduationCap aria-hidden="true" className="mr-2 h-4 w-4 text-yellow-400" />
+              <h4 className="flex items-center border-b border-border pb-2 text-sm font-medium text-foreground-secondary">
+                <GraduationCap aria-hidden="true" className="mr-2 h-4 w-4 text-accent-secondary" />
                 Education
               </h4>
 
@@ -82,10 +82,10 @@ export function CredentialsSection() {
                 {homepageEducation.map((education) => (
                   <article
                     key={education.degree}
-                    className="flex items-start rounded-lg border border-zinc-800 bg-zinc-950/40 p-3 sm:p-4"
+                    className="flex items-start rounded-lg border border-border bg-surface-inset/70 p-3 sm:p-4"
                   >
                     {education.logo ? (
-                      <div className="relative mr-3 h-10 w-10 shrink-0 overflow-hidden rounded-md bg-zinc-800">
+                      <div className="relative mr-3 h-10 w-10 shrink-0 overflow-hidden rounded-md bg-surface-raised">
                         <Image
                           src={education.logo}
                           alt={`${education.institution} logo`}
@@ -95,26 +95,26 @@ export function CredentialsSection() {
                         />
                       </div>
                     ) : (
-                      <div className="mr-3 flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-zinc-800">
-                        <GraduationCap aria-hidden="true" className="h-5 w-5 text-yellow-400" />
+                      <div className="mr-3 flex h-10 w-10 shrink-0 items-center justify-center rounded-md bg-surface-raised">
+                        <GraduationCap aria-hidden="true" className="h-5 w-5 text-accent-secondary" />
                       </div>
                     )}
 
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <h5 className="text-sm font-semibold leading-snug text-zinc-100 sm:text-base">
+                        <h5 className="text-sm font-semibold leading-snug text-foreground sm:text-base">
                           {education.degree}
                         </h5>
                         {education.status && (
                           <Badge
                             variant="outline"
-                            className="border-yellow-400/25 bg-yellow-400/5 text-[0.7rem] text-yellow-300"
+                            className="border-accent/35 bg-accent/10 text-[0.7rem] text-accent-secondary"
                           >
                             {education.status}
                           </Badge>
                         )}
                       </div>
-                      <p className="mt-1 text-xs leading-relaxed text-zinc-400 sm:text-sm">
+                      <p className="mt-1 text-xs leading-relaxed text-muted-foreground sm:text-sm">
                         {education.institution} <span aria-hidden="true">•</span> {education.year}
                       </p>
                     </div>

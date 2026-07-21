@@ -16,9 +16,9 @@ export default function Home() {
   const homepageCapabilities = getHomepageCapabilities()
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-background text-foreground">
       {/* Background Grid Pattern */}
-      <div className="fixed inset-0 bg-[radial-gradient(#333_1px,transparent_1px)] [background-size:20px_20px] opacity-20 z-0"></div>
+      <div className="fixed inset-0 bg-[radial-gradient(hsl(var(--border-strong))_1px,transparent_1px)] [background-size:20px_20px] opacity-20 z-0"></div>
 
       {/* Header */}
       <PortfolioHeader />
@@ -38,10 +38,10 @@ export default function Home() {
           <div className="col-span-1 md:col-span-2 lg:col-span-3 space-y-4 sm:space-y-6">
             {/* Experience Section */}
             <AnimatedSection animation="fade-up" id="experience">
-              <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+              <Card className="bg-card/90 border-border backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center mb-4 sm:mb-6">
-                    <BriefcaseIcon className="w-5 h-5 mr-2 text-yellow-400" />
+                    <BriefcaseIcon className="w-5 h-5 mr-2 text-primary" />
                     <h3 className="text-lg font-medium">Experience</h3>
                   </div>
 
@@ -63,13 +63,13 @@ export default function Home() {
 
             {/* Featured Work Section */}
             <AnimatedSection animation="fade-up" id="projects">
-              <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+              <Card className="bg-card/90 border-border backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
                   <div className="flex items-center mb-4 sm:mb-6">
-                    <BriefcaseIcon className="w-5 h-5 mr-2 text-yellow-400" />
+                    <BriefcaseIcon className="w-5 h-5 mr-2 text-primary" />
                     <div>
                       <h3 className="text-lg font-medium">Featured Work</h3>
-                      <p className="mt-1 text-sm leading-relaxed text-zinc-400">
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
                         Selected examples of how I improve safety, learning, operations, and organizational performance.
                       </p>
                     </div>
@@ -87,13 +87,13 @@ export default function Home() {
 
             {/* Capabilities Section */}
             <AnimatedSection animation="fade-up" id="skills">
-              <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+              <Card className="bg-card/90 border-border backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
                   <div className="mb-5 flex items-start sm:mb-6">
-                    <CodeIcon className="mr-2 mt-0.5 h-5 w-5 shrink-0 text-yellow-400" />
+                    <CodeIcon className="mr-2 mt-0.5 h-5 w-5 shrink-0 text-accent-secondary" />
                     <div>
                       <h3 className="text-lg font-medium">Capabilities</h3>
-                      <p className="mt-1 max-w-3xl text-sm leading-relaxed text-zinc-400">
+                      <p className="mt-1 max-w-3xl text-sm leading-relaxed text-muted-foreground">
                         Core capabilities developed through safety, training, leadership, instructional design, and
                         digital operations work.
                       </p>
@@ -108,12 +108,12 @@ export default function Home() {
                         delay={100 * (index + 1)}
                       >
                         <div className="space-y-3">
-                          <h4 className="text-sm font-semibold text-zinc-200 sm:text-base">{group.title}</h4>
+                          <h4 className="text-sm font-semibold text-foreground-secondary sm:text-base">{group.title}</h4>
                           <div className="flex flex-wrap gap-2">
                             {group.skills.map((skill) => (
                               <span
                                 key={skill}
-                                className="rounded-full border border-zinc-700 bg-zinc-800/60 px-3 py-1.5 text-sm leading-tight text-zinc-300"
+                                className="rounded-full border border-border-strong bg-surface-inset/80 px-3 py-1.5 text-sm leading-tight text-foreground-secondary"
                               >
                                 {skill}
                               </span>
@@ -137,7 +137,7 @@ export default function Home() {
         <AnimatedSection
           animation="fade-in"
           delay={500}
-          className="mt-8 sm:mt-12 py-4 sm:py-6 text-center text-xs sm:text-sm text-zinc-500"
+          className="mt-8 sm:mt-12 py-4 sm:py-6 text-center text-xs sm:text-sm text-foreground-subtle"
         >
           <p>© {new Date().getFullYear()} Ken Gilmer P. Macawili. All Rights Reserved.</p>
         </AnimatedSection>

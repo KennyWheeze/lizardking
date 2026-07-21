@@ -121,9 +121,9 @@ export default function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-background text-foreground">
       {/* Background Grid Pattern */}
-      <div className="fixed inset-0 bg-[radial-gradient(#333_1px,transparent_1px)] [background-size:20px_20px] opacity-20 z-0"></div>
+      <div className="fixed inset-0 bg-[radial-gradient(hsl(var(--border-strong))_1px,transparent_1px)] [background-size:20px_20px] opacity-20 z-0"></div>
 
       {/* Header */}
       <PortfolioHeader />
@@ -132,7 +132,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6">
           {/* Project Header */}
           <AnimatedSection animation="fade-up" className="lg:col-span-3">
-            <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm overflow-hidden">
+            <Card className="bg-card/90 border-border backdrop-blur-sm overflow-hidden">
               <div className="relative h-48 sm:h-64 md:h-80 w-full">
                 <Image
                   src={project.coverImage || "/placeholder.svg"}
@@ -140,15 +140,15 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   fill
                   className="object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/50 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 p-4 sm:p-6">
-                  <div className="text-xs sm:text-sm text-cyan-400 mb-1 sm:mb-2">{project.category}</div>
+                  <div className="text-xs sm:text-sm text-primary mb-1 sm:mb-2">{project.category}</div>
                   <h1 className="text-xl sm:text-3xl md:text-4xl font-bold">{project.title}</h1>
-                  <p className="text-sm text-zinc-400 mt-1 sm:mt-2 max-w-2xl">{project.shortDescription}</p>
+                  <p className="text-sm text-muted-foreground mt-1 sm:mt-2 max-w-2xl">{project.shortDescription}</p>
                 </div>
               </div>
               <CardContent className="p-4 sm:p-6">
-                <div className="rounded-lg border border-zinc-800 bg-zinc-950/50 p-3 text-sm leading-relaxed text-zinc-300 sm:p-4">
+                <div className="rounded-lg border border-border bg-surface-inset/80 p-3 text-sm leading-relaxed text-foreground-secondary sm:p-4">
                   This independent portfolio case study is based on a real workplace performance challenge.
                   Organizational details, internal information, and identifying data have been anonymized.
                 </div>
@@ -157,7 +157,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   <Button
                     asChild
                     size="sm"
-                    className="bg-yellow-400 text-zinc-950 hover:bg-yellow-300 focus-visible:ring-yellow-400"
+                    className="bg-primary text-primary-foreground hover:bg-primary-hover focus-visible:ring-ring"
                   >
                     <a
                       href="/artifacts/sales-enablement/sales-performance-diagnostic-toolkit-summary.pdf"
@@ -168,7 +168,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                       View Diagnostic Toolkit
                     </a>
                   </Button>
-                  <Button asChild size="sm" variant="outline" className="border-zinc-700 bg-transparent text-white hover:bg-zinc-800 hover:text-white">
+                  <Button asChild size="sm" variant="outline" className="border-border-strong bg-transparent text-foreground hover:bg-surface-raised hover:text-foreground">
                     <a
                       href="/artifacts/sales-enablement/gap-analysis-matrix-summary.pdf"
                       target="_blank"
@@ -180,7 +180,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   </Button>
                   <Link
                     href="/"
-                    className="inline-flex w-fit items-center rounded-sm px-1 py-1 text-sm text-zinc-400 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                    className="inline-flex w-fit items-center rounded-sm px-1 py-1 text-sm text-muted-foreground transition-colors hover:text-primary-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     <ArrowLeft className="mr-1.5 h-3.5 w-3.5" />
                     Back to Portfolio
@@ -191,14 +191,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </AnimatedSection>
 
           <AnimatedSection animation="fade-up" delay={100} className="lg:col-span-3">
-            <Card className="border-zinc-800 bg-zinc-900/70 backdrop-blur-sm">
+            <Card className="border-border bg-card/90 backdrop-blur-sm">
               <CardContent className="p-4 sm:p-6">
                 <h2 className="text-lg font-bold sm:text-xl">Executive Summary</h2>
                 <dl className="mt-4 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
                   {executiveSummary.map((item) => (
-                    <div key={item.label} className="rounded-lg border border-zinc-800 bg-zinc-950/40 p-3 sm:p-4">
-                      <dt className="text-xs font-semibold uppercase tracking-wide text-yellow-400">{item.label}</dt>
-                      <dd className="mt-2 text-sm leading-relaxed text-zinc-200">{item.value}</dd>
+                    <div key={item.label} className="rounded-lg border border-border bg-surface-inset/70 p-3 sm:p-4">
+                      <dt className="text-xs font-semibold uppercase tracking-wide text-primary">{item.label}</dt>
+                      <dd className="mt-2 text-sm leading-relaxed text-foreground-secondary">{item.value}</dd>
                     </div>
                   ))}
                 </dl>
@@ -207,7 +207,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </AnimatedSection>
 
           <AnimatedSection animation="fade-up" delay={150} className="lg:col-span-3">
-            <Card className="border-zinc-800 bg-zinc-900/70 backdrop-blur-sm">
+            <Card className="border-border bg-card/90 backdrop-blur-sm">
               <CardContent className="p-4 sm:p-6">
                 <h2 className="text-lg font-bold sm:text-xl">What This Case Study Demonstrates</h2>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -220,7 +220,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </AnimatedSection>
 
           <AnimatedSection animation="fade-up" delay={200} className="lg:col-span-3">
-            <Card className="border-zinc-800 bg-zinc-900/70 backdrop-blur-sm">
+            <Card className="border-border bg-card/90 backdrop-blur-sm">
               <CardContent className="p-4 sm:p-6">
                 <h2 className="text-lg font-bold sm:text-xl">Technologies Used</h2>
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -233,20 +233,20 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           </AnimatedSection>
 
           <AnimatedSection animation="fade-up" delay={250} className="lg:col-span-3">
-            <Card className="border-zinc-800 bg-zinc-900/70 backdrop-blur-sm">
+            <Card className="border-border bg-card/90 backdrop-blur-sm">
               <CardContent className="p-4 sm:p-6">
                 <h2 className="text-lg font-bold sm:text-xl">Project Status</h2>
                 <ul className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
                   {projectStatuses.map((item) => (
-                    <li key={item.artifact} className="flex items-center justify-between gap-3 rounded-lg border border-zinc-800 bg-zinc-950/40 p-3">
-                      <span className="text-sm font-medium text-zinc-200">{item.artifact}</span>
+                    <li key={item.artifact} className="flex items-center justify-between gap-3 rounded-lg border border-border bg-surface-inset/70 p-3">
+                      <span className="text-sm font-medium text-foreground-secondary">{item.artifact}</span>
                       <span
                         className={
                           item.status === "Completed"
-                            ? "shrink-0 rounded-full border border-green-400/30 bg-green-400/10 px-2.5 py-1 text-xs font-medium text-green-300"
+                            ? "shrink-0 rounded-full border border-success/35 bg-success/10 px-2.5 py-1 text-xs font-medium text-success"
                             : item.status === "In development"
-                              ? "shrink-0 rounded-full border border-yellow-400/30 bg-yellow-400/10 px-2.5 py-1 text-xs font-medium text-yellow-300"
-                              : "shrink-0 rounded-full border border-zinc-600 bg-zinc-800/70 px-2.5 py-1 text-xs font-medium text-zinc-300"
+                              ? "shrink-0 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent-secondary"
+                              : "shrink-0 rounded-full border border-border-strong bg-surface-raised/70 px-2.5 py-1 text-xs font-medium text-foreground-secondary"
                         }
                       >
                         {item.status}
@@ -261,10 +261,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
           {/* Project Content */}
           <div className="lg:col-span-3 space-y-4 sm:space-y-6">
             <AnimatedSection animation="fade-up" delay={100}>
-              <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+              <Card className="bg-card/90 border-border backdrop-blur-sm">
                 <CardContent className="p-4 sm:p-6">
                   <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Project Context and Overview</h2>
-                  <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-zinc-300">
+                  <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-foreground-secondary">
                     {project.description.map((paragraph, index) => (
                       <p key={index}>{paragraph}</p>
                     ))}
@@ -277,13 +277,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
             {/* Project Gallery */}
             {project.gallery && project.gallery.length > 0 && (
               <AnimatedSection animation="fade-up" delay={200}>
-                <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+                <Card className="bg-card/90 border-border backdrop-blur-sm">
                   <CardContent className="p-4 sm:p-6">
                     <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Project Gallery</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4">
                       {project.gallery.map((image, index) => (
                         <AnimatedSection key={index} animation="zoom-in" delay={100 * (index + 1)}>
-                          <div className="relative h-40 sm:h-48 rounded-lg overflow-hidden border border-zinc-800">
+                          <div className="relative h-40 sm:h-48 rounded-lg overflow-hidden border border-border">
                             <Image
                               src={image.url || "/placeholder.svg"}
                               alt={image.caption || `Gallery image ${index + 1}`}
@@ -303,11 +303,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </div>
 
         <AnimatedSection animation="fade-up" delay={300} className="mt-4 sm:mt-6">
-          <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+          <Card className="bg-card/90 border-border backdrop-blur-sm">
             <CardContent className="p-4 sm:p-6">
               <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">The Challenge</h2>
 
-              <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-zinc-300">
+              <div className="space-y-3 sm:space-y-4 text-sm sm:text-base text-foreground-secondary">
                 <p>
                   I chose this project because it reflects a real challenge in technical training services: inquiries do not always turn into confirmed clients. At first glance, this can look like a sales team issue, but I wanted to avoid assuming that training was automatically the solution. 
                   For this case study, I approached the problem as both an instructional designer and performance consultant. 
@@ -315,11 +315,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 </p>
               </div>
 
-              <div className="mt-5 sm:mt-6 rounded-lg border border-yellow-400/30 bg-yellow-400/10 p-4 sm:p-5">
-                <h3 className="text-sm sm:text-base font-bold uppercase tracking-wide text-yellow-300">
+              <div className="mt-5 sm:mt-6 rounded-lg border border-primary/30 bg-primary/10 p-4 sm:p-5">
+                <h3 className="text-sm sm:text-base font-bold uppercase tracking-wide text-primary-hover">
                   Key Diagnostic Question:
                 </h3>
-                <p className="mt-2 text-sm sm:text-base text-zinc-100">
+                <p className="mt-2 text-sm sm:text-base text-foreground">
                   What is preventing client-facing employees from consistently converting potential clients into
                   confirmed clients?
                 </p>
@@ -329,11 +329,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up" delay={350} className="mt-4 sm:mt-6">
-          <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+          <Card className="bg-card/90 border-border backdrop-blur-sm">
             <CardContent className="p-4 sm:p-6">
               <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Diagnostic Approach</h2>
 
-              <p className="w-full text-sm sm:text-base text-zinc-300">
+              <p className="w-full text-sm sm:text-base text-foreground-secondary">
                 To keep the project focused, I used a five-category diagnostic framework. 
                 This helped me avoid jumping straight into course development and instead look at the wider performance system around client conversion. 
                 Each category represents a possible reason why conversion may be inconsistent.
@@ -375,13 +375,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 ].map((item) => (
                   <div
                     key={item.title}
-                    className="rounded-lg border border-zinc-800 bg-zinc-950/40 p-4 sm:p-5 transition-colors hover:border-yellow-400/30"
+                    className="rounded-lg border border-border bg-surface-inset/70 p-4 sm:p-5 transition-colors hover:border-primary/30 hover:bg-card-hover"
                   >
-                    <div className="mb-3 inline-flex h-7 min-w-7 items-center justify-center rounded-full border border-cyan-400/30 bg-cyan-400/10 px-2 text-xs font-bold text-cyan-300">
+                    <div className="mb-3 inline-flex h-7 min-w-7 items-center justify-center rounded-full border border-primary/30 bg-primary/10 px-2 text-xs font-bold text-primary-hover">
                       {item.label}
                     </div>
-                    <h3 className="text-base font-semibold text-white">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-zinc-300">{item.description}</p>
+                    <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-foreground-secondary">{item.description}</p>
                   </div>
                 ))}
               </div>
@@ -390,11 +390,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up" delay={400} className="mt-4 sm:mt-6">
-          <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+          <Card className="bg-card/90 border-border backdrop-blur-sm">
             <CardContent className="p-4 sm:p-6">
               <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Desired Performance Flow</h2>
 
-              <p className="text-sm sm:text-base leading-7 text-zinc-300">
+              <p className="text-sm sm:text-base leading-7 text-foreground-secondary">
                 Before diagnosing the gaps, I first defined what effective sales and client engagement performance should
                 look like. This gave the project a clear standard for comparing actual performance later.
               </p>
@@ -404,22 +404,22 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                   <div key={step} className="relative">
                     {index < desiredPerformanceFlow.length - 1 && (
                       <div className="pointer-events-none absolute left-[calc(100%+0.15rem)] top-1/2 z-10 hidden w-3 -translate-y-1/2 items-center xl:flex">
-                        <span className="h-px flex-1 bg-gradient-to-r from-yellow-300/65 to-yellow-400/45 shadow-[0_0_8px_rgba(250,204,21,0.22)]" />
-                        <span className="h-2 w-2 rotate-45 border-r border-t border-yellow-300/75" />
+                        <span className="h-px flex-1 bg-gradient-to-r from-primary/65 to-accent/45 shadow-[0_0_8px_hsl(var(--primary)/0.12)]" />
+                        <span className="h-2 w-2 rotate-45 border-r border-t border-primary/75" />
                       </div>
                     )}
 
-                    <div className="relative flex h-full gap-3 rounded-lg border border-zinc-800 bg-zinc-950/40 p-3 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/50 hover:shadow-[0_0_24px_rgba(34,211,238,0.12)] md:flex-col md:gap-2 md:p-4">
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-yellow-400/40 bg-yellow-400/10 text-xs font-bold text-yellow-300 shadow-[0_0_24px_rgba(250,204,21,0.12)]">
+                    <div className="relative flex h-full gap-3 rounded-lg border border-border bg-surface-inset/70 p-3 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_18px_hsl(var(--primary)/0.08)] md:flex-col md:gap-2 md:p-4">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-primary/40 bg-primary/10 text-xs font-bold text-primary-hover shadow-[0_0_18px_hsl(var(--primary)/0.08)]">
                         {String(index + 1).padStart(2, "0")}
                       </div>
-                      <p className="min-w-0 text-sm font-medium leading-6 text-zinc-100 md:text-center">{step}</p>
+                      <p className="min-w-0 text-sm font-medium leading-6 text-foreground md:text-center">{step}</p>
                     </div>
                   </div>
                 ))}
               </div>
 
-              <p className="mt-5 sm:mt-6 text-sm sm:text-base leading-7 text-zinc-300">
+              <p className="mt-5 sm:mt-6 text-sm sm:text-base leading-7 text-foreground-secondary">
                 This desired performance flow became the reference point for identifying whether the problem was related
                 to knowledge, skill, process, accountability, or market or offer factors.
               </p>
@@ -428,11 +428,11 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up" delay={450} className="mt-4 sm:mt-6">
-          <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+          <Card className="bg-card/90 border-border backdrop-blur-sm">
             <CardContent className="p-4 sm:p-6">
               <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Selected Artifacts</h2>
 
-              <p className="text-sm sm:text-base leading-7 text-zinc-300">
+              <p className="text-sm sm:text-base leading-7 text-foreground-secondary">
                 To keep this portfolio case study focused, I am presenting the artifacts that best show my analysis
                 process, design decisions, and performance support strategy. These outputs are meant to show how I moved
                 from problem diagnosis to practical sales enablement recommendations.
@@ -442,25 +442,25 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 {selectedArtifacts.map((artifact) => (
                   <div
                     key={artifact.title}
-                    className="flex h-full flex-col rounded-lg border border-zinc-800 bg-zinc-950/40 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-cyan-400/50 hover:shadow-[0_0_24px_rgba(34,211,238,0.12)] sm:p-5"
+                    className="flex h-full flex-col rounded-lg border border-border bg-surface-inset/70 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_18px_hsl(var(--primary)/0.08)] sm:p-5"
                   >
                     <div className="mb-3 flex items-start justify-between gap-3">
-                      <h3 className="text-base font-semibold leading-6 text-white">{artifact.title}</h3>
+                      <h3 className="text-base font-semibold leading-6 text-foreground">{artifact.title}</h3>
                       <span
                         className={
                           artifact.status === "Completed"
-                            ? "shrink-0 rounded-full border border-green-400/30 bg-green-400/10 px-2.5 py-1 text-xs font-medium text-green-300"
+                            ? "shrink-0 rounded-full border border-success/35 bg-success/10 px-2.5 py-1 text-xs font-medium text-success"
                             : artifact.status === "In development"
-                              ? "shrink-0 rounded-full border border-yellow-400/40 bg-yellow-400/10 px-2.5 py-1 text-xs font-medium text-yellow-300"
-                              : "shrink-0 rounded-full border border-zinc-600 bg-zinc-800/70 px-2.5 py-1 text-xs font-medium text-zinc-300"
+                              ? "shrink-0 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent-secondary"
+                              : "shrink-0 rounded-full border border-border-strong bg-surface-raised/70 px-2.5 py-1 text-xs font-medium text-foreground-secondary"
                         }
                       >
                         {artifact.status}
                       </span>
                     </div>
-                    <p className="text-sm leading-6 text-zinc-300">{artifact.description}</p>
+                    <p className="text-sm leading-6 text-foreground-secondary">{artifact.description}</p>
                     {artifact.includes && (
-                      <p className="mt-3 text-xs leading-5 text-zinc-400">{artifact.includes}</p>
+                      <p className="mt-3 text-xs leading-5 text-muted-foreground">{artifact.includes}</p>
                     )}
                     {artifact.links && (
                       <div className="mt-auto flex flex-col gap-2 pt-4 sm:flex-row sm:flex-wrap">
@@ -472,8 +472,8 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                             variant={link.download ? "outline" : "default"}
                             className={
                               link.download
-                                ? "border-zinc-700 bg-zinc-950/50 text-xs text-zinc-100 hover:bg-zinc-800 hover:text-white"
-                                : "bg-gradient-to-r from-cyan-500 to-blue-500 text-xs hover:from-cyan-600 hover:to-blue-600"
+                                ? "border-border-strong bg-surface-inset/80 text-xs text-foreground hover:bg-surface-raised hover:text-foreground"
+                                : "bg-gradient-to-r from-primary to-accent text-xs hover:from-primary hover:to-accent"
                             }
                           >
                             <a
@@ -501,12 +501,12 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up" delay={500} className="mt-4 sm:mt-6">
-          <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+          <Card className="bg-card/90 border-border backdrop-blur-sm">
             <CardContent className="p-4 sm:p-6">
               <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">Reflection</h2>
 
-              <div className="border-l-2 border-yellow-400/60 pl-4 sm:pl-5">
-                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base leading-7 text-zinc-300">
+              <div className="border-l-2 border-primary/60 pl-4 sm:pl-5">
+                <div className="space-y-3 sm:space-y-4 text-sm sm:text-base leading-7 text-foreground-secondary">
                   <p>
                     This project is helping me practice instructional design as performance consulting. Instead of
                     starting with the assumption that a course is the answer, I am first defining the business problem,
@@ -532,7 +532,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
         {project.relatedProjects && project.relatedProjects.length > 0 && (
           <AnimatedSection animation="fade-up" delay={550} className="mt-4 sm:mt-6">
-            <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+            <Card className="bg-card/90 border-border backdrop-blur-sm">
               <CardContent className="p-4 sm:p-6">
                 <h2 className="text-lg sm:text-xl font-bold mb-3 sm:mb-4">More Projects</h2>
                 <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -540,14 +540,14 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     <Link
                       key={related.slug}
                       href={`/projects/${related.slug}`}
-                      className="group flex items-center gap-3 rounded-lg border border-zinc-800 bg-zinc-950/40 p-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400"
+                      className="group flex items-center gap-3 rounded-lg border border-border bg-surface-inset/70 p-3 transition-colors hover:border-primary/35 hover:bg-card-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     >
                       <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded">
                         <Image src={related.image || "/placeholder.svg"} alt={related.title} fill className="object-cover" />
                       </div>
                       <div className="min-w-0">
-                        <h3 className="text-sm font-medium transition-colors group-hover:text-yellow-400">{related.title}</h3>
-                        <p className="mt-1 text-xs text-zinc-400">{related.category}</p>
+                        <h3 className="text-sm font-medium transition-colors group-hover:text-primary-hover">{related.title}</h3>
+                        <p className="mt-1 text-xs text-muted-foreground">{related.category}</p>
                       </div>
                     </Link>
                   ))}
@@ -561,7 +561,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
         <AnimatedSection
           animation="fade-in"
           delay={500}
-          className="mt-8 sm:mt-12 py-4 sm:py-6 text-center text-xs sm:text-sm text-zinc-500"
+          className="mt-8 sm:mt-12 py-4 sm:py-6 text-center text-xs sm:text-sm text-foreground-subtle"
         >
           <p>© 2026 Ken Gilmer P. Macawili. Instructional Design and HSEQ Training Portfolio.</p>
         </AnimatedSection>

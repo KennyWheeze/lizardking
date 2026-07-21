@@ -19,14 +19,31 @@ const config = {
       },
     },
     extend: {
+      // Keep visual colors tied to the centralized Midnight Systems variables in app/globals.css.
       colors: {
-        border: "hsl(var(--border))",
+        border: {
+          DEFAULT: "hsl(var(--border))",
+          strong: "hsl(var(--border-strong))",
+        },
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        background: {
+          DEFAULT: "hsl(var(--background))",
+          elevated: "hsl(var(--background-elevated))",
+        },
+        surface: {
+          DEFAULT: "hsl(var(--surface))",
+          raised: "hsl(var(--surface-raised))",
+          inset: "hsl(var(--surface-inset))",
+        },
+        foreground: {
+          DEFAULT: "hsl(var(--foreground))",
+          secondary: "hsl(var(--foreground-secondary))",
+          subtle: "hsl(var(--subtle-foreground))",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
+          hover: "hsl(var(--primary-hover))",
           foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
@@ -44,6 +61,8 @@ const config = {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+          secondary: "hsl(var(--accent-secondary))",
+          soft: "hsl(var(--accent-soft))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -51,8 +70,12 @@ const config = {
         },
         card: {
           DEFAULT: "hsl(var(--card))",
+          hover: "hsl(var(--card-hover))",
           foreground: "hsl(var(--card-foreground))",
         },
+        divider: "hsl(var(--divider) / <alpha-value>)",
+        success: "hsl(var(--success))",
+        warning: "hsl(var(--warning))",
       },
       borderRadius: {
         lg: "var(--radius)",

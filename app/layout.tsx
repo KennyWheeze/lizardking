@@ -11,9 +11,9 @@ const inter = Inter({ subsets: ["latin"] })
 const metaInfo = getMetaInfo()
 
 export const metadata: Metadata = {
-  title: metaInfo.title,
-  description: metaInfo.description,
-    generator: 'v0.app'
+  title: metaInfo.siteTitle,
+  description: metaInfo.siteDescription,
+  generator: "v0.app",
 }
 
 export default function RootLayout({

@@ -32,11 +32,11 @@ export function AnimationSettingsPanel() {
   ]
 
   const presetOptions: { value: AnimationPreset; label: string; icon: React.ReactNode }[] = [
-    { value: "subtle", label: "Subtle", icon: <span className="text-zinc-400">●</span> },
-    { value: "moderate", label: "Moderate", icon: <span className="text-yellow-400">●</span> },
-    { value: "playful", label: "Playful", icon: <span className="text-purple-400">●</span> },
-    { value: "dramatic", label: "Dramatic", icon: <span className="text-pink-400">●</span> },
-    { value: "none", label: "None", icon: <span className="text-zinc-600">○</span> },
+    { value: "subtle", label: "Subtle", icon: <span className="text-muted-foreground">●</span> },
+    { value: "moderate", label: "Moderate", icon: <span className="text-primary">●</span> },
+    { value: "playful", label: "Playful", icon: <span className="text-accent-secondary">●</span> },
+    { value: "dramatic", label: "Dramatic", icon: <span className="text-primary-hover">●</span> },
+    { value: "none", label: "None", icon: <span className="text-foreground-subtle">○</span> },
   ]
 
   return (
@@ -44,18 +44,18 @@ export function AnimationSettingsPanel() {
       <Button
         onClick={togglePanel}
         size="icon"
-        className="rounded-full w-12 h-12 bg-zinc-800/80 backdrop-blur-sm hover:bg-zinc-700/80 shadow-lg"
+        className="rounded-full w-12 h-12 bg-surface-raised/80 backdrop-blur-sm hover:bg-surface-raised/80 shadow-lg"
         aria-label="Animation Settings"
       >
-        <Settings className="h-5 w-5 text-yellow-400" />
+        <Settings className="h-5 w-5 text-primary" />
       </Button>
 
       {isOpen && (
-        <Card className="absolute bottom-16 left-0 w-80 bg-zinc-900/95 backdrop-blur-md border-zinc-700 shadow-xl rounded-lg overflow-hidden">
+        <Card className="absolute bottom-16 left-0 w-80 bg-background-elevated/95 backdrop-blur-md border-border-strong shadow-xl rounded-lg overflow-hidden">
           <div className="p-4">
             <div className="flex items-center justify-between mb-4">
               <h3 className="text-sm font-medium flex items-center">
-                <Zap className="w-4 h-4 mr-2 text-yellow-400" />
+                <Zap className="w-4 h-4 mr-2 text-primary" />
                 Animation Settings
               </h3>
               <Button
@@ -86,7 +86,7 @@ export function AnimationSettingsPanel() {
               {settings.enabled && (
                 <>
                   <div className="space-y-4">
-                    <Label className="text-xs text-zinc-400">Animation Preset</Label>
+                    <Label className="text-xs text-muted-foreground">Animation Preset</Label>
                     <div className="grid grid-cols-5 gap-2">
                       {presetOptions.map((preset) => (
                         <Button
@@ -95,7 +95,7 @@ export function AnimationSettingsPanel() {
                           size="sm"
                           className={`h-auto py-2 px-1 flex flex-col items-center justify-center text-xs ${
                             settings.preset === preset.value
-                              ? "bg-gradient-to-r from-yellow-500/20 to-blue-500/20 border-yellow-500/50"
+                              ? "bg-gradient-to-r from-primary/15 to-accent/15 border-primary/50"
                               : ""
                           }`}
                           onClick={() => applyPreset(preset.value)}
@@ -166,10 +166,10 @@ export function AnimationSettingsPanel() {
                       value={settings.easing}
                       onValueChange={(value) => updateSettings({ easing: value as EasingFunction })}
                     >
-                      <SelectTrigger id="animation-easing" className="bg-zinc-800 border-zinc-700">
+                      <SelectTrigger id="animation-easing" className="bg-surface-raised border-border-strong">
                         <SelectValue placeholder="Select easing" />
                       </SelectTrigger>
-                      <SelectContent className="bg-zinc-800 border-zinc-700">
+                      <SelectContent className="bg-surface-raised border-border-strong">
                         {easingOptions.map((option) => (
                           <SelectItem key={option.value} value={option.value}>
                             {option.label}
@@ -180,7 +180,7 @@ export function AnimationSettingsPanel() {
                   </div>
 
                   <div className="pt-2">
-                    <div className="text-xs text-zinc-400 mb-3">Preview</div>
+                    <div className="text-xs text-muted-foreground mb-3">Preview</div>
                     <div className="grid grid-cols-3 gap-2">
                       {["fade-up", "slide-left", "zoom-in"].map((animationType) => (
                         <AnimationPreviewCard key={animationType} animationType={animationType as AnimationType} />
@@ -211,11 +211,11 @@ function AnimationPreviewCard({ animationType }: AnimationPreviewCardProps) {
   return (
     <div className="relative">
       <div className="absolute -top-1 -right-1 z-10">
-        <Button size="icon" variant="ghost" className="h-6 w-6 rounded-full bg-zinc-800" onClick={resetAnimation}>
+        <Button size="icon" variant="ghost" className="h-6 w-6 rounded-full bg-surface-raised" onClick={resetAnimation}>
           <Play className="h-3 w-3" />
         </Button>
       </div>
-      <div className="h-20 bg-zinc-800/50 rounded-md overflow-hidden">
+      <div className="h-20 bg-surface-inset/80 rounded-md overflow-hidden">
         <AnimatedSection
           key={key}
           animation={animationType}
@@ -223,7 +223,7 @@ function AnimationPreviewCard({ animationType }: AnimationPreviewCardProps) {
           forceAnimate={true}
         >
           <div className="text-xs text-center">
-            <div className="text-yellow-400 mb-1">
+            <div className="text-primary mb-1">
               {animationType
                 .split("-")
                 .map((word) => word.charAt(0).toUpperCase() + word.slice(1))

@@ -11,8 +11,8 @@ export default function ProjectsPage() {
   const projects = getAllProjects()
 
   return (
-    <main className="min-h-screen bg-black text-white">
-      <div className="fixed inset-0 bg-[radial-gradient(#333_1px,transparent_1px)] [background-size:20px_20px] opacity-20 z-0"></div>
+    <main className="min-h-screen bg-background text-foreground">
+      <div className="fixed inset-0 bg-[radial-gradient(hsl(var(--border-strong))_1px,transparent_1px)] [background-size:20px_20px] opacity-20 z-0"></div>
 
       <PortfolioHeader />
 
@@ -20,7 +20,7 @@ export default function ProjectsPage() {
         <AnimatedSection animation="fade-in">
           <Link
             href="/"
-            className="inline-flex items-center text-xs sm:text-sm text-zinc-400 hover:text-white mb-4 sm:mb-6 transition-colors"
+            className="inline-flex items-center text-xs sm:text-sm text-muted-foreground hover:text-foreground mb-4 sm:mb-6 transition-colors"
           >
             <ArrowLeft className="w-3 h-3 sm:w-4 sm:h-4 mr-1 sm:mr-2" />
             Back to Portfolio
@@ -28,10 +28,10 @@ export default function ProjectsPage() {
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up">
-          <Card className="bg-zinc-900/70 border-zinc-800 backdrop-blur-sm">
+          <Card className="bg-card/90 border-border backdrop-blur-sm">
             <CardContent className="p-4 sm:p-6">
               <div className="flex items-center mb-4 sm:mb-6">
-                <FolderKanbanIcon className="w-5 h-5 mr-2 text-yellow-400" />
+                <FolderKanbanIcon className="w-5 h-5 mr-2 text-primary" />
                 <h1 className="text-xl sm:text-2xl font-semibold">Projects</h1>
               </div>
 
@@ -54,7 +54,7 @@ export default function ProjectsPage() {
         <AnimatedSection
           animation="fade-in"
           delay={500}
-          className="mt-8 sm:mt-12 py-4 sm:py-6 text-center text-xs sm:text-sm text-zinc-500"
+          className="mt-8 sm:mt-12 py-4 sm:py-6 text-center text-xs sm:text-sm text-foreground-subtle"
         >
           <p>&copy; {new Date().getFullYear()} Ken Gilmer P. Macawili. All Rights Reserved.</p>
         </AnimatedSection>

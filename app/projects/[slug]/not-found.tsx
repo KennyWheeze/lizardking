@@ -4,16 +4,16 @@ import { Button } from "@/components/ui/button"
 
 export default function ProjectNotFound() {
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center">
+    <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
       <div className="text-center space-y-6 p-6">
-        <div className="w-20 h-20 mx-auto rounded-full bg-zinc-800 flex items-center justify-center">
+        <div className="w-20 h-20 mx-auto rounded-full bg-surface-raised flex items-center justify-center">
           <span className="text-4xl">🔍</span>
         </div>
         <h1 className="text-3xl font-bold">Project Not Found</h1>
-        <p className="text-zinc-400 max-w-md mx-auto">
+        <p className="text-muted-foreground max-w-md mx-auto">
           The project you're looking for doesn't exist or has been moved.
         </p>
-        <Button asChild className="bg-gradient-to-r from-yellow-500 to-blue-500 hover:from-yellow-600 hover:to-blue-600">
+        <Button asChild className="bg-primary text-primary-foreground hover:bg-primary-hover">
           <Link href="/">
             <ArrowLeft className="w-4 h-4 mr-2" />
             Back to Portfolio

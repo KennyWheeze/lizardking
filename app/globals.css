@@ -3,25 +3,42 @@
 @tailwind utilities;
 
 :root {
-  --background: 0 0% 0%;
-  --foreground: 0 0% 100%;
-  --card: 240 10% 4%;
-  --card-foreground: 0 0% 100%;
-  --popover: 240 10% 4%;
-  --popover-foreground: 0 0% 100%;
-  --primary: 186 100% 50%;
-  --primary-foreground: 0 0% 0%;
-  --secondary: 240 5% 10%;
-  --secondary-foreground: 0 0% 100%;
-  --muted: 240 5% 20%;
-  --muted-foreground: 240 5% 65%;
-  --accent: 240 5% 15%;
-  --accent-foreground: 0 0% 100%;
-  --destructive: 0 100% 50%;
-  --destructive-foreground: 0 0% 100%;
-  --border: 240 5% 26%;
-  --input: 240 5% 26%;
-  --ring: 186 100% 50%;
+  /* Midnight Systems semantic tokens; components should consume these through Tailwind mappings. */
+  color-scheme: dark;
+  --background: 222 48% 5%;
+  --background-elevated: 220 46% 10%;
+  --surface: 221 39% 11%;
+  --surface-raised: 220 36% 15%;
+  --surface-inset: 222 47% 11%;
+  --foreground: 210 40% 98%;
+  --foreground-secondary: 214 32% 91%;
+  --muted-foreground: 215 20% 65%;
+  --subtle-foreground: 215 16% 47%;
+  --card: 221 39% 11%;
+  --card-hover: 220 36% 15%;
+  --card-foreground: 210 40% 98%;
+  --popover: 220 46% 10%;
+  --popover-foreground: 210 40% 98%;
+  --primary: 198 93% 60%;
+  --primary-hover: 199 95% 74%;
+  --primary-foreground: 218 55% 8%;
+  --secondary: 220 36% 15%;
+  --secondary-foreground: 214 32% 91%;
+  --muted: 222 47% 11%;
+  --accent: 217 91% 60%;
+  --accent-foreground: 210 40% 98%;
+  --accent-secondary: 213 94% 68%;
+  --accent-soft: 186 94% 82%;
+  --destructive: 0 72% 51%;
+  --destructive-foreground: 210 40% 98%;
+  --border: 216 30% 22%;
+  --border-strong: 215 25% 27%;
+  --divider: 215 20% 65%;
+  --input: 215 25% 27%;
+  --ring: 198 93% 60%;
+  --success: 160 84% 39%;
+  --warning: 38 92% 50%;
+  --radius: 0.5rem;
 }
 
 html {
@@ -29,8 +46,8 @@ html {
 }
 
 body {
-  background-color: black;
-  color: white;
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -45,12 +62,12 @@ body {
   }
 
   .scrollbar-thumb-zinc-700::-webkit-scrollbar-thumb {
-    background-color: #3f3f46;
+    background-color: hsl(var(--border-strong));
     border-radius: 3px;
   }
 
   .scrollbar-track-zinc-800\/50::-webkit-scrollbar-track {
-    background-color: rgba(39, 39, 42, 0.5);
+    background-color: hsl(var(--background-elevated) / 0.5);
   }
 
   ::-webkit-scrollbar {
@@ -59,17 +76,22 @@ body {
   }
 
   ::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
+    background: hsl(var(--background-elevated));
   }
 
   ::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
+    background: hsl(var(--border-strong));
     border-radius: 3px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: hsl(var(--accent-secondary));
   }
+}
+
+::selection {
+  background: hsl(var(--accent) / 0.28);
+  color: hsl(var(--foreground));
 }
 
 @layer base {
