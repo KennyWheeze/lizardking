@@ -1,36 +1,48 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useRef } from "react"
 
 export function ScrollProgressIndicator() {
-  const [scrollProgress, setScrollProgress] = useState(0)
+  const progressRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    let frameId: number | null = null
+
     const updateScrollProgress = () => {
-      // Calculate how far down the page the user has scrolled
-      const scrollTop = window.scrollY
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      const scrollPercent = scrollTop / docHeight
-      setScrollProgress(scrollPercent)
+      frameId = null
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+      const progress = scrollableHeight > 0 ? Math.min(Math.max(window.scrollY / scrollableHeight, 0), 1) : 0
+      const progressElement = progressRef.current
+
+      if (progressElement) {
+        progressElement.style.transform = `scaleX(${progress})`
+        progressElement.setAttribute("aria-valuenow", String(Math.round(progress * 100)))
+      }
     }
 
-    // Add scroll event listener
-    window.addEventListener("scroll", updateScrollProgress)
+    const scheduleUpdate = () => {
+      if (frameId === null) frameId = window.requestAnimationFrame(updateScrollProgress)
+    }
 
-    // Initial calculation
     updateScrollProgress()
+    window.addEventListener("scroll", scheduleUpdate, { passive: true })
+    window.addEventListener("resize", scheduleUpdate)
 
-    // Clean up event listener
-    return () => window.removeEventListener("scroll", updateScrollProgress)
+    return () => {
+      window.removeEventListener("scroll", scheduleUpdate)
+      window.removeEventListener("resize", scheduleUpdate)
+      if (frameId !== null) window.cancelAnimationFrame(frameId)
+    }
   }, [])
 
   return (
-    <div className="fixed top-0 left-0 right-0 h-1 bg-surface-raised z-50">
+    <div className="pointer-events-none fixed left-0 right-0 top-0 z-[60] h-1 bg-surface-raised">
       <div
-        className="h-full bg-gradient-to-r from-primary to-accent"
-        style={{ width: `${scrollProgress * 100}%`, transition: "width 0.1s" }}
+        ref={progressRef}
+        className="h-full origin-left bg-gradient-to-r from-primary to-accent will-change-transform"
+        style={{ transform: "scaleX(0)" }}
         role="progressbar"
-        aria-valuenow={scrollProgress * 100}
+        aria-valuenow={0}
         aria-valuemin={0}
         aria-valuemax={100}
         aria-label="Page scroll progress"

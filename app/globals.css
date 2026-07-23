@@ -45,10 +45,46 @@ html {
   scroll-behavior: smooth;
 }
 
+.scroll-indicator {
+  pointer-events: none;
+}
+
+.scroll-indicator.scroll-indicator-visible {
+  pointer-events: auto;
+  transform: translateY(0);
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 body {
   background-color: hsl(var(--background));
   color: hsl(var(--foreground));
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/*
+ * Large backdrop-filter layers are expensive to repaint during scroll.
+ * The Midnight Systems surfaces are already opaque enough to retain their
+ * hierarchy without recompositing the content behind every card.
+ */
+main .backdrop-blur-sm,
+main .backdrop-blur-md {
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
 }
 
 @layer utilities {

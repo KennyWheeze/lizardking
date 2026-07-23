@@ -15,32 +15,25 @@ export function PortfolioHeader() {
   const personalInfo = getPersonalInfo()
 
   useEffect(() => {
+    let frameId: number | null = null
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20)
-
-      // Get all section IDs (strip the leading "#")
-      const sections = navItems.filter((item) => item.href.startsWith("#")).map((item) => item.href.substring(1))
-
-      // Find the current section in view
-      for (const section of sections.reverse()) {
-        const element = document.getElementById(section)
-        if (element) {
-          const rect = element.getBoundingClientRect()
-          if (rect.top <= 150) {
-            setActiveSection(section)
-            break
-          }
-        }
-      }
-
-      if (window.scrollY < 100) {
-        setActiveSection("")
-      }
+      if (frameId !== null) return
+      frameId = window.requestAnimationFrame(() => {
+        frameId = null
+        const nextScrolled = window.scrollY > 20
+        setScrolled((current) => current === nextScrolled ? current : nextScrolled)
+        if (window.scrollY < 100) setActiveSection((current) => current === "" ? current : "")
+      })
     }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [navItems])
+    handleScroll()
+    window.addEventListener("scroll", handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener("scroll", handleScroll)
+      if (frameId !== null) window.cancelAnimationFrame(frameId)
+    }
+  }, [])
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen)
@@ -50,7 +43,7 @@ export function PortfolioHeader() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4",
-        scrolled ? "border-b border-border bg-background-elevated/90 backdrop-blur-md shadow-md py-2" : "bg-transparent",
+        scrolled ? "border-b border-border bg-background-elevated/95 shadow-md py-2" : "bg-transparent",
       )}
     >
       <div className="container mx-auto px-4 flex items-center justify-between">

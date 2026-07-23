@@ -1,32 +1,42 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useEffect, useRef } from "react"
 import { ChevronUp } from "lucide-react"
 
 export function EnhancedScrollIndicator() {
-  const [scrollProgress, setScrollProgress] = useState(0)
-  const [isVisible, setIsVisible] = useState(false)
+  const containerRef = useRef<HTMLDivElement>(null)
+  const mobileCircleRef = useRef<SVGCircleElement>(null)
+  const desktopCircleRef = useRef<SVGCircleElement>(null)
+  const labelRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    const updateScrollProgress = () => {
-      // Calculate how far down the page the user has scrolled
-      const scrollTop = window.scrollY
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      const scrollPercent = scrollTop / docHeight
-      setScrollProgress(scrollPercent)
+    let frameId: number | null = null
 
-      // Show indicator only after scrolling a bit
-      setIsVisible(scrollTop > 100)
+    const updateScrollProgress = () => {
+      frameId = null
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+      const progress = scrollableHeight > 0 ? Math.min(Math.max(window.scrollY / scrollableHeight, 0), 1) : 0
+      const isVisible = window.scrollY > 100
+
+      containerRef.current?.classList.toggle("scroll-indicator-visible", isVisible)
+      if (mobileCircleRef.current) mobileCircleRef.current.style.strokeDashoffset = String(2 * Math.PI * 18 * (1 - progress))
+      if (desktopCircleRef.current) desktopCircleRef.current.style.strokeDashoffset = String(2 * Math.PI * 20 * (1 - progress))
+      if (labelRef.current) labelRef.current.textContent = `${Math.round(progress * 100)}%`
     }
 
-    // Add scroll event listener
-    window.addEventListener("scroll", updateScrollProgress)
+    const scheduleUpdate = () => {
+      if (frameId === null) frameId = window.requestAnimationFrame(updateScrollProgress)
+    }
 
-    // Initial calculation
     updateScrollProgress()
+    window.addEventListener("scroll", scheduleUpdate, { passive: true })
+    window.addEventListener("resize", scheduleUpdate)
 
-    // Clean up event listener
-    return () => window.removeEventListener("scroll", updateScrollProgress)
+    return () => {
+      window.removeEventListener("scroll", scheduleUpdate)
+      window.removeEventListener("resize", scheduleUpdate)
+      if (frameId !== null) window.cancelAnimationFrame(frameId)
+    }
   }, [])
 
   const scrollToTop = () => {
@@ -36,14 +46,10 @@ export function EnhancedScrollIndicator() {
     })
   }
 
-  // Format the percentage for display
-  const progressPercentage = Math.min(Math.round(scrollProgress * 100), 100)
-
   return (
     <div
-      className={`fixed bottom-16 sm:bottom-20 right-3 sm:right-6 z-50 transition-all duration-300 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10 pointer-events-none"
-      }`}
+      ref={containerRef}
+      className="scroll-indicator fixed bottom-16 right-3 z-50 translate-y-10 opacity-0 transition-[opacity,transform] duration-200 sm:bottom-20 sm:right-6"
     >
       <div className="flex flex-col items-center">
         {/* Circular progress indicator */}
@@ -58,6 +64,7 @@ export function EnhancedScrollIndicator() {
             <circle cx="20" cy="20" r="18" fill="none" stroke="hsl(var(--border-strong))" strokeWidth="2" className="sm:hidden" />
             <circle cx="24" cy="24" r="20" fill="none" stroke="hsl(var(--border-strong))" strokeWidth="2" className="hidden sm:block" />
             <circle
+              ref={mobileCircleRef}
               cx="20"
               cy="20"
               r="18"
@@ -65,11 +72,12 @@ export function EnhancedScrollIndicator() {
               stroke="url(#gradient)"
               strokeWidth="2"
               strokeDasharray={`${2 * Math.PI * 18}`}
-              strokeDashoffset={`${2 * Math.PI * 18 * (1 - scrollProgress)}`}
+              strokeDashoffset={`${2 * Math.PI * 18}`}
               strokeLinecap="round"
               className="sm:hidden"
             />
             <circle
+              ref={desktopCircleRef}
               cx="24"
               cy="24"
               r="20"
@@ -77,7 +85,7 @@ export function EnhancedScrollIndicator() {
               stroke="url(#gradient)"
               strokeWidth="2"
               strokeDasharray={`${2 * Math.PI * 20}`}
-              strokeDashoffset={`${2 * Math.PI * 20 * (1 - scrollProgress)}`}
+              strokeDashoffset={`${2 * Math.PI * 20}`}
               strokeLinecap="round"
               className="hidden sm:block"
             />
@@ -96,9 +104,7 @@ export function EnhancedScrollIndicator() {
         </div>
 
         {/* Percentage label */}
-        <div className="mt-1 sm:mt-2 text-xs font-medium bg-surface-raised/80 backdrop-blur-sm text-foreground px-2 py-1 rounded-md">
-          {progressPercentage}%
-        </div>
+        <div ref={labelRef} className="mt-1 rounded-md bg-surface-raised px-2 py-1 text-xs font-medium text-foreground sm:mt-2">0%</div>
       </div>
     </div>
   )

@@ -33,6 +33,32 @@ export interface Project {
 // Keep this named export available too
 export const projects: Project[] = [
   {
+    id: 2,
+    slug: "automated-lms-enrollment",
+    title: "Automated LMS Enrollment and User Provisioning Workflow",
+    category: "Automation & Digital Systems",
+    shortDescription:
+      "Designed and implemented a form-driven workflow that creates WordPress learner accounts when needed, assigns purchased LearnDash courses, and delivers automated access instructions using Google Forms, Google Sheets, Apps Script, the WordPress REST API, Zapier, and LearnDash",
+    description: [
+      "I handled manual learner account creation and course assignment for clients who needed registration assistance.",
+      "The workflow replaced repeated backend administration with a controlled, staff-facing enrollment request while preserving human payment verification.",
+    ],
+    features: ["User Provisioning", "Course Enrollment", "Workflow Orchestration", "Operational Controls"],
+    technologies: [
+      "Google Apps Script",
+      "Zapier",
+      "WordPress REST API",
+      "LearnDash",
+      "Google Workspace",
+      "Process Automation",
+    ],
+    coverImage: "/placeholder.jpg",
+    thumbnailImage: "/placeholder.jpg",
+    client: "Live training operations",
+    timeline: "Implemented in live operations",
+    role: "Workflow Designer and LMS Administrator",
+  },
+  {
     id: 1,
     slug: "sales-enablement",
     title: "Sales Enablement and Client Conversion Improvement Project",

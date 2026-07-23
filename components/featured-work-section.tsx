@@ -16,14 +16,14 @@ const featuredWork = [
     featured: true,
   },
   {
-    title: "End-to-End OSH Training Operations",
-    category: "Safety & Training Operations",
+    title: "Automated LMS Enrollment and User Provisioning Workflow",
+    category: "Automation & Digital Systems",
     summary:
-      "Managed the complete delivery cycle of occupational safety training programs, from participant registration and trainer scheduling through facilitation, DOLE documentation, certification, and payment coordination.",
+      "Designed and implemented a form-driven workflow that creates WordPress learner accounts when needed, assigns purchased LearnDash courses, and delivers automated access instructions using Google Forms, Google Sheets, Apps Script, the WordPress REST API, Zapier, and LearnDash",
     outcome:
-      "Created a controlled training workflow that addressed learner, trainer, compliance, and operational requirements.",
-    skills: ["Training Operations", "DOLE Compliance", "Stakeholder Coordination"],
-    href: "",
+      "Reduced a repetitive multi-step LMS administration process to one authorized form submission",
+    skills: ["Google Apps Script", "LearnDash", "Process Automation"],
+    href: "/projects/automated-lms-enrollment",
     featured: true,
   },
   {

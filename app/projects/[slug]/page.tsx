@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import type { Metadata } from "next"
 import { ArrowLeft, Download, ExternalLink } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
@@ -9,10 +10,20 @@ import { notFound } from "next/navigation"
 import { EnhancedScrollIndicator } from "@/components/enhanced-scroll-indicator"
 import { AnimatedSection } from "@/components/animated-section"
 import { PortfolioHeader } from "@/components/portfolio-header"
+import { LmsAutomationCaseStudy } from "@/components/lms-automation-case-study"
 
 interface ProjectPageProps {
   params: {
     slug: string
+  }
+}
+
+export function generateMetadata({ params }: ProjectPageProps): Metadata {
+  const project = getProjectBySlug(params.slug)
+  if (!project) return {}
+  return {
+    title: `${project.title} | Ken Macawili`,
+    description: project.shortDescription,
   }
 }
 
@@ -118,6 +129,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   if (!project) {
     notFound()
+  }
+
+  if (project.slug === "automated-lms-enrollment") {
+    return <LmsAutomationCaseStudy project={project} />
   }
 
   return (
