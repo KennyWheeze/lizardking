@@ -49,9 +49,9 @@ const featuredWork = [
   },
 ]
 
-function FeaturedWorkCard({ item, index }: { item: FeaturedWorkItem; index: number }) {
+function FeaturedWorkCard({ item }: { item: FeaturedWorkItem }) {
   return (
-    <BorderGlow animated introDelay={index * 900} className="featured-work-glow">
+    <BorderGlow className="featured-work-glow">
       <Card className="h-full border-0 bg-transparent shadow-none">
         <CardContent className="flex h-full flex-col p-4 sm:p-5">
           <div className="flex min-h-6 items-start">
@@ -119,8 +119,8 @@ function FeaturedWorkCard({ item, index }: { item: FeaturedWorkItem; index: numb
 export function FeaturedWorkSection() {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-      {featuredWork.map((item, index) => (
-        <FeaturedWorkCard key={item.title} item={item} index={index} />
+      {featuredWork.map((item) => (
+        <FeaturedWorkCard key={item.title} item={item} />
       ))}
     </div>
   )

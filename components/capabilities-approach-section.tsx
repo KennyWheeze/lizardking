@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { useRef, useState, type KeyboardEvent } from "react"
+import { useEffect, useRef, useState, type KeyboardEvent } from "react"
 import {
   ArrowRight,
   CheckCircle2,
@@ -224,24 +224,24 @@ function CapabilityPanel({ capability }: { capability: Capability }) {
   const Icon = capability.icon
 
   return (
-    <div key={capability.id} className="animate-in fade-in duration-200 motion-reduce:animate-none">
+    <div>
       <div className="flex items-center gap-3">
         <span className="text-sm font-semibold text-primary">{capability.index}</span>
         <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-primary/10 text-primary">
           <Icon aria-hidden="true" className="h-5 w-5" />
         </span>
       </div>
-      <h3 className="mt-4 text-xl font-semibold leading-tight text-foreground sm:text-2xl">{capability.title}</h3>
+      <h3 className="mt-3.5 text-xl font-semibold leading-tight text-foreground sm:text-2xl">{capability.title}</h3>
 
-      <p className="mt-4 max-w-4xl text-base leading-7 text-foreground-secondary sm:text-lg sm:leading-8">
+      <p className="mt-3 max-w-4xl text-base leading-7 text-foreground-secondary sm:text-lg sm:leading-8">
         {capability.positioning}
       </p>
 
-      <div className="mt-6">
+      <div className="mt-5">
         <CapabilityVisual capability={capability} />
       </div>
 
-      <ul className="mt-7 grid gap-3 sm:grid-cols-2" aria-label={`${capability.title} contributions`}>
+      <ul className="mt-5 grid gap-x-5 gap-y-2.5 sm:grid-cols-2" aria-label={`${capability.title} contributions`}>
         {capability.contributions.map((contribution) => (
           <li key={contribution} className="flex items-start gap-2.5 text-sm leading-6 text-foreground-secondary">
             <CheckCircle2 aria-hidden="true" className="mt-1 h-4 w-4 shrink-0 text-primary" />
@@ -250,7 +250,7 @@ function CapabilityPanel({ capability }: { capability: Capability }) {
         ))}
       </ul>
 
-      <div className="mt-7">
+      <div className="mt-5">
         {capability.proof.href ? (
           <Link
             href={capability.proof.href}
@@ -271,7 +271,7 @@ function CapabilityPanel({ capability }: { capability: Capability }) {
       </div>
 
       <ul
-        className="mt-6 flex flex-wrap gap-2"
+        className="mt-4 flex flex-wrap gap-2"
         aria-label={`${capability.title} tools and methods`}
       >
         {capability.tools.map((tool) => (
@@ -289,12 +289,31 @@ function CapabilityPanel({ capability }: { capability: Capability }) {
 
 export function CapabilitiesApproachSection() {
   const [activeIndex, setActiveIndex] = useState(0)
+  const [previousCapability, setPreviousCapability] = useState<Capability | null>(null)
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([])
   const activeCapability = capabilities[activeIndex]
 
+  useEffect(() => {
+    if (!previousCapability) return
+
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setPreviousCapability(null)
+      return
+    }
+
+    const transitionTimer = window.setTimeout(() => setPreviousCapability(null), 200)
+    return () => window.clearTimeout(transitionTimer)
+  }, [activeIndex, previousCapability])
+
+  const selectCapability = (index: number) => {
+    if (index === activeIndex) return
+    setPreviousCapability(activeCapability)
+    setActiveIndex(index)
+  }
+
   const selectAndFocus = (index: number) => {
     const nextIndex = (index + capabilities.length) % capabilities.length
-    setActiveIndex(nextIndex)
+    selectCapability(nextIndex)
     tabRefs.current[nextIndex]?.focus()
   }
 
@@ -315,7 +334,7 @@ export function CapabilitiesApproachSection() {
   return (
     <section
       aria-labelledby="capabilities-approach-heading"
-      className="pb-14 pt-5 sm:pb-16 sm:pt-8 lg:pb-20"
+      className="pb-8 pt-5 sm:pb-10 sm:pt-8 lg:pb-12"
     >
       <header className="max-w-4xl">
         <div className="flex items-center gap-3">
@@ -337,11 +356,11 @@ export function CapabilitiesApproachSection() {
         </p>
       </header>
 
-      <div className="mt-10 grid min-w-0 gap-5 xl:grid-cols-[minmax(14rem,0.28fr)_minmax(0,0.72fr)] xl:items-start xl:gap-6">
+      <div className="mt-8 grid min-w-0 gap-4 sm:mt-9 xl:grid-cols-[minmax(14rem,0.28fr)_minmax(0,0.72fr)] xl:items-start xl:gap-6">
         <div
           role="tablist"
           aria-label="Select a capability"
-          className="flex min-w-0 snap-x gap-2 overflow-x-auto pb-2 scrollbar-thin xl:self-start xl:flex-col xl:overflow-visible xl:pb-0"
+          className="flex min-w-0 snap-x gap-1.5 overflow-x-auto pb-2 scrollbar-thin xl:self-start xl:flex-col xl:overflow-visible xl:pb-0"
         >
           {capabilities.map((capability, index) => {
             const isActive = index === activeIndex
@@ -357,18 +376,18 @@ export function CapabilitiesApproachSection() {
                 aria-selected={isActive}
                 aria-controls="capability-panel"
                 tabIndex={isActive ? 0 : -1}
-                onClick={() => setActiveIndex(index)}
+                onClick={() => selectCapability(index)}
                 onKeyDown={(event) => handleTabKeyDown(event, index)}
-                className={`group flex min-h-11 min-w-[15rem] snap-start items-center gap-3 rounded-lg border px-4 py-3 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:min-w-[17rem] xl:min-w-0 ${
+                className={`group flex min-h-11 min-w-[15rem] snap-start items-center gap-3 rounded-lg border border-l-2 px-4 py-2.5 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:min-w-[17rem] xl:min-w-0 ${
                   isActive
-                    ? "border-primary/35 bg-primary/5 text-foreground"
-                    : "border-transparent text-muted-foreground hover:border-border hover:bg-surface-inset/55 hover:text-foreground-secondary"
+                    ? "border-primary/45 border-l-primary bg-primary/[0.07] text-foreground"
+                    : "border-transparent text-foreground-secondary hover:border-border-strong/70 hover:bg-surface-inset/55 hover:text-foreground"
                 }`}
               >
                 <span className={`text-xs font-semibold tracking-[0.14em] ${isActive ? "text-primary" : ""}`}>
                   {capability.index}
                 </span>
-                <span className="min-w-0 flex-1 text-sm font-medium leading-snug">{capability.title}</span>
+                <span className="min-w-0 flex-1 text-[15px] font-medium leading-snug">{capability.title}</span>
                 <ChevronRight
                   aria-hidden="true"
                   className={`h-4 w-4 shrink-0 text-primary transition-opacity ${
@@ -385,9 +404,25 @@ export function CapabilitiesApproachSection() {
           role="tabpanel"
           aria-labelledby={`capability-tab-${activeCapability.id}`}
           tabIndex={0}
-          className="min-w-0 rounded-xl border border-border bg-surface/90 p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:p-6 lg:p-7"
+          className="min-w-0 rounded-xl border border-border-strong/70 bg-surface/90 p-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background sm:p-6"
         >
-          <CapabilityPanel capability={activeCapability} />
+          <div className="relative">
+            {previousCapability && (
+              <div
+                aria-hidden="true"
+                inert
+                className="pointer-events-none absolute inset-0 animate-out fade-out duration-200 motion-reduce:animate-none"
+              >
+                <CapabilityPanel capability={previousCapability} />
+              </div>
+            )}
+            <div
+              key={activeCapability.id}
+              className="animate-in fade-in slide-in-from-bottom-1 duration-200 motion-reduce:animate-none"
+            >
+              <CapabilityPanel capability={activeCapability} />
+            </div>
+          </div>
         </div>
       </div>
 
@@ -409,17 +444,17 @@ export function CapabilitiesApproachSection() {
         </div>
       </noscript>
 
-      <div className="mt-12 rounded-xl border border-border bg-surface-inset/35 p-5 sm:mt-14 sm:p-6 lg:mt-16">
+      <div className="mt-10 rounded-xl border border-border-strong/70 bg-surface-inset/35 p-5 sm:mt-12 sm:p-6 lg:mt-14">
         <h3 className="text-xl font-semibold text-foreground sm:text-2xl">My Operating Method</h3>
 
-        <ol className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-4" aria-label="My operating method">
+        <ol className="mt-5 grid gap-x-5 gap-y-4 sm:grid-cols-2 xl:grid-cols-4" aria-label="My operating method">
           {operatingMethod.map((stage) => (
-            <li key={stage.index} className="border-t border-border-strong pt-4">
-              <div className="flex items-baseline gap-2">
+            <li key={stage.index} className="border-t border-border-strong py-5">
+              <div className="flex items-baseline gap-2.5">
                 <span className="text-sm font-semibold text-primary">{stage.index}</span>
-                <h4 className="text-base font-semibold text-foreground">{stage.title}</h4>
+                <h4 className="text-[17px] font-semibold leading-snug text-foreground">{stage.title}</h4>
               </div>
-              <p className="mt-2 text-sm leading-6 text-foreground-secondary">{stage.description}</p>
+              <p className="mt-2.5 text-[15px] leading-6 text-foreground-secondary">{stage.description}</p>
             </li>
           ))}
         </ol>
