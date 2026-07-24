@@ -1,14 +1,11 @@
 import { BriefcaseBusiness } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
+import { CapabilitiesApproachSection } from "@/components/capabilities-approach-section"
 import { EnhancedScrollIndicator } from "@/components/enhanced-scroll-indicator"
 import { FeaturedWorkSection } from "@/components/featured-work-section"
 import { HomepageContactCta } from "@/components/homepage-contact-cta"
 import { HomepageHero } from "@/components/homepage-hero"
-import {
-  HowIWorkSection,
-  ProfessionalBackgroundSection,
-  WhatIDoSection,
-} from "@/components/homepage-sections"
+import { ProfessionalBackgroundSection } from "@/components/homepage-sections"
 import { PortfolioHeader } from "@/components/portfolio-header"
 import { CredentialsSection } from "@/components/credentials-section"
 import { Card, CardContent } from "@/components/ui/card"
@@ -43,7 +40,7 @@ export default function Home() {
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up" id="skills">
-          <WhatIDoSection />
+          <CapabilitiesApproachSection />
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up" id="experience">
@@ -52,10 +49,6 @@ export default function Home() {
 
         <AnimatedSection animation="fade-up" id="credentials">
           <CredentialsSection />
-        </AnimatedSection>
-
-        <AnimatedSection animation="fade-up" id="how-i-work">
-          <HowIWorkSection />
         </AnimatedSection>
 
         <AnimatedSection animation="fade-up" id="contact">
