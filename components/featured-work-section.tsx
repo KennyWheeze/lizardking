@@ -2,6 +2,7 @@ import { ArrowRight, CheckCircle2 } from "lucide-react"
 import Link from "next/link"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
+import BorderGlow from "@/components/BorderGlow"
 
 const featuredWork = [
   {
@@ -43,50 +44,56 @@ export function FeaturedWorkSection() {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
       {featuredWork.map((item) => (
-        <Card key={item.title} className="h-full border-border bg-surface-inset/70 transition-colors hover:border-primary/35 hover:bg-card-hover">
-          <CardContent className="flex h-full flex-col p-4 sm:p-5">
-            <Badge
-              variant="outline"
-              className="mb-3 w-fit border-primary/35 bg-primary/10 text-xs text-primary-hover"
-            >
-              {item.category}
-            </Badge>
-
-            <h3 className="text-base font-semibold leading-snug text-foreground sm:text-lg">{item.title}</h3>
-            <p className="mt-3 text-sm leading-relaxed text-foreground-secondary">{item.summary}</p>
-
-            <div className="mt-4 border-t border-border pt-4">
-              <div className="flex items-start gap-2 text-sm leading-relaxed text-foreground-secondary">
-                <CheckCircle2 aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
-                <p>
-                  <span className="font-medium text-foreground">Outcome: </span>
-                  {item.outcome}
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-auto flex flex-wrap gap-2 pt-5" aria-label={`${item.title} skills`}>
-              {item.skills.map((skill) => (
-                <Badge key={skill} variant="outline" className="border-border-strong bg-surface-inset/80 text-xs text-foreground-secondary">
-                  {skill}
-                </Badge>
-              ))}
-            </div>
-
-            {item.href ? (
-              <Link
-                href={item.href}
-                className="mt-4 flex w-fit items-center gap-1.5 rounded-sm text-sm font-medium text-primary underline-offset-4 hover:text-primary-hover hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
-                aria-label={`View case study: ${item.title}`}
+        <BorderGlow key={item.title} className="featured-work-glow">
+          <Card className="h-full border-0 bg-transparent shadow-none">
+            <CardContent className="flex h-full flex-col p-4 sm:p-5">
+              <Badge
+                variant="outline"
+                className="mb-3 w-fit border-primary/35 bg-primary/10 text-xs text-primary-hover"
               >
-                View case study
-                <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" />
-              </Link>
-            ) : (
-              <div className="mt-4 text-xs text-foreground-subtle">Case study in development</div>
-            )}
-          </CardContent>
-        </Card>
+                {item.category}
+              </Badge>
+
+              <h3 className="text-base font-semibold leading-snug text-foreground sm:text-lg">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-foreground-secondary">{item.summary}</p>
+
+              <div className="mt-4 border-t border-border pt-4">
+                <div className="flex items-start gap-2 text-sm leading-relaxed text-foreground-secondary">
+                  <CheckCircle2 aria-hidden="true" className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                  <p>
+                    <span className="font-medium text-foreground">Outcome: </span>
+                    {item.outcome}
+                  </p>
+                </div>
+              </div>
+
+              <div className="mt-auto flex flex-wrap gap-2 pt-5" aria-label={`${item.title} skills`}>
+                {item.skills.map((skill) => (
+                  <Badge
+                    key={skill}
+                    variant="outline"
+                    className="border-border-strong bg-surface-inset/80 text-xs text-foreground-secondary"
+                  >
+                    {skill}
+                  </Badge>
+                ))}
+              </div>
+
+              {item.href ? (
+                <Link
+                  href={item.href}
+                  className="mt-4 flex w-fit items-center gap-1.5 rounded-sm text-sm font-medium text-primary underline-offset-4 hover:text-primary-hover hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                  aria-label={`View case study: ${item.title}`}
+                >
+                  View case study
+                  <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" />
+                </Link>
+              ) : (
+                <div className="mt-4 text-xs text-foreground-subtle">Case study in development</div>
+              )}
+            </CardContent>
+          </Card>
+        </BorderGlow>
       ))}
     </div>
   )
