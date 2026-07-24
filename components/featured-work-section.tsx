@@ -19,9 +19,9 @@ const featuredWork = [
     title: "Automated LMS Enrollment and User Provisioning Workflow",
     category: "Automation & Digital Systems",
     summary:
-      "Designed and implemented a form-driven workflow that creates WordPress learner accounts when needed, assigns purchased LearnDash courses, and delivers automated access instructions using Google Forms, Google Sheets, Apps Script, the WordPress REST API, Zapier, and LearnDash",
+      "Designed and implemented a form-driven workflow that creates WordPress learner accounts when needed, assigns purchased LearnDash courses, and delivers automated access instructions.",
     outcome:
-      "Reduced a repetitive multi-step LMS administration process to one authorized form submission",
+      "Reduced a repetitive multi-step LMS administration process to one authorized form submission.",
     skills: ["Google Apps Script", "LearnDash", "Process Automation"],
     href: "/projects/automated-lms-enrollment",
     featured: true,
@@ -37,23 +37,12 @@ const featuredWork = [
     href: "",
     featured: true,
   },
-  {
-    title: "BOSH SO2 Training Coordination Redesign",
-    category: "Process Improvement",
-    summary:
-      "Reviewed and helped redesign the sales-to-training coordination procedure after a missed internal handoff caused a confirmed BOSH SO2 program to be postponed.",
-    outcome:
-      "Clarified departmental ownership and supported smoother coordination of subsequent training sessions.",
-    skills: ["SOP Development", "Root-Cause Analysis", "Cross-Functional Coordination"],
-    href: "",
-    featured: false,
-  },
 ]
 
 export function FeaturedWorkSection() {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
-      {featuredWork.filter((item) => item.featured).map((item) => (
+      {featuredWork.map((item) => (
         <Card key={item.title} className="h-full border-border bg-surface-inset/70 transition-colors hover:border-primary/35 hover:bg-card-hover">
           <CardContent className="flex h-full flex-col p-4 sm:p-5">
             <Badge
@@ -63,7 +52,7 @@ export function FeaturedWorkSection() {
               {item.category}
             </Badge>
 
-            <h4 className="text-base font-semibold leading-snug text-foreground sm:text-lg">{item.title}</h4>
+            <h3 className="text-base font-semibold leading-snug text-foreground sm:text-lg">{item.title}</h3>
             <p className="mt-3 text-sm leading-relaxed text-foreground-secondary">{item.summary}</p>
 
             <div className="mt-4 border-t border-border pt-4">

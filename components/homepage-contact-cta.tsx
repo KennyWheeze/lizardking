@@ -10,12 +10,12 @@ export function HomepageContactCta() {
     <Card className="relative overflow-hidden border-border bg-card/90 backdrop-blur-sm">
       <div aria-hidden="true" className="absolute -right-10 -top-10 h-28 w-28 rounded-full bg-accent/10 blur-3xl" />
       <CardContent className="relative p-5 text-center sm:p-7">
-        <h3 className="text-xl font-semibold leading-snug text-foreground sm:text-2xl">
-          Looking for someone who can connect safety, learning, and operations?
-        </h3>
+        <h2 className="text-xl font-semibold leading-snug text-foreground sm:text-2xl">
+          Have a problem worth improving?
+        </h2>
         <p className="mx-auto mt-3 max-w-2xl text-sm leading-relaxed text-foreground-secondary sm:text-base">
-          I am currently exploring opportunities in Safety and HSE, training and learning operations, instructional
-          design, and learning technology.
+          I am open to opportunities involving automation, digital systems, learning technology, instructional design,
+          safety, and operations.
         </p>
 
         <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row sm:flex-wrap">
