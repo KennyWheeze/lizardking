@@ -1,4 +1,4 @@
-import { ArrowRight, BriefcaseBusiness, Cog, FileText, HeartPulse, Lightbulb, Network, Workflow } from "lucide-react"
+import { ArrowRight, Cog, FileText, HeartPulse, Lightbulb, Network, Workflow } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
 import { Card, CardContent } from "@/components/ui/card"
 
@@ -88,43 +88,59 @@ export function WhatIDoSection() {
 
 export function ProfessionalBackgroundSection() {
   return (
-    <Card id="professional-background" className="scroll-mt-24 border-border bg-card/90 backdrop-blur-sm">
-      <CardContent className="p-4 sm:p-6">
-        <div className="mb-5 flex items-start sm:mb-6">
-          <BriefcaseBusiness aria-hidden="true" className="mr-2 mt-0.5 h-5 w-5 shrink-0 text-primary" />
-          <div>
-            <h2 className="text-xl font-semibold text-foreground sm:text-2xl">Professional Background</h2>
-            <p className="mt-1 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-              A concise view of the experience behind the work.
-            </p>
-          </div>
+    <div
+      id="professional-background"
+      className="scroll-mt-24 border-y border-border/80 px-1 py-8 sm:px-2 sm:py-10 lg:py-12"
+    >
+      <div className="grid gap-9 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.45fr)] lg:gap-12 xl:gap-16">
+        <div className="lg:sticky lg:top-24 lg:self-start">
+          <h2 className="text-xl font-semibold text-foreground sm:text-2xl">Professional Background</h2>
+          <p className="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground">
+            A concise view of the roles that shaped my work across training, safety, systems, and operations.
+          </p>
+
+          <a
+            href="/#professional-background"
+            aria-label="View résumé summary in Professional Background"
+            className="mt-5 inline-flex items-center gap-2 rounded-md border border-border-strong px-3.5 py-2 text-sm font-medium text-foreground-secondary transition-colors hover:border-primary/50 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+          >
+            <FileText aria-hidden="true" className="h-4 w-4 text-primary" />
+            View Résumé
+            <ArrowRight aria-hidden="true" className="h-4 w-4" />
+          </a>
         </div>
 
-        <div className="divide-y divide-border">
-          {background.map((entry) => (
-            <article key={`${entry.role}-${entry.period}`} className="py-5 first:pt-0 last:pb-0">
-              <div className="flex flex-col gap-1 sm:flex-row sm:items-start sm:justify-between sm:gap-6">
-                <h3 className="font-semibold leading-snug text-foreground">
-                  {entry.role} <span aria-hidden="true">—</span> {entry.company}
-                </h3>
-                <p className="shrink-0 text-sm text-primary">{entry.period}</p>
+        <ol aria-label="Career timeline">
+          {background.map((entry, index) => (
+            <li
+              key={`${entry.role}-${entry.period}`}
+              className="grid grid-cols-[0.75rem_minmax(0,1fr)] gap-x-4 pb-8 last:pb-0 sm:gap-x-5"
+            >
+              <div aria-hidden="true" className="flex h-full flex-col items-center">
+                <span className="mt-1.5 h-2.5 w-2.5 shrink-0 rounded-full border-2 border-primary bg-background ring-4 ring-primary/10" />
+                {index < background.length - 1 && (
+                  <span className="mt-2 w-px flex-1 bg-border-strong/80" />
+                )}
               </div>
-              <p className="mt-2 max-w-4xl text-sm leading-relaxed text-foreground-secondary">{entry.description}</p>
-            </article>
-          ))}
-        </div>
 
-        <a
-          href="/#professional-background"
-          aria-label="View résumé summary in Professional Background"
-          className="mt-6 inline-flex items-center gap-2 rounded-sm text-sm font-medium text-primary underline-offset-4 hover:text-primary-hover hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-        >
-          <FileText aria-hidden="true" className="h-4 w-4" />
-          View Résumé
-          <ArrowRight aria-hidden="true" className="h-4 w-4" />
-        </a>
-      </CardContent>
-    </Card>
+              <article>
+                <h3 className="text-base font-semibold leading-snug text-foreground sm:text-lg">{entry.role}</h3>
+                <div className="mt-1 flex flex-col gap-0.5 text-sm sm:flex-row sm:items-baseline sm:gap-2">
+                  <p className="font-medium text-primary">{entry.company}</p>
+                  <span aria-hidden="true" className="hidden text-border-strong sm:inline">
+                    /
+                  </span>
+                  <p className="text-muted-foreground">{entry.period}</p>
+                </div>
+                <p className="mt-3 max-w-2xl text-sm leading-relaxed text-foreground-secondary">
+                  {entry.description}
+                </p>
+              </article>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </div>
   )
 }
 
