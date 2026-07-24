@@ -4,7 +4,7 @@
   --edge-sensitivity: 30;
   --color-sensitivity: calc(var(--edge-sensitivity) + 20);
   --border-radius: 8px;
-  --glow-padding: 32px;
+  --glow-padding: 40px;
   --cone-spread: 25;
 
   position: relative;
@@ -19,12 +19,13 @@
     rgb(0 0 0 / 10%) 0 1px 2px,
     rgb(0 0 0 / 10%) 0 2px 4px,
     rgb(0 0 0 / 10%) 0 4px 8px,
-    rgb(0 0 0 / 8%) 0 8px 16px;
+    rgb(0 0 0 / 10%) 0 8px 16px,
+    rgb(0 0 0 / 10%) 0 16px 32px;
   transform: translate3d(0, 0, 0.01px);
   transition:
-    background-color 250ms ease-out,
     border-color 250ms ease-out,
-    box-shadow 250ms ease-out;
+    box-shadow 250ms ease-out,
+    transform 250ms ease-out;
 }
 
 .border-glow-card::before,
@@ -39,14 +40,14 @@
   transition: opacity 250ms ease-out;
 }
 
-.border-glow-card:not(:hover):not(:focus-within)::before,
-.border-glow-card:not(:hover):not(:focus-within)::after,
-.border-glow-card:not(:hover):not(:focus-within) > .edge-light {
+.border-glow-card:not(:hover):not(.sweep-active)::before,
+.border-glow-card:not(:hover):not(.sweep-active)::after,
+.border-glow-card:not(:hover):not(.sweep-active) > .edge-light {
   opacity: 0;
-  transition: opacity 500ms ease-in-out;
+  transition: opacity 750ms ease-in-out;
 }
 
-/* React Bits mesh-gradient border, adapted to the portfolio's blue-violet palette. */
+/* Official React Bits mesh-gradient border. */
 .border-glow-card::before {
   border: 1px solid transparent;
   background:
@@ -71,7 +72,7 @@
   opacity: calc((var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
 }
 
-/* React Bits colored fill close to the active border edge. */
+/* Official React Bits edge-adjacent colored fill. */
 .border-glow-card::after {
   border: 1px solid transparent;
   background:
@@ -96,10 +97,10 @@
   opacity: calc(var(--fill-opacity) * (var(--edge-proximity) - var(--color-sensitivity)) / (100 - var(--color-sensitivity)));
 }
 
-/* React Bits directional outer glow. */
+/* Official React Bits directional outer glow. */
 .border-glow-card > .edge-light {
   inset: calc(var(--glow-padding) * -1);
-  z-index: 1;
+  z-index: 2;
   mask-image: conic-gradient(
     from var(--cursor-angle) at center,
     black 2.5%,
@@ -133,20 +134,21 @@
 }
 
 .border-glow-card:hover {
-  border-color: hsl(var(--primary) / 0.4);
-  background: hsl(var(--card-hover));
+  border-color: hsl(var(--border-strong));
+  transform: translate3d(0, -2px, 0.01px) scale(1.005);
 }
 
 .border-glow-card:focus-within {
   border-color: hsl(var(--ring));
   box-shadow:
-    0 0 0 2px hsl(var(--ring) / 0.4),
-    rgb(0 0 0 / 12%) 0 8px 18px;
+    0 0 0 2px hsl(var(--ring) / 0.45),
+    rgb(0 0 0 / 14%) 0 8px 18px;
+  transform: translate3d(0, -2px, 0.01px) scale(1.005);
 }
 
 .border-glow-inner {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   display: flex;
   min-width: 0;
   height: 100%;
@@ -160,6 +162,10 @@
   .border-glow-card::after,
   .border-glow-card > .edge-light {
     display: none;
+  }
+
+  .border-glow-card:hover {
+    transform: none;
   }
 }
 

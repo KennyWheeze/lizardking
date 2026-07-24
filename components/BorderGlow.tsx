@@ -23,6 +23,8 @@ interface BorderGlowProps {
   coneSpread?: number
   colors?: string[]
   fillOpacity?: number
+  animated?: boolean
+  introDelay?: number
 }
 
 type GlowProperties = CSSProperties & Record<`--${string}`, string | number>
@@ -78,22 +80,41 @@ function supportsInteractiveGlow() {
   )
 }
 
+function easeInCubic(value: number) {
+  return value * value * value
+}
+
+function easeOutCubic(value: number) {
+  return 1 - Math.pow(1 - value, 3)
+}
+
 export default function BorderGlow({
   children,
   className = "",
   edgeSensitivity = 30,
-  glowColor = "217 91 65",
-  backgroundColor = "hsl(var(--surface-inset) / 0.7)",
+  glowColor = "210 100 88",
+  backgroundColor = "hsl(var(--surface-inset))",
   borderRadius = 8,
-  glowRadius = 32,
-  glowIntensity = 0.7,
+  glowRadius = 40,
+  glowIntensity = 1,
   coneSpread = 25,
-  colors = ["#38bdf8", "#6366f1", "#8b5cf6"],
-  fillOpacity = 0.3,
+  colors = ["#38bdf8", "#3b82f6", "#6366f1"],
+  fillOpacity = 0.5,
+  animated = false,
+  introDelay = 0,
 }: BorderGlowProps) {
   const cardRef = useRef<HTMLDivElement>(null)
   const animationFrameRef = useRef<number>()
+  const introFrameRef = useRef<number>()
   const pointerPositionRef = useRef({ x: 0, y: 0 })
+
+  const cancelIntro = useCallback(() => {
+    if (introFrameRef.current !== undefined) {
+      window.cancelAnimationFrame(introFrameRef.current)
+      introFrameRef.current = undefined
+    }
+    cardRef.current?.classList.remove("sweep-active")
+  }, [])
 
   const updatePointerGlow = useCallback(() => {
     const card = cardRef.current
@@ -108,9 +129,7 @@ export default function BorderGlow({
     const deltaY = y - centerY
     const horizontalScale = deltaX === 0 ? Number.POSITIVE_INFINITY : centerX / Math.abs(deltaX)
     const verticalScale = deltaY === 0 ? Number.POSITIVE_INFINITY : centerY / Math.abs(deltaY)
-    const rawEdgeProximity = Math.min(Math.max(1 / Math.min(horizontalScale, verticalScale), 0), 1)
-    // Keep a visible baseline anywhere inside the card, then intensify toward its edges.
-    const edgeProximity = 0.55 + rawEdgeProximity * 0.45
+    const edgeProximity = Math.min(Math.max(1 / Math.min(horizontalScale, verticalScale), 0), 1)
     let angle = Math.atan2(deltaY, deltaX) * (180 / Math.PI) + 90
     if (angle < 0) angle += 360
 
@@ -123,12 +142,13 @@ export default function BorderGlow({
     (event: PointerEvent<HTMLDivElement>) => {
       if (!supportsInteractiveGlow()) return
 
+      cancelIntro()
       pointerPositionRef.current = { x: event.clientX, y: event.clientY }
       if (animationFrameRef.current === undefined) {
         animationFrameRef.current = window.requestAnimationFrame(updatePointerGlow)
       }
     },
-    [updatePointerGlow],
+    [cancelIntro, updatePointerGlow],
   )
 
   const resetPointerGlow = useCallback(() => {
@@ -140,9 +160,10 @@ export default function BorderGlow({
   }, [])
 
   const showFocusGlow = useCallback((event: FocusEvent<HTMLDivElement>) => {
+    cancelIntro()
     event.currentTarget.style.setProperty("--edge-proximity", "100")
     event.currentTarget.style.setProperty("--cursor-angle", "225deg")
-  }, [])
+  }, [cancelIntro])
 
   const hideFocusGlow = useCallback((event: FocusEvent<HTMLDivElement>) => {
     if (event.currentTarget.contains(event.relatedTarget)) return
@@ -154,9 +175,76 @@ export default function BorderGlow({
       if (animationFrameRef.current !== undefined) {
         window.cancelAnimationFrame(animationFrameRef.current)
       }
+      if (introFrameRef.current !== undefined) {
+        window.cancelAnimationFrame(introFrameRef.current)
+      }
     },
     [],
   )
+
+  useEffect(() => {
+    const card = cardRef.current
+    if (!animated || !card || !supportsInteractiveGlow()) return
+
+    const runIntro = () => {
+      const startTime = performance.now() + introDelay
+      const angleStart = 110
+      const angleRange = 355
+      card.classList.add("sweep-active")
+      card.style.setProperty("--cursor-angle", `${angleStart}deg`)
+
+      const tick = (now: number) => {
+        const elapsed = now - startTime
+        if (elapsed < 0) {
+          introFrameRef.current = window.requestAnimationFrame(tick)
+          return
+        }
+
+        const entranceProgress = Math.min(elapsed / 500, 1)
+        const exitProgress = Math.min(Math.max((elapsed - 2500) / 1500, 0), 1)
+        const proximity =
+          elapsed < 2500 ? easeOutCubic(entranceProgress) * 100 : (1 - easeInCubic(exitProgress)) * 100
+
+        const firstAngleProgress = Math.min(elapsed / 1500, 1)
+        const secondAngleProgress = Math.min(Math.max((elapsed - 1500) / 2250, 0), 1)
+        const angleProgress =
+          elapsed < 1500
+            ? easeInCubic(firstAngleProgress) * 0.5
+            : 0.5 + easeOutCubic(secondAngleProgress) * 0.5
+
+        card.style.setProperty("--edge-proximity", `${proximity}`)
+        card.style.setProperty("--cursor-angle", `${angleStart + angleRange * angleProgress}deg`)
+
+        if (elapsed < 4000) {
+          introFrameRef.current = window.requestAnimationFrame(tick)
+        } else {
+          card.style.setProperty("--edge-proximity", "0")
+          card.classList.remove("sweep-active")
+          introFrameRef.current = undefined
+        }
+      }
+
+      introFrameRef.current = window.requestAnimationFrame(tick)
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return
+        observer.disconnect()
+        runIntro()
+      },
+      { threshold: 0.3 },
+    )
+
+    observer.observe(card)
+
+    return () => {
+      observer.disconnect()
+      if (introFrameRef.current !== undefined) {
+        window.cancelAnimationFrame(introFrameRef.current)
+      }
+    }
+  }, [animated, introDelay])
 
   const style = {
     "--card-bg": backgroundColor,
