@@ -1,7 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import type { Metadata } from "next"
-import { ArrowLeft, Download, ExternalLink } from "lucide-react"
+import { ArrowLeft, Download, ExternalLink, MonitorPlay } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { SkillTag } from "@/components/skill-tag"
@@ -12,6 +12,7 @@ import { AnimatedSection } from "@/components/animated-section"
 import { PortfolioHeader } from "@/components/portfolio-header"
 import { LmsAutomationCaseStudy } from "@/components/lms-automation-case-study"
 import { StartupPortfolioDashboardCaseStudy } from "@/components/startup-portfolio-dashboard-case-study"
+import { SalesEnablementPrototype } from "@/components/sales-enablement-prototype"
 import {
   DASHBOARD_SOCIAL_IMAGE,
   DEFAULT_SOCIAL_IMAGE,
@@ -128,8 +129,16 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     {
       title: "Storyline Conversation Simulation",
       description:
-        "A scenario-based prototype where sales or client-facing employees practice responding to client inquiries, asking diagnostic questions, handling objections, and confirming next steps.",
-      status: "In development",
+        "A scenario-based prototype where client-facing employees practise responding to inquiries, identifying client needs, communicating value, handling concerns, and confirming appropriate next steps through guided decisions and contextual feedback.",
+      status: "Functional prototype in development",
+      links: [
+        {
+          label: "View Prototype Screens",
+          href: "#storyline-prototype",
+          icon: "prototype",
+          download: false,
+        },
+      ],
     },
     {
       title: "Evaluation Plan",
@@ -147,14 +156,17 @@ export default function ProjectPage({ params }: ProjectPageProps) {
     { label: "Approach", value: "Performance analysis before training design" },
     { label: "Project Type", value: "Independent anonymized workplace case study" },
     { label: "Timeline", value: "10-week portfolio project" },
-    { label: "Current Status", value: "Diagnostic phase completed; intervention assets in development" },
+    {
+      label: "Current Status",
+      value: "Diagnostic phase completed; Storyline prototype developed; supporting intervention assets remain in development.",
+    },
   ]
   const projectStatuses = [
     { artifact: "Diagnostic Toolkit", status: "Completed" },
     { artifact: "Gap Analysis Matrix", status: "Completed" },
     { artifact: "Sales Enablement Solution Design", status: "In development" },
     { artifact: "Sales Playbook / Job Aid", status: "In development" },
-    { artifact: "Storyline Conversation Simulation", status: "In development" },
+    { artifact: "Storyline Conversation Simulation", status: "Functional prototype in development" },
     { artifact: "Evaluation Plan", status: "Planned" },
   ]
 
@@ -294,7 +306,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                         className={
                           item.status === "Completed"
                             ? "shrink-0 rounded-full border border-success/35 bg-success/10 px-2.5 py-1 text-xs font-medium text-success"
-                            : item.status === "In development"
+                            : item.status.includes("development")
                               ? "shrink-0 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent-secondary"
                               : "shrink-0 rounded-full border border-border-strong bg-surface-raised/70 px-2.5 py-1 text-xs font-medium text-foreground-secondary"
                         }
@@ -306,6 +318,15 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                 </ul>
               </CardContent>
             </Card>
+          </AnimatedSection>
+
+          <AnimatedSection
+            animation="fade-up"
+            delay={300}
+            className="scroll-mt-24 lg:col-span-3"
+            id="storyline-prototype"
+          >
+            <SalesEnablementPrototype />
           </AnimatedSection>
 
           {/* Project Content */}
@@ -494,13 +515,13 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     key={artifact.title}
                     className="flex h-full flex-col rounded-lg border border-border bg-surface-inset/70 p-4 transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_18px_hsl(var(--primary)/0.08)] sm:p-5"
                   >
-                    <div className="mb-3 flex items-start justify-between gap-3">
+                    <div className="mb-3 flex flex-col items-start gap-2 sm:flex-row sm:justify-between sm:gap-3">
                       <h3 className="text-base font-semibold leading-6 text-foreground">{artifact.title}</h3>
                       <span
                         className={
                           artifact.status === "Completed"
                             ? "shrink-0 rounded-full border border-success/35 bg-success/10 px-2.5 py-1 text-xs font-medium text-success"
-                            : artifact.status === "In development"
+                            : artifact.status.includes("development")
                               ? "shrink-0 rounded-full border border-accent/40 bg-accent/10 px-2.5 py-1 text-xs font-medium text-accent-secondary"
                               : "shrink-0 rounded-full border border-border-strong bg-surface-raised/70 px-2.5 py-1 text-xs font-medium text-foreground-secondary"
                         }
@@ -514,33 +535,39 @@ export default function ProjectPage({ params }: ProjectPageProps) {
                     )}
                     {artifact.links && (
                       <div className="mt-auto flex flex-col gap-2 pt-4 sm:flex-row sm:flex-wrap">
-                        {artifact.links.map((link) => (
-                          <Button
-                            key={link.href}
-                            asChild
-                            size="sm"
-                            variant={link.download ? "outline" : "default"}
-                            className={
-                              link.download
-                                ? "border-border-strong bg-surface-inset/80 text-xs text-foreground hover:bg-surface-raised hover:text-foreground"
-                                : "bg-gradient-to-r from-primary to-accent text-xs hover:from-primary hover:to-accent"
-                            }
-                          >
-                            <a
-                              href={link.href}
-                              target={link.download ? undefined : "_blank"}
-                              rel={link.download ? undefined : "noopener noreferrer"}
-                              download={link.download ? true : undefined}
+                        {artifact.links.map((link) => {
+                          const opensNewTab = !link.download && !link.href.startsWith("#")
+
+                          return (
+                            <Button
+                              key={link.href}
+                              asChild
+                              size="sm"
+                              variant={link.download ? "outline" : "default"}
+                              className={
+                                link.download
+                                  ? "border-border-strong bg-surface-inset/80 text-xs text-foreground hover:bg-surface-raised hover:text-foreground"
+                                  : "bg-gradient-to-r from-primary to-accent text-xs hover:from-primary hover:to-accent"
+                              }
                             >
-                              {link.icon === "download" ? (
-                                <Download className="mr-1.5 h-3.5 w-3.5" />
-                              ) : (
-                                <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
-                              )}
-                              {link.label}
-                            </a>
-                          </Button>
-                        ))}
+                              <a
+                                href={link.href}
+                                target={opensNewTab ? "_blank" : undefined}
+                                rel={opensNewTab ? "noopener noreferrer" : undefined}
+                                download={link.download ? true : undefined}
+                              >
+                                {link.icon === "download" ? (
+                                  <Download className="mr-1.5 h-3.5 w-3.5" />
+                                ) : link.icon === "prototype" ? (
+                                  <MonitorPlay className="mr-1.5 h-3.5 w-3.5" />
+                                ) : (
+                                  <ExternalLink className="mr-1.5 h-3.5 w-3.5" />
+                                )}
+                                {link.label}
+                              </a>
+                            </Button>
+                          )
+                        })}
                       </div>
                     )}
                   </div>

@@ -114,8 +114,10 @@ export const projects: Project[] = [
       "Evaluation Planning",
     ],
     technologies: ["Articulate Storyline", "PowerPoint", "Canva", "ChatGPT", "Excel / Google Sheets", "Word / Google Docs"],
-    coverImage: "/placeholder.jpg",
-    thumbnailImage: "/placeholder.jpg",
+    coverImage: "/images/projects/sales-enablement/thumbnailsales.png",
+    thumbnailImage: "/images/projects/sales-enablement/thumbnailsales.png",
+    thumbnailAlt:
+      "Client Inquiry Simulation opening screen for a scenario-based sales enablement prototype",
     client: "Independent anonymized workplace case study",
     timeline: "10-week portfolio project",
     role: "Instructional Designer and Performance Consultant",
