@@ -21,6 +21,7 @@ export interface Project {
   technologies: string[]
   coverImage: string
   thumbnailImage: string
+  thumbnailAlt?: string
   gallery?: ProjectGalleryImage[]
   client?: string
   timeline: string
@@ -32,6 +33,37 @@ export interface Project {
 
 // Keep this named export available too
 export const projects: Project[] = [
+  {
+    id: 3,
+    slug: "startup-portfolio-dashboard",
+    title: "Startup Portfolio Executive Dashboard",
+    category: "Data Analytics & Business Intelligence",
+    shortDescription:
+      "Designed and validated an interactive Power BI dashboard that transforms 25,000 startup records into an executive view of funding, recurring revenue, runway risk, workforce changes, company outcomes, and data quality.",
+    description: [
+      "The raw CSV contained 25,000 startup records spanning financial, operational, workforce, company-outcome, and data-quality fields.",
+      "The project transformed that source data into a clear, decision-oriented executive dashboard and independently verified every major KPI against the raw records.",
+    ],
+    features: ["Financial KPIs", "Runway Risk", "Workforce Analysis", "Outcome Analysis", "Data Quality"],
+    technologies: [
+      "Power BI",
+      "Power Query",
+      "DAX",
+      "Data Cleaning",
+      "Data Validation",
+      "Dashboard Design",
+      "CSV Analysis",
+    ],
+    coverImage: "/images/projects/startup-portfolio-dashboard.png",
+    thumbnailImage: "/images/projects/startup-portfolio-dashboard.png",
+    thumbnailAlt:
+      "Power BI startup portfolio executive dashboard showing financial, runway, workforce, outcome, and data-quality KPIs",
+    client: "Independent sample-data portfolio project",
+    timeline: "Completed portfolio project",
+    role: "Data Analyst and Dashboard Designer",
+    liveUrl:
+      "https://app.powerbi.com/view?r=eyJrIjoiNzc5MDBmZGUtNWIzMy00NmQ1LWI4ODgtMTNhM2UzYmRlMjgzIiwidCI6ImUxODMyMmU3LTFjMzMtNGM0My1iOWZiLTBkODY4MTU3N2VkZiIsImMiOjEwfQ%3D%3D",
+  },
   {
     id: 2,
     slug: "automated-lms-enrollment",
@@ -52,8 +84,10 @@ export const projects: Project[] = [
       "Google Workspace",
       "Process Automation",
     ],
-    coverImage: "/placeholder.jpg",
-    thumbnailImage: "/placeholder.jpg",
+    coverImage: "/images/projects/automationthumbnailfeatured.png",
+    thumbnailImage: "/images/projects/automationthumbnailfeatured.png",
+    thumbnailAlt:
+      "Zapier workflow connecting Google Sheets to LearnDash for automated learner enrollment",
     client: "Live training operations",
     timeline: "Implemented in live operations",
     role: "Workflow Designer and LMS Administrator",
@@ -80,8 +114,8 @@ export const projects: Project[] = [
       "Evaluation Planning",
     ],
     technologies: ["Articulate Storyline", "PowerPoint", "Canva", "ChatGPT", "Excel / Google Sheets", "Word / Google Docs"],
-    coverImage: "/images/projects/mesh-cover.png",
-    thumbnailImage: "/images/projects/mesh-thumb.png",
+    coverImage: "/placeholder.jpg",
+    thumbnailImage: "/placeholder.jpg",
     client: "Independent anonymized workplace case study",
     timeline: "10-week portfolio project",
     role: "Instructional Designer and Performance Consultant",

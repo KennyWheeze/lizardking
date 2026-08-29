@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, CheckCircle2 } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
@@ -6,7 +7,6 @@ import { EnhancedScrollIndicator } from "@/components/enhanced-scroll-indicator"
 import { LmsArchitectureDiagram } from "@/components/lms-architecture-diagram"
 import { PortfolioHeader } from "@/components/portfolio-header"
 import { SkillTag } from "@/components/skill-tag"
-import { VisualPlaceholder } from "@/components/visual-placeholder"
 import type { Project } from "@/lib/projects"
 
 const manualSteps = [
@@ -79,6 +79,32 @@ function CheckList({ items }: { items: string[] }) {
         </li>
       ))}
     </ul>
+  )
+}
+
+interface ScreenshotFigureProps {
+  src: string
+  alt: string
+  caption: string
+}
+
+function ScreenshotFigure({ src, alt, caption }: ScreenshotFigureProps) {
+  return (
+    <figure className="overflow-hidden rounded-lg border border-border bg-surface-inset/70">
+      <div className="relative aspect-[4/3] w-full bg-white">
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="(min-width: 768px) 50vw, 100vw"
+          quality={90}
+          className="object-contain"
+        />
+      </div>
+      <figcaption className="border-t border-border px-4 py-3 text-sm font-medium text-foreground-secondary">
+        {caption}
+      </figcaption>
+    </figure>
   )
 }
 
@@ -187,13 +213,15 @@ export function LmsAutomationCaseStudy({ project }: { project: Project }) {
 
         <CaseStudySection title="Selected Screenshots">
           <div className="grid gap-4 md:grid-cols-2">
-            <VisualPlaceholder
-              label="Authorized enrollment form"
-              description="Placeholder for a sanitized view of the staff-facing request interface."
+            <ScreenshotFigure
+              src="/images/projects/enrollmentform.png"
+              alt="Sanitized eLearning enrollment form with learner, course, payment status, and notes fields"
+              caption="Authorized enrollment form"
             />
-            <VisualPlaceholder
-              label="Workflow and confirmation evidence"
-              description="Placeholder for sanitized automation steps and confirmation outputs without learner or system secrets."
+            <ScreenshotFigure
+              src="/images/projects/confirmationevidence.png"
+              alt="Sanitized learner enrollment confirmation email with password setup and course access buttons"
+              caption="Workflow and confirmation evidence"
             />
           </div>
         </CaseStudySection>

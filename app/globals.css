@@ -87,6 +87,12 @@ main .backdrop-blur-md {
   backdrop-filter: none;
 }
 
+.power-bi-report-frame:fullscreen {
+  width: 100vw !important;
+  height: 100vh !important;
+  transform: none !important;
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

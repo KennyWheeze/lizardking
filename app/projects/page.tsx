@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowLeft, FolderKanbanIcon } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
@@ -6,6 +7,31 @@ import { EnhancedScrollIndicator } from "@/components/enhanced-scroll-indicator"
 import { PortfolioHeader } from "@/components/portfolio-header"
 import { ProjectCard } from "@/components/project-card"
 import { getAllProjects } from "@/lib/data"
+import { DEFAULT_SOCIAL_IMAGE, SITE_NAME } from "@/lib/site-config"
+
+const projectsDescription =
+  "Selected portfolio projects by Ken Macawili spanning automation, learning systems, safety, digital workflows, and data analysis."
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: projectsDescription,
+  alternates: { canonical: "/projects" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/projects",
+    siteName: SITE_NAME,
+    title: `Projects | ${SITE_NAME}`,
+    description: projectsDescription,
+    images: [DEFAULT_SOCIAL_IMAGE],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: `Projects | ${SITE_NAME}`,
+    description: projectsDescription,
+    images: [DEFAULT_SOCIAL_IMAGE.url],
+  },
+}
 
 export default function ProjectsPage() {
   const projects = getAllProjects()
@@ -42,6 +68,7 @@ export default function ProjectsPage() {
                       title={project.title}
                       category={project.category}
                       image={project.thumbnailImage}
+                      imageAlt={project.thumbnailAlt}
                       slug={project.slug}
                     />
                   </AnimatedSection>

@@ -11,6 +11,12 @@ import { EnhancedScrollIndicator } from "@/components/enhanced-scroll-indicator"
 import { AnimatedSection } from "@/components/animated-section"
 import { PortfolioHeader } from "@/components/portfolio-header"
 import { LmsAutomationCaseStudy } from "@/components/lms-automation-case-study"
+import { StartupPortfolioDashboardCaseStudy } from "@/components/startup-portfolio-dashboard-case-study"
+import {
+  DASHBOARD_SOCIAL_IMAGE,
+  DEFAULT_SOCIAL_IMAGE,
+  SITE_NAME,
+} from "@/lib/site-config"
 
 interface ProjectPageProps {
   params: {
@@ -21,9 +27,34 @@ interface ProjectPageProps {
 export function generateMetadata({ params }: ProjectPageProps): Metadata {
   const project = getProjectBySlug(params.slug)
   if (!project) return {}
+
+  const isDashboard = project.slug === "startup-portfolio-dashboard"
+  const canonicalPath = `/projects/${project.slug}`
+  const description = isDashboard
+    ? "Sample-data Power BI portfolio case study transforming 25,000 startup records into an executive dashboard for funding, recurring revenue, runway risk, workforce, outcomes, and data quality."
+    : project.shortDescription
+  const socialImage = isDashboard ? DASHBOARD_SOCIAL_IMAGE : DEFAULT_SOCIAL_IMAGE
+
   return {
-    title: `${project.title} | Ken Macawili`,
-    description: project.shortDescription,
+    title: project.title,
+    description,
+    alternates: { canonical: canonicalPath },
+    openGraph: {
+      type: "article",
+      locale: "en_US",
+      url: canonicalPath,
+      siteName: SITE_NAME,
+      title: `${project.title} | ${SITE_NAME}`,
+      description,
+      images: [socialImage],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${project.title} | ${SITE_NAME}`,
+      description,
+      images: [socialImage.url],
+    },
+    robots: { index: true, follow: true },
   }
 }
 
@@ -133,6 +164,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   if (project.slug === "automated-lms-enrollment") {
     return <LmsAutomationCaseStudy project={project} />
+  }
+
+  if (project.slug === "startup-portfolio-dashboard") {
+    return <StartupPortfolioDashboardCaseStudy project={project} />
   }
 
   return (

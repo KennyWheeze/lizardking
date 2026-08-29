@@ -61,13 +61,9 @@ export function PortfolioHeader() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-1">
           {navItems.map((item) => {
-            const target =
-              item.href === "/projects"
-                ? item.href
-                : item.href.startsWith("/")
-                  ? `#${item.href.replace("/", "")}`
-                  : item.href
-            const isActive = target === "#" ? activeSection === "" : activeSection === target.substring(1)
+            const target = item.href
+            const sectionId = target.includes("#") ? target.split("#")[1] : ""
+            const isActive = target === "/" ? activeSection === "" : sectionId ? activeSection === sectionId : false
 
             return (
               <a
@@ -111,13 +107,9 @@ export function PortfolioHeader() {
       >
         <nav className="flex flex-col space-y-4">
           {navItems.map((item, index) => {
-            const target =
-              item.href === "/projects"
-                ? item.href
-                : item.href.startsWith("/")
-                  ? `#${item.href.replace("/", "")}`
-                  : item.href
-            const isActive = target === "#" ? activeSection === "" : activeSection === target.substring(1)
+            const target = item.href
+            const sectionId = target.includes("#") ? target.split("#")[1] : ""
+            const isActive = target === "/" ? activeSection === "" : sectionId ? activeSection === sectionId : false
 
             return (
               <a

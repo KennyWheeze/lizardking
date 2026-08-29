@@ -1,7 +1,7 @@
 {
   "meta": {
-    "siteTitle": "Ken | HSEQ & eLearning",
-    "siteDescription": "Portfolio of Ken — HSEQ & Training Officer specializing in safety trainings, eLearning development, and HSSEQ programs."
+    "siteTitle": "Ken Macawili | Automation, Learning, Safety & Data",
+    "siteDescription": "Portfolio of Ken Macawili, a safety, learning, automation, and digital-systems professional who builds practical workflows, training solutions, dashboards, and workplace systems."
   },
   "personal": {
     "name": "Ken Gilmer P. Macawili",
@@ -34,9 +34,9 @@
   },
   "navigation": [
   { "label": "Home", "href": "/" },
-  { "label": "Experience", "href": "/experience" },
-  { "label": "Credentials", "href": "/credentials" },
-  { "label": "Skills", "href": "/skills" },
+  { "label": "Experience", "href": "/#experience" },
+  { "label": "Credentials", "href": "/#credentials" },
+  { "label": "Skills", "href": "/#skills" },
   { "label": "Projects", "href": "/projects" }
 ]
 ,

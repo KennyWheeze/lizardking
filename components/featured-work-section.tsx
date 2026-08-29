@@ -37,14 +37,14 @@ const featuredWork = [
     featured: true,
   },
   {
-    title: "Scenario-Based Safety Learning Simulation",
-    category: "Instructional Design",
+    title: "Startup Portfolio Executive Dashboard",
+    category: "Data Analytics & Business Intelligence",
     summary:
-      "Designed an interactive safety learning experience using workplace decisions, scoring, feedback, and branching outcomes.",
+      "Transformed a raw startup dataset into an interactive executive dashboard covering funding, recurring revenue, runway risk, workforce changes, company outcomes, and data quality.",
     outcome:
-      "Shows performance analysis, storyboarding, interaction design, and scenario-based e-learning development.",
-    skills: ["Articulate Storyline", "Scenario Design", "Learning Experience Design"],
-    href: "",
+      "Validated every major KPI against 25,000 source records and identified financial-risk, workforce, outcome, and data-quality insights.",
+    skills: ["Power BI", "Power Query", "DAX"],
+    href: "/projects/startup-portfolio-dashboard",
     featured: true,
   },
 ]
