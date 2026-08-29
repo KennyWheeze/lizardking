@@ -1,8 +1,9 @@
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, CheckCircle2 } from "lucide-react"
+import { ArrowLeft, CheckCircle2 } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
 import { CaseStudySection } from "@/components/case-study-section"
 import { EnhancedScrollIndicator } from "@/components/enhanced-scroll-indicator"
+import { LmsArchitectureDiagram } from "@/components/lms-architecture-diagram"
 import { PortfolioHeader } from "@/components/portfolio-header"
 import { SkillTag } from "@/components/skill-tag"
 import { VisualPlaceholder } from "@/components/visual-placeholder"
@@ -17,16 +18,6 @@ const manualSteps = [
   "Assign LearnDash access",
   "Confirm enrollment",
   "Provide login guidance",
-]
-
-const architecture = [
-  "Authorized Staff",
-  "Google Form",
-  "Google Sheets",
-  "Apps Script + WordPress REST API",
-  "Zapier",
-  "LearnDash Enrollment",
-  "Learner + Administrator Emails",
 ]
 
 const decisions = [
@@ -164,36 +155,13 @@ export function LmsAutomationCaseStudy({ project }: { project: Project }) {
         </div>
 
         <AnimatedSection animation="fade-up" delay={200}>
-          <CaseStudySection title="Solution Architecture">
+          <CaseStudySection title="Solution Architecture" titleId="solution-architecture-title">
             <p className="mb-5">
-              A form submission creates a traceable request, provisions the learner account when needed, enrolls the
-              user, and closes the loop with confirmations.
+              A verified staff submission creates a traceable request, checks whether the learner already has an
+              account, provisions one when needed, assigns the correct LearnDash course, and closes the loop with
+              learner and administrator confirmations.
             </p>
-            <div
-              className="grid gap-2 md:grid-cols-7"
-              role="img"
-              aria-label="Authorized staff to Google Form to Google Sheets to Apps Script and WordPress REST API to Zapier to LearnDash enrollment to learner and administrator confirmation emails"
-            >
-              {architecture.map((step, index) => (
-                <div key={step} className="flex items-center gap-2 md:block">
-                  <div className="flex min-h-20 flex-1 items-center justify-center rounded-lg border border-primary/25 bg-primary/5 p-3 text-center text-xs font-medium text-foreground">
-                    {step}
-                  </div>
-                  {index < architecture.length - 1 && (
-                    <ArrowRight
-                      aria-hidden="true"
-                      className="h-4 w-4 shrink-0 text-primary md:mx-auto md:my-2 md:rotate-90"
-                    />
-                  )}
-                </div>
-              ))}
-            </div>
-            <div className="mt-5">
-              <VisualPlaceholder
-                label="Sanitized architecture diagram"
-                description="Reserved for a presentation-ready workflow visual with credentials, private URLs, and learner data removed."
-              />
-            </div>
+            <LmsArchitectureDiagram />
           </CaseStudySection>
         </AnimatedSection>
 
