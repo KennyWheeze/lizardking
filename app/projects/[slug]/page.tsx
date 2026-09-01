@@ -12,6 +12,7 @@ import { AnimatedSection } from "@/components/animated-section"
 import { PortfolioHeader } from "@/components/portfolio-header"
 import { LmsAutomationCaseStudy } from "@/components/lms-automation-case-study"
 import { StartupPortfolioDashboardCaseStudy } from "@/components/startup-portfolio-dashboard-case-study"
+import { AiResearchPipelineCaseStudy } from "@/components/ai-research-pipeline-case-study"
 import { SalesEnablementPrototype } from "@/components/sales-enablement-prototype"
 import {
   DASHBOARD_SOCIAL_IMAGE,
@@ -180,6 +181,10 @@ export default function ProjectPage({ params }: ProjectPageProps) {
 
   if (project.slug === "startup-portfolio-dashboard") {
     return <StartupPortfolioDashboardCaseStudy project={project} />
+  }
+
+  if (project.slug === "ai-research-pipeline") {
+    return <AiResearchPipelineCaseStudy project={project} />
   }
 
   return (

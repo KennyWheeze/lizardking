@@ -34,6 +34,32 @@ export interface Project {
 // Keep this named export available too
 export const projects: Project[] = [
   {
+    id: 4,
+    slug: "ai-research-pipeline",
+    title: "Multi-Source AI Research Pipeline",
+    category: "Automation & Digital Systems",
+    shortDescription:
+      "A scheduled n8n pipeline that combines RSS and API research sources, uses Gemini for structured relevance analysis, manages persistent processing state, prevents duplicates, and builds a searchable Notion research library.",
+    description: [
+      "A scheduled research system that collects AI developments from RSS and API sources and converts them into one shared research schema.",
+      "The workflow prioritizes new work, uses Gemini for structured analysis, protects against duplicate processing and storage, and records completed outcomes for reliable future runs.",
+    ],
+    features: [
+      "Multi-Source Ingestion",
+      "Persistent Processing State",
+      "Quota-Aware AI Analysis",
+      "Duplicate Protection",
+      "Retry-Safe Processing",
+    ],
+    technologies: ["n8n", "AI Automation", "Gemini", "GraphQL", "Notion", "Docker"],
+    coverImage: "",
+    thumbnailImage: "",
+    thumbnailAlt: "Multi-Source AI Research Pipeline architecture preview",
+    client: "Independent automation project",
+    timeline: "Implemented · Production workflow published",
+    role: "Workflow Designer & AI Automation Developer",
+  },
+  {
     id: 3,
     slug: "startup-portfolio-dashboard",
     title: "Startup Portfolio Executive Dashboard",
