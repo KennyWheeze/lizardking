@@ -22,6 +22,7 @@ export interface Project {
   coverImage: string
   thumbnailImage: string
   thumbnailAlt?: string
+  thumbnailVariant?: "image" | "pipeline"
   gallery?: ProjectGalleryImage[]
   client?: string
   timeline: string
@@ -52,9 +53,10 @@ export const projects: Project[] = [
       "Retry-Safe Processing",
     ],
     technologies: ["n8n", "AI Automation", "Gemini", "GraphQL", "Notion", "Docker"],
-    coverImage: "",
-    thumbnailImage: "",
-    thumbnailAlt: "Multi-Source AI Research Pipeline architecture preview",
+    coverImage: "/images/projects/ai-research-pipeline/ai-research-workflow-full.png",
+    thumbnailImage: "/images/projects/ai-research-pipeline/ai-research-workflow-ingestion.png",
+    thumbnailAlt: "Architecture-style preview of the scheduled RSS and API research pipeline",
+    thumbnailVariant: "pipeline",
     client: "Independent automation project",
     timeline: "Implemented · Production workflow published",
     role: "Workflow Designer & AI Automation Developer",

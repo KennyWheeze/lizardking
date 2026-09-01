@@ -69,6 +69,7 @@ export default function ProjectsPage() {
                       category={project.category}
                       image={project.thumbnailImage}
                       imageAlt={project.thumbnailAlt}
+                      thumbnailVariant={project.thumbnailVariant}
                       slug={project.slug}
                     />
                   </AnimatedSection>
